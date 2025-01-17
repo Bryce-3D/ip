@@ -10,25 +10,23 @@ public class Homura {
     private static Scanner sc = new Scanner(System.in);
 
     public static String intro_msg() {
-        String ans = indent + divider
-            + indent + " Hello! I'm Akemi Homura\n"
-            + indent + " What can I do for you?\n"
-            + indent + divider
-            + indent + " Bye. Hope to see you again soon!\n"
+        return indent + divider
+            + indent + " Hi, I'm Akemi Homura.\n"
+            + indent + " Have you seem Madoka anywhere?\n"
             + indent + divider;
-        return ans;
     }
 
     public static String bye_msg() {
-        return "TODO";
+        return indent + divider
+            + indent + " No matter what, don't become a magical girl.\n"
+            + indent + " Farewell.\n"
+            + indent + divider;
     }
 
     public static String format_echo(String s) {
-        String ans = indent + divider
-            + indent + s + '\n'
-            + indent + divider
-            + '\n';
-        return ans;
+        return indent + divider
+            + indent + ' ' + s + '\n'
+            + indent + divider;
     }
 
     public static void main(String[] args) {
