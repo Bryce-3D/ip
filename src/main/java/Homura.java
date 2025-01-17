@@ -2,7 +2,11 @@ import java.util.*;
 
 public class Homura {
     public final static String indent = " ".repeat(4);
-    public final static String divider = "~".repeat(80);   // TODO: Add ☆ to this and stuff
+    public final static String divider =
+        '★' + (
+            "~".repeat(4) + '☆'
+            + "~".repeat(4) + '★'
+        ).repeat(8);
     public static ArrayList<String> items = new ArrayList<String>();
 
     // How to read input inspired by
