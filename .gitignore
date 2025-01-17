@@ -15,3 +15,6 @@ bin/
 
 /text-ui-test/ACTUAL.TXT
 text-ui-test/EXPECTED-UNIX.TXT
+
+#Remember not to commit .class files and any other file that should not be revision controlled.
+*.class
