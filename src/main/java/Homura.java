@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Homura {
     public final static String indent = " ".repeat(4);
-    public final static String divider = "~".repeat(80) + '\n';
+    public final static String divider = "~".repeat(80);
     public static ArrayList<String> items = new ArrayList<String>();
 
     // How to read input inspired by
@@ -10,23 +10,23 @@ public class Homura {
     private static Scanner sc = new Scanner(System.in);
 
     public static String intro_msg() {
-        return indent + divider
+        return indent + divider + '\n'
             + indent + " Hi, I'm Akemi Homura.\n"
             + indent + " Have you seem Madoka anywhere?\n"
-            + indent + divider;
+            + indent + divider + '\n';
     }
 
     public static String bye_msg() {
-        return indent + divider
+        return indent + divider + '\n'
             + indent + " No matter what, don't become a magical girl.\n"
             + indent + " Farewell.\n"
-            + indent + divider;
+            + indent + divider + '\n';
     }
 
     public static String format_echo(String s) {
-        return indent + divider
+        return indent + divider + '\n'
             + indent + ' ' + s + '\n'
-            + indent + divider;
+            + indent + divider + '\n';
     }
 
     public static void print_items() {
@@ -41,6 +41,12 @@ public class Homura {
         }
     }
 
+    public static void print_items_formatted() {
+        System.out.println(indent + divider);
+        print_items();
+        System.out.println(indent + divider);
+    }
+
     public static void main(String[] args) {
         System.out.println(intro_msg());
         while (true) {
@@ -53,6 +59,14 @@ public class Homura {
             }
             System.out.println(format_echo(inp));
         }
+
+        // Testing
+//        items.add("asdf");
+//        items.add("asdfdd");
+//        items.add("asdffdfd");
+//        items.add("asdffdsa");
+//        items.add("asdfasdfasdf");
+//        print_items_formatted();
     }
 }
 
