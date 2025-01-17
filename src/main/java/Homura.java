@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Homura {
     public final static String indent = " ".repeat(4);
-    public final static String divider = "~".repeat(80);
+    public final static String divider = "~".repeat(80);   // TODO: Add ☆ to this and stuff
     public static ArrayList<String> items = new ArrayList<String>();
 
     // How to read input inspired by
@@ -44,7 +44,7 @@ public class Homura {
     public static void print_items_formatted() {
         System.out.println(indent + divider);
         print_items();
-        System.out.println(indent + divider);
+        System.out.println(indent + divider + '\n');
     }
 
     public static void main(String[] args) {
@@ -56,8 +56,12 @@ public class Homura {
             if (inp.equals("bye")) {
                 System.out.println(bye_msg());
                 break;
+            } else if (inp.equals("list")) {
+                print_items_formatted();
+            } else {
+                items.add(inp);
+                System.out.println((format_echo(inp)));
             }
-            System.out.println(format_echo(inp));
         }
 
         // Testing
