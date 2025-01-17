@@ -3,9 +3,9 @@ import java.util.*;
 public class Homura {
     public final static String indent = " ".repeat(4);
     public final static String divider = "~".repeat(80) + '\n';
+    public static ArrayList<String> items = new ArrayList<String>();
 
-
-    // How to read input referenced from
+    // How to read input inspired by
     // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/main/Java/0001-0100/CF_0001A.java
     private static Scanner sc = new Scanner(System.in);
 
@@ -29,10 +29,22 @@ public class Homura {
             + indent + divider;
     }
 
+    public static void print_items() {
+        ArrayList<String> numbered_items = new ArrayList<String>();
+        for (int i = 0; i < items.size(); i++) {
+            // Converting int to string representation inspired by
+            // https://stackoverflow.com/questions/5071040/java-convert-integer-to-string
+            numbered_items.add("" + (i+1) + ".) " + items.get(i));
+        }
+        for (String item : numbered_items) {
+            System.out.println(indent + " " + item);
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println(intro_msg());
         while (true) {
-            // How to read input referenced from
+            // How to read input inspired by
             // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/main/Java/0001-0100/CF_0001A.java
             String inp = sc.nextLine();
             if (inp.equals("bye")) {
@@ -43,3 +55,7 @@ public class Homura {
         }
     }
 }
+
+// RECYCLING BIN
+// String concatenation inspired by
+// https://stackoverflow.com/questions/523871/best-way-to-concatenate-list-of-string-objects
