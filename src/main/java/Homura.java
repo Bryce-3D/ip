@@ -33,6 +33,20 @@ public class Homura {
             + indent + divider + '\n';
     }
 
+    public static String task_added_msg(Task t) {
+        return indent + divider + '\n'
+            + indent + " Task marked as done\n"
+            + indent + ' ' + t + '\n'
+            + indent + divider + '\n';
+    }
+
+    public static String task_removed_msg(Task t) {
+        return indent + divider + '\n'
+            + indent + " Task marked as not done\n"
+            + indent + ' ' + t + '\n'
+            + indent + divider + '\n';
+    }
+
     public static void print_items() {
         ArrayList<String> numbered_items = new ArrayList<String>();
         for (int i = 0; i < tasks.size(); i++) {
@@ -78,6 +92,7 @@ public class Homura {
                 // https://stackoverflow.com/questions/5585779/how-do-i-convert-a-string-to-an-int-in-java
                 int i = Integer.parseInt(split_inp[1]);
                 tasks.get(i).is_done = true;
+                System.out.println(task_added_msg(tasks.get(i)));
                 continue;
             }
 
@@ -85,6 +100,7 @@ public class Homura {
             if (split_inp[0].equals("unmark")) {
                 int i = Integer.parseInt(split_inp[1]);
                 tasks.get(i).is_done = false;
+                System.out.println(task_removed_msg(tasks.get(i)));
                 continue;
             }
 
