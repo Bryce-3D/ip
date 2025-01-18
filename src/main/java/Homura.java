@@ -7,7 +7,7 @@ public class Homura {
             "~".repeat(4) + '☆'
             + "~".repeat(4) + '★'
         ).repeat(8);
-    public static ArrayList<String> items = new ArrayList<String>();
+    public static ArrayList<Task> tasks = new ArrayList<Task>();
 
     // How to read input inspired by
     // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/main/Java/0001-0100/CF_0001A.java
@@ -35,10 +35,10 @@ public class Homura {
 
     public static void print_items() {
         ArrayList<String> numbered_items = new ArrayList<String>();
-        for (int i = 0; i < items.size(); i++) {
+        for (int i = 0; i < tasks.size(); i++) {
             // Converting int to string representation inspired by
             // https://stackoverflow.com/questions/5071040/java-convert-integer-to-string
-            numbered_items.add("" + (i+1) + ".) " + items.get(i));
+            numbered_items.add("" + (i+1) + ".) " + tasks.get(i));
         }
         for (String item : numbered_items) {
             System.out.println(indent + " " + item);
@@ -63,7 +63,7 @@ public class Homura {
             } else if (inp.equals("list")) {
                 print_items_formatted();
             } else {
-                items.add(inp);
+                tasks.add(new Task(inp));
                 System.out.println((format_echo(inp)));
             }
         }
