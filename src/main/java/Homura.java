@@ -67,14 +67,6 @@ public class Homura {
                 System.out.println((format_echo(inp)));
             }
         }
-
-        // Testing
-//        items.add("asdf");
-//        items.add("asdfdd");
-//        items.add("asdffdfd");
-//        items.add("asdffdsa");
-//        items.add("asdfasdfasdf");
-//        print_items_formatted();
     }
 }
 
