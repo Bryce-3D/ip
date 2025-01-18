@@ -57,15 +57,40 @@ public class Homura {
             // How to read input inspired by
             // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/main/Java/0001-0100/CF_0001A.java
             String inp = sc.nextLine();
+
+            // Exit the chatbot
             if (inp.equals("bye")) {
                 System.out.println(bye_msg());
                 break;
-            } else if (inp.equals("list")) {
-                print_items_formatted();
-            } else {
-                tasks.add(new Task(inp));
-                System.out.println((format_echo(inp)));
             }
+
+            // List items in the TODO list
+            if (inp.equals("list")) {
+                print_items_formatted();
+                continue;
+            }
+
+            String[] split_inp = inp.split(" ");
+
+            // Mark a task on the list as done
+            if (split_inp[0].equals("mark")) {
+                // How to convert String to int inspired by
+                // https://stackoverflow.com/questions/5585779/how-do-i-convert-a-string-to-an-int-in-java
+                int i = Integer.parseInt(split_inp[1]);
+                tasks.get(i).is_done = true;
+                continue;
+            }
+
+            // Unmark a task on the list
+            if (split_inp[0].equals("unmark")) {
+                int i = Integer.parseInt(split_inp[1]);
+                tasks.get(i).is_done = false;
+                continue;
+            }
+
+            // Add a task to the list
+            tasks.add(new Task(inp));
+            System.out.println((format_echo(inp)));
         }
     }
 }
