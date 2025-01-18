@@ -38,7 +38,7 @@ public class Homura {
         for (int i = 0; i < tasks.size(); i++) {
             // Converting int to string representation inspired by
             // https://stackoverflow.com/questions/5071040/java-convert-integer-to-string
-            numbered_items.add("" + (i+1) + ".) " + tasks.get(i));
+            numbered_items.add(i + ".) " + tasks.get(i));
         }
         for (String item : numbered_items) {
             System.out.println(indent + " " + item);
