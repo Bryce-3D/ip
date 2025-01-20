@@ -27,20 +27,6 @@ public class Homura {
             + indent + divider + '\n';
     }
 
-    public static String task_added_msg(ToDo t) {
-        return indent + divider + '\n'
-            + indent + " ToDo marked as done\n"
-            + indent + ' ' + t + '\n'
-            + indent + divider + '\n';
-    }
-
-    public static String task_removed_msg(ToDo t) {
-        return indent + divider + '\n'
-            + indent + " ToDo marked as not done\n"
-            + indent + ' ' + t + '\n'
-            + indent + divider + '\n';
-    }
-
     public static void print_items() {
         ArrayList<String> numbered_items = new ArrayList<String>();
         for (int i = 0; i < tasks.size(); i++) {
@@ -86,7 +72,8 @@ public class Homura {
                 // https://stackoverflow.com/questions/5585779/how-do-i-convert-a-string-to-an-int-in-java
                 int i = Integer.parseInt(split_inp[1]) - 1;
                 tasks.get(i).is_done = true;
-                System.out.println(task_added_msg(tasks.get(i)));
+                System.out.println(tasks.get(i).mark_str());
+                // System.out.println(task_added_msg(tasks.get(i)));
                 continue;
             }
 
@@ -94,7 +81,8 @@ public class Homura {
             if (split_inp[0].equals("unmark")) {
                 int i = Integer.parseInt(split_inp[1]) - 1;
                 tasks.get(i).is_done = false;
-                System.out.println(task_removed_msg(tasks.get(i)));
+                System.out.println(tasks.get(i).unmark_str());
+                // System.out.println(task_removed_msg(tasks.get(i)));
                 continue;
             }
 
@@ -103,8 +91,7 @@ public class Homura {
                 inp = inp.substring(5);
                 ToDo t = new ToDo(inp);
                 tasks.add(t);
-                // TODO print out status of this when society eeeeeee
-                System.out.println(t.mark_str());
+                System.out.println(t.add_str());
                 continue;
             }
 
@@ -113,6 +100,7 @@ public class Homura {
             System.out.println(indent + divider);
             System.out.println(indent + " nya~");
             System.out.println(indent + divider);
+            System.out.println();
         }
     }
 }
@@ -125,8 +113,22 @@ public class Homura {
             + indent + divider + '\n';
     }
  */
+/*
+    public static String task_added_msg(ToDo t) {
+        return indent + divider + '\n'
+            + indent + " ToDo marked as done\n"
+            + indent + ' ' + t + '\n'
+            + indent + divider + '\n';
+    }
+ */
+/*
+    public static String task_removed_msg(ToDo t) {
+        return indent + divider + '\n'
+            + indent + " ToDo marked as not done\n"
+            + indent + ' ' + t + '\n'
+            + indent + divider + '\n';
+    }
+ */
 
 // String concatenation inspired by
 // https://stackoverflow.com/questions/523871/best-way-to-concatenate-list-of-string-objects
-
-

@@ -19,9 +19,24 @@ public class ToDo {
         }
     }
 
+    public String add_str() {
+        return indent + divider + '\n'
+            + indent + " TODO added" + '\n'
+            + indent + " " + this.toString() + '\n'
+            + indent + divider + '\n';
+    }
+
     public String mark_str() {
         return indent + divider + '\n'
-            + indent + " [T][] " + description + '\n'
+            + indent + " TODO marked as done" + '\n'
+            + indent + " " + this.toString() + '\n'
+            + indent + divider + '\n';
+    }
+
+    public String unmark_str() {
+        return indent + divider + '\n'
+            + indent + "TODO marked as not done" + '\n'
+            + indent + " " + this.toString() + '\n'
             + indent + divider + '\n';
     }
 }
