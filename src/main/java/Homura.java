@@ -3,11 +3,12 @@ import java.util.Scanner;
 
 public class Homura {
     public final static String indent = " ".repeat(4);
-    public final static String divider =
-        '★' + (
-            "~".repeat(4) + '☆'
-            + "~".repeat(4) + '★'
-        ).repeat(8);
+//    public final static String divider =
+//        '★' + (
+//            "~".repeat(4) + '☆'
+//            + "~".repeat(4) + '★'
+//        ).repeat(8);
+    public final static String divider = "~".repeat(80);
     public static ArrayList<TODO> tasks = new ArrayList<TODO>();
 
     // How to read input inspired by
@@ -25,7 +26,7 @@ public class Homura {
         return indent + divider + '\n'
             + indent + " No matter what, don't become a magical girl.\n"
             + indent + " Farewell.\n"
-            + indent + divider + '\n';
+            + indent + divider;
     }
 
     public static void print_items() {
