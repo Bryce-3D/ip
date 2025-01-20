@@ -1,4 +1,5 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Homura {
     public final static String indent = " ".repeat(4);
