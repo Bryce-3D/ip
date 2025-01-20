@@ -65,9 +65,10 @@ public class Homura {
             }
 
             String[] split_inp = inp.split(" ");
+            String cmd = split_inp[0].toLowerCase();
 
             // Mark a todo on the list
-            if (split_inp[0].equals("mark")) {
+            if (cmd.equals("mark")) {
                 // How to convert String to int inspired by
                 // https://stackoverflow.com/questions/5585779/how-do-i-convert-a-string-to-an-int-in-java
                 int i = Integer.parseInt(split_inp[1]) - 1;
@@ -78,7 +79,7 @@ public class Homura {
             }
 
             // Unmark a todo on the list
-            if (split_inp[0].equals("unmark")) {
+            if (cmd.equals("unmark")) {
                 int i = Integer.parseInt(split_inp[1]) - 1;
                 tasks.get(i).is_done = false;
                 System.out.println(tasks.get(i).unmark_str());
@@ -87,7 +88,7 @@ public class Homura {
             }
 
             // Add a TODO to the list
-            if (split_inp[0].equals("todo")) {
+            if (cmd.equals("todo")) {
                 inp = inp.substring(5);
                 TODO t = new TODO(inp);
                 tasks.add(t);
@@ -96,7 +97,7 @@ public class Homura {
             }
 
             // Add a deadline to the list
-            if (split_inp[0].equals("deadline")) {
+            if (cmd.equals("deadline")) {
                 inp = inp.substring(9);
                 split_inp = inp.split(" /by ");
                 String descr = split_inp[0];
@@ -108,7 +109,7 @@ public class Homura {
             }
 
             // Add an event to the list
-            if (split_inp[0].equals("event")) {
+            if (cmd.equals("event")) {
                 inp = inp.substring(6);
                 split_inp = inp.split(" /from ");
                 String descr = split_inp[0];
