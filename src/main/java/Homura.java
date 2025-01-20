@@ -52,7 +52,7 @@ public class Homura {
         for (int i = 0; i < tasks.size(); i++) {
             // Converting int to string representation inspired by
             // https://stackoverflow.com/questions/5071040/java-convert-integer-to-string
-            numbered_items.add(i + ".) " + tasks.get(i));
+            numbered_items.add((i+1) + ".) " + tasks.get(i));
         }
         for (String item : numbered_items) {
             System.out.println(indent + " " + item);
@@ -90,7 +90,7 @@ public class Homura {
             if (split_inp[0].equals("mark")) {
                 // How to convert String to int inspired by
                 // https://stackoverflow.com/questions/5585779/how-do-i-convert-a-string-to-an-int-in-java
-                int i = Integer.parseInt(split_inp[1]);
+                int i = Integer.parseInt(split_inp[1]) - 1;
                 tasks.get(i).is_done = true;
                 System.out.println(task_added_msg(tasks.get(i)));
                 continue;
@@ -98,7 +98,7 @@ public class Homura {
 
             // Unmark a task on the list
             if (split_inp[0].equals("unmark")) {
-                int i = Integer.parseInt(split_inp[1]);
+                int i = Integer.parseInt(split_inp[1]) - 1;
                 tasks.get(i).is_done = false;
                 System.out.println(task_removed_msg(tasks.get(i)));
                 continue;
