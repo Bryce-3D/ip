@@ -1,0 +1,14 @@
+todo good morning chat
+deadline what did they mean by this chat /by your favourite holiday
+event chat is this real /from now /to later
+list
+mark 1
+mark 2
+mark 3
+list
+unmark 1
+unmark 2
+unmark 3
+list
+this_is_not_a_valid_command
+bye

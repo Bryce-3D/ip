@@ -12,6 +12,8 @@ then
     rm ACTUAL.TXT
 fi
 
+#How to make the compilation not get bricked inspired by
+#https://stackoverflow.com/questions/4927575/java-compiler-platform-file-encoding-problem
 # compile the code into the bin folder, terminates if error occurred
 if ! javac -cp ../src/main/java -Xlint:none -d ../bin ../src/main/java/*.java
 then
@@ -20,7 +22,7 @@ then
 fi
 
 # run the program, feed commands from input.txt file and redirect the output to the ACTUAL.TXT
-java -classpath ../bin Duke < input.txt > ACTUAL.TXT
+java -classpath ../bin Homura < input.txt > ACTUAL.TXT
 
 # convert to UNIX format
 cp EXPECTED.TXT EXPECTED-UNIX.TXT
