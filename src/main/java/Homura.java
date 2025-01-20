@@ -74,7 +74,7 @@ public class Homura {
                 int i = Integer.parseInt(split_inp[1]) - 1;
                 tasks.get(i).is_done = true;
                 System.out.println(tasks.get(i).mark_str());
-                // System.out.println(task_added_msg(tasks.get(i)));
+                System.out.println('\n');
                 continue;
             }
 
@@ -83,7 +83,7 @@ public class Homura {
                 int i = Integer.parseInt(split_inp[1]) - 1;
                 tasks.get(i).is_done = false;
                 System.out.println(tasks.get(i).unmark_str());
-                // System.out.println(task_removed_msg(tasks.get(i)));
+                System.out.println('\n');
                 continue;
             }
 
