@@ -7,7 +7,7 @@ public class Homura {
             "~".repeat(4) + '☆'
             + "~".repeat(4) + '★'
         ).repeat(8);
-    public static ArrayList<Task> tasks = new ArrayList<Task>();
+    public static ArrayList<ToDo> tasks = new ArrayList<ToDo>();
 
     // How to read input inspired by
     // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/main/Java/0001-0100/CF_0001A.java
@@ -33,16 +33,16 @@ public class Homura {
             + indent + divider + '\n';
     }
 
-    public static String task_added_msg(Task t) {
+    public static String task_added_msg(ToDo t) {
         return indent + divider + '\n'
-            + indent + " Task marked as done\n"
+            + indent + " ToDo marked as done\n"
             + indent + ' ' + t + '\n'
             + indent + divider + '\n';
     }
 
-    public static String task_removed_msg(Task t) {
+    public static String task_removed_msg(ToDo t) {
         return indent + divider + '\n'
-            + indent + " Task marked as not done\n"
+            + indent + " ToDo marked as not done\n"
             + indent + ' ' + t + '\n'
             + indent + divider + '\n';
     }
@@ -104,9 +104,19 @@ public class Homura {
                 continue;
             }
 
-            // Add a task to the list
-            tasks.add(new Task(inp));
-            System.out.println((format_echo(inp)));
+            // Add a TODO to the list
+            if (split_inp[0].equals("todo")) {
+                inp = inp.substring(5);
+                tasks.add(new ToDo(inp));
+                // TODO print out status of this when society eeeeeee
+                continue;
+            }
+
+            // Not a command
+            // System.out.println((format_echo(inp)));
+            System.out.println(indent + divider);
+            System.out.println(indent + " nya~");
+            System.out.println(indent + divider);
         }
     }
 }
