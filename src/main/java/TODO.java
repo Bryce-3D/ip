@@ -25,20 +25,20 @@ public class TODO {
         return indent + divider + '\n'
             + indent + " " + this.getClass().getSimpleName() + " added" + '\n'
             + indent + " " + this.toString() + '\n'
-            + indent + divider + '\n';
+            + indent + divider;
     }
 
     public String mark_str() {
         return indent + divider + '\n'
             + indent + " " + this.getClass().getSimpleName() + " marked as done" + '\n'
             + indent + " " + this.toString() + '\n'
-            + indent + divider + '\n';
+            + indent + divider;
     }
 
     public String unmark_str() {
         return indent + divider + '\n'
             + indent + " " + this.getClass().getSimpleName() + " marked as not done" + '\n'
             + indent + " " + this.toString() + '\n'
-            + indent + divider + '\n';
+            + indent + divider;
     }
 }

@@ -93,6 +93,10 @@ public class Homura {
                 TODO t = new TODO(inp);
                 tasks.add(t);
                 System.out.println(t.add_str());
+                System.out.println(
+                    indent + " " + tasks.size() + " task(s) in your list" + '\n'
+                    + indent + divider + '\n'
+                );
                 continue;
             }
 
@@ -105,6 +109,10 @@ public class Homura {
                 Deadline d = new Deadline(descr, deadline);
                 tasks.add(d);
                 System.out.println(d.add_str());
+                System.out.println(
+                    indent + " " + tasks.size() + " task(s) in your list" + '\n'
+                    + indent + divider + '\n'
+                );
                 continue;
             }
 
@@ -119,6 +127,10 @@ public class Homura {
                 Event e = new Event(descr, sta, end);
                 tasks.add(e);
                 System.out.println(e.add_str());
+                System.out.println(
+                    indent + " " + tasks.size() + " task(s) in your list" + '\n'
+                    + indent + divider + '\n'
+                );
                 continue;
             }
 
