@@ -27,12 +27,6 @@ public class Homura {
             + indent + divider + '\n';
     }
 
-    public static String format_echo(String s) {
-        return indent + divider + '\n'
-            + indent + ' ' + s + '\n'
-            + indent + divider + '\n';
-    }
-
     public static String task_added_msg(ToDo t) {
         return indent + divider + '\n'
             + indent + " ToDo marked as done\n"
@@ -107,8 +101,10 @@ public class Homura {
             // Add a TODO to the list
             if (split_inp[0].equals("todo")) {
                 inp = inp.substring(5);
-                tasks.add(new ToDo(inp));
+                ToDo t = new ToDo(inp);
+                tasks.add(t);
                 // TODO print out status of this when society eeeeeee
+                System.out.println(t.mark_str());
                 continue;
             }
 
@@ -122,5 +118,15 @@ public class Homura {
 }
 
 // RECYCLING BIN
+/*
+    public static String format_echo(String s) {
+        return indent + divider + '\n'
+            + indent + ' ' + s + '\n'
+            + indent + divider + '\n';
+    }
+ */
+
 // String concatenation inspired by
 // https://stackoverflow.com/questions/523871/best-way-to-concatenate-list-of-string-objects
+
+

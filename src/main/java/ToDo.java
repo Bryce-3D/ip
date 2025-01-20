@@ -1,4 +1,7 @@
 public class ToDo {
+    public static final String indent = Homura.indent;
+    public static final String divider = Homura.divider;
+
     public String description;
     public boolean is_done;
 
@@ -14,5 +17,11 @@ public class ToDo {
         } else {
             return "[T][ ] " + description;
         }
+    }
+
+    public String mark_str() {
+        return indent + divider + '\n'
+            + indent + " [T][] " + description + '\n'
+            + indent + divider + '\n';
     }
 }
