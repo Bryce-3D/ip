@@ -66,7 +66,7 @@ public class Homura {
 
             String[] split_inp = inp.split(" ");
 
-            // Mark a task on the list as done
+            // Mark a todo on the list
             if (split_inp[0].equals("mark")) {
                 // How to convert String to int inspired by
                 // https://stackoverflow.com/questions/5585779/how-do-i-convert-a-string-to-an-int-in-java
@@ -77,7 +77,7 @@ public class Homura {
                 continue;
             }
 
-            // Unmark a task on the list
+            // Unmark a todo on the list
             if (split_inp[0].equals("unmark")) {
                 int i = Integer.parseInt(split_inp[1]) - 1;
                 tasks.get(i).is_done = false;
@@ -95,6 +95,32 @@ public class Homura {
                 continue;
             }
 
+            // Add a deadline to the list
+            if (split_inp[0].equals("deadline")) {
+                inp = inp.substring(9);
+                split_inp = inp.split(" /by ");
+                String descr = split_inp[0];
+                String deadline = split_inp[1];
+                Deadline d = new Deadline(descr, deadline);
+                tasks.add(d);
+                System.out.println(d.add_str());
+                continue;
+            }
+
+            // Add an event to the list
+            if (split_inp[0].equals("event")) {
+                inp = inp.substring(6);
+                split_inp = inp.split(" /from ");
+                String descr = split_inp[0];
+                split_inp = split_inp[1].split(" /to ");
+                String sta = split_inp[0];
+                String end = split_inp[1];
+                Event e = new Event(descr, sta, end);
+                tasks.add(e);
+                System.out.println(e.add_str());
+                continue;
+            }
+
             // Not a command
             // System.out.println((format_echo(inp)));
             System.out.println(indent + divider);
@@ -105,7 +131,7 @@ public class Homura {
     }
 }
 
-// RECYCLING BIN
+// RECYCLING BIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 /*
     public static String format_echo(String s) {
         return indent + divider + '\n'
