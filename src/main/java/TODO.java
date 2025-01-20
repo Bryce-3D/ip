@@ -1,11 +1,11 @@
-public class ToDo {
+public class TODO {
     public static final String indent = Homura.indent;
     public static final String divider = Homura.divider;
 
     public String description;
     public boolean is_done;
 
-    public ToDo(String descr) {
+    public TODO(String descr) {
         description = descr;
         is_done = false;
     }

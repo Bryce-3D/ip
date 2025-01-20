@@ -7,7 +7,7 @@ public class Homura {
             "~".repeat(4) + '☆'
             + "~".repeat(4) + '★'
         ).repeat(8);
-    public static ArrayList<ToDo> tasks = new ArrayList<ToDo>();
+    public static ArrayList<TODO> tasks = new ArrayList<TODO>();
 
     // How to read input inspired by
     // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/main/Java/0001-0100/CF_0001A.java
@@ -89,7 +89,7 @@ public class Homura {
             // Add a TODO to the list
             if (split_inp[0].equals("todo")) {
                 inp = inp.substring(5);
-                ToDo t = new ToDo(inp);
+                TODO t = new TODO(inp);
                 tasks.add(t);
                 System.out.println(t.add_str());
                 continue;
