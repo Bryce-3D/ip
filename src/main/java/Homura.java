@@ -125,12 +125,16 @@ public class Homura {
                 continue;
             }
 
+
             // Not a command
-            // System.out.println((format_echo(inp)));
-            System.out.println(indent + divider);
-            System.out.println(indent + " nya~");
-            System.out.println(indent + divider);
-            System.out.println();
+            throw new InvalidCmdHomuraException(cmd);
+
+//            // Not a command
+//            // System.out.println((format_echo(inp)));
+//            System.out.println(indent + divider);
+//            System.out.println(indent + " nya~");
+//            System.out.println(indent + divider);
+//            System.out.println();
         }
     }
 }
