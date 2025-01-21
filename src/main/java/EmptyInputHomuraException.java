@@ -1,4 +1,4 @@
-public class EmptyInputHomuraException extends RuntimeException {
+public class EmptyInputHomuraException extends HomuraRuntimeException {
     public static final String indent = "    ";
 
     public String cmd;
