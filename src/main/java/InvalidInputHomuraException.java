@@ -2,18 +2,18 @@ public class InvalidInputHomuraException extends HomuraRuntimeException {
     public static final String indent = "    ";
 
     public String cmd;
-    public String invalid_input;
+    public String inp;
 
-    public InvalidInputHomuraException(String cmd, String invalid_input) {
+    public InvalidInputHomuraException(String cmd, String inp) {
         super();
         this.cmd = cmd;
-        this.invalid_input = invalid_input;
+        this.inp = inp;
     }
 
     @Override
     public String toString() {
         return getClass().getSimpleName()
             + " - Invalid input passed to cmd " + cmd + ":" + '\n'
-            + indent + indent + invalid_input;
+            + indent + indent + inp;
     }
 }
