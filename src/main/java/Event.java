@@ -14,6 +14,10 @@ public class Event extends TODO {
     }
 
     public static Event parse(String inp) {
+        inp = inp.strip();
+        if (inp.length() <= 6) {
+            throw new EmptyInputHomuraException("TODO", inp);
+        }
         try {
             inp = inp.substring(6);   // Remove the "event " in front
             String[] split_inp = inp.split(" /from ");

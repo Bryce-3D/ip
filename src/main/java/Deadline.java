@@ -13,6 +13,10 @@ public class Deadline extends  TODO {
     }
 
     public static Deadline parse(String inp) {
+        inp = inp.strip();
+        if (inp.length() <= 9) {
+            throw new EmptyInputHomuraException("TODO", inp);
+        }
         try {
             inp = inp.substring(9);   // Remove the "deadline " in front
             String[] split_inp = inp.split(" /by ");

@@ -11,6 +11,10 @@ public class TODO {
     }
 
     public static TODO parse(String inp) {
+        inp = inp.strip();
+        if (inp.length() <= 5) {
+            throw new EmptyInputHomuraException("TODO", inp);
+        }
         inp = inp.substring(5);   // Remove the "todo " in front
         return new TODO(inp);
     }
