@@ -12,7 +12,8 @@ public class InvalidInputHomuraException extends HomuraRuntimeException {
 
     @Override
     public String toString() {
-        return "java.lang.InvalidInputException: Invalid input passed to cmd " + cmd + ":" + '\n'
+        return getClass().getSimpleName()
+            + " - Invalid input passed to cmd " + cmd + ":" + '\n'
             + indent + indent + invalid_input;
     }
 }
