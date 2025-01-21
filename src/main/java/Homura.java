@@ -91,8 +91,9 @@ public class Homura {
 
             // Add a TODO to the list
             if (cmd.equals("todo")) {
-                inp = inp.substring(5);
-                TODO t = new TODO(inp);
+//                inp = inp.substring(5);
+//                TODO t = new TODO(inp);
+                TODO t = TODO.parse(inp);
                 tasks.add(t);
                 System.out.println(t.add_str());
                 System.out.println(
@@ -104,11 +105,12 @@ public class Homura {
 
             // Add a deadline to the list
             if (cmd.equals("deadline")) {
-                inp = inp.substring(9);
-                split_inp = inp.split(" /by ");
-                String descr = split_inp[0];
-                String deadline = split_inp[1];
-                Deadline d = new Deadline(descr, deadline);
+//                inp = inp.substring(9);
+//                split_inp = inp.split(" /by ");
+//                String descr = split_inp[0];
+//                String deadline = split_inp[1];
+//                Deadline d = new Deadline(descr, deadline);
+                Deadline d = Deadline.parse(inp);
                 tasks.add(d);
                 System.out.println(d.add_str());
                 System.out.println(
@@ -120,13 +122,14 @@ public class Homura {
 
             // Add an event to the list
             if (cmd.equals("event")) {
-                inp = inp.substring(6);
-                split_inp = inp.split(" /from ");
-                String descr = split_inp[0];
-                split_inp = split_inp[1].split(" /to ");
-                String sta = split_inp[0];
-                String end = split_inp[1];
-                Event e = new Event(descr, sta, end);
+//                inp = inp.substring(6);
+//                split_inp = inp.split(" /from ");
+//                String descr = split_inp[0];
+//                split_inp = split_inp[1].split(" /to ");
+//                String sta = split_inp[0];
+//                String end = split_inp[1];
+//                Event e = new Event(descr, sta, end);
+                Event e = Event.parse(inp);
                 tasks.add(e);
                 System.out.println(e.add_str());
                 System.out.println(

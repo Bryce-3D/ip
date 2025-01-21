@@ -5,10 +5,19 @@ public class Deadline extends  TODO {
         bool is_done
      */
     public String deadline;
+    // TODO rename this to "by"
 
     public Deadline(String description, String deadline) {
         super(description);
         this.deadline = deadline;
+    }
+
+    public static Deadline parse(String inp) {
+        inp = inp.substring(9);   // Remove the "deadline " in front
+        String[] split_inp = inp.split(" /by ");
+        String descr = split_inp[0];
+        String deadline = split_inp[1];
+        return new Deadline(descr, deadline);
     }
 
     @Override

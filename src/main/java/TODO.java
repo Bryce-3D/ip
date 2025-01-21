@@ -10,6 +10,11 @@ public class TODO {
         is_done = false;
     }
 
+    public static TODO parse(String inp) {
+        inp = inp.substring(5);   // Remove the "todo " in front
+        return new TODO(inp);
+    }
+
     @Override
     public String toString() {
         if (is_done) {

@@ -13,6 +13,16 @@ public class Event extends TODO {
         this.end = end;
     }
 
+    public static Event parse(String inp) {
+        inp = inp.substring(6);   // Remove the "event " in front
+        String[] split_inp = inp.split(" /from ");
+        String descr = split_inp[0];
+        split_inp = split_inp[1].split(" /to ");
+        String sta = split_inp[0];
+        String end = split_inp[1];
+        return new Event(descr, sta, end);
+    }
+
     @Override
     public String toString() {
         String ans = "[E]";
