@@ -1,10 +1,10 @@
-public class InvalidInputException extends HomuraRuntimeException {
+public class InvalidInputHomuraException extends HomuraRuntimeException {
     public static final String indent = "    ";
 
     public String cmd;
     public String invalid_input;
 
-    public InvalidInputException(String cmd, String invalid_input) {
+    public InvalidInputHomuraException(String cmd, String invalid_input) {
         super();
         this.cmd = cmd;
         this.invalid_input = invalid_input;

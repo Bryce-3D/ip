@@ -20,7 +20,7 @@ public class Deadline extends  TODO {
             String deadline = split_inp[1];
             return new Deadline(descr, deadline);
         } catch (Exception e) {
-            throw new InvalidInputException("deadline", inp);
+            throw new InvalidInputHomuraException("deadline", inp);
         }
     }
 

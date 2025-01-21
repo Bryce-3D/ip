@@ -23,7 +23,7 @@ public class Event extends TODO {
             String end = split_inp[1];
             return new Event(descr, sta, end);
         } catch (Exception e) {
-            throw new InvalidInputException("event", inp);
+            throw new InvalidInputHomuraException("event", inp);
         }
     }
 

@@ -15,7 +15,7 @@ public class TODO {
             inp = inp.substring(5);   // Remove the "todo " in front
             return new TODO(inp);
         } catch (Exception e) {
-            throw new InvalidInputException("TODO", inp);
+            throw new InvalidInputHomuraException("TODO", inp);
         }
     }
 
