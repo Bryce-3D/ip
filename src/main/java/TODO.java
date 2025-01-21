@@ -11,8 +11,12 @@ public class TODO {
     }
 
     public static TODO parse(String inp) {
-        inp = inp.substring(5);   // Remove the "todo " in front
-        return new TODO(inp);
+        try {
+            inp = inp.substring(5);   // Remove the "todo " in front
+            return new TODO(inp);
+        } catch (Exception e) {
+            throw new InvalidInputException("TODO", inp);
+        }
     }
 
     @Override
