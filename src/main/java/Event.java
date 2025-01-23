@@ -2,7 +2,7 @@ public class Event extends Todo {
     /*
     Attributes from ToDo
         str  description
-        bool is_done
+        bool isDone
      */
     public String sta;
     public String end;

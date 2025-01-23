@@ -49,7 +49,7 @@ public class Homura {
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
         tasks.get(i).isDone = true;
-        System.out.println(tasks.get(i).mark_str());
+        System.out.println(tasks.get(i).markStr());
         System.out.println('\n');
     }
 
@@ -57,14 +57,14 @@ public class Homura {
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
         tasks.get(i).isDone = false;
-        System.out.println(tasks.get(i).unmark_str());
+        System.out.println(tasks.get(i).unmarkStr());
         System.out.println('\n');
     }
 
     public static void cmdTodo(String inp) {
         Todo t = Todo.parse(inp);
         tasks.add(t);
-        System.out.println(t.add_str());
+        System.out.println(t.addStr());
         System.out.println(
             INDENT + " " + tasks.size() + " task(s) in your list" + '\n'
                 + INDENT + DIVIDER + '\n'
@@ -74,7 +74,7 @@ public class Homura {
     public static void cmdDeadline(String inp) {
         Deadline d = Deadline.parse(inp);
         tasks.add(d);
-        System.out.println(d.add_str());
+        System.out.println(d.addStr());
         System.out.println(
             INDENT + " " + tasks.size() + " task(s) in your list" + '\n'
                 + INDENT + DIVIDER + '\n'
@@ -84,7 +84,7 @@ public class Homura {
     public static void cmdEvent(String inp) {
         Event e = Event.parse(inp);
         tasks.add(e);
-        System.out.println(e.add_str());
+        System.out.println(e.addStr());
         System.out.println(
             INDENT + " " + tasks.size() + " task(s) in your list" + '\n'
                 + INDENT + DIVIDER + '\n'
