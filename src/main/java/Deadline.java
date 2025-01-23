@@ -4,7 +4,7 @@ public class Deadline extends Todo {
         str  description
         bool isDone
      */
-    public String deadline;
+    private String deadline;
     // Todo rename this to "by"
 
     public Deadline(String description, String deadline) {

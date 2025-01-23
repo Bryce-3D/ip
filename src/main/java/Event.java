@@ -4,8 +4,8 @@ public class Event extends Todo {
         str  description
         bool isDone
      */
-    public String sta;
-    public String end;
+    private String sta;
+    private String end;
 
     public Event(String description, String sta, String end) {
         super(description);
