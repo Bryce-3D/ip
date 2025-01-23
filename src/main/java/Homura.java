@@ -2,13 +2,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Homura {
-    public final static String indent = " ".repeat(4);
+    public final static String INDENT = " ".repeat(4);
 //    public final static String divider =
 //        '★' + (
 //            "~".repeat(4) + '☆'
 //            + "~".repeat(4) + '★'
 //        ).repeat(8);
-    public final static String divider = "~".repeat(80);
+    public final static String DIVIDER = "~".repeat(80);
     public static ArrayList<Todo> tasks = new ArrayList<Todo>();
 
     // How to read input inspired by
@@ -16,17 +16,17 @@ public class Homura {
     private static Scanner sc = new Scanner(System.in);
 
     public static String intro_msg() {
-        return indent + divider + '\n'
-            + indent + " Hi, I'm Akemi Homura.\n"
-            + indent + " Have you seem Madoka anywhere?\n"
-            + indent + divider + '\n';
+        return INDENT + DIVIDER + '\n'
+            + INDENT + " Hi, I'm Akemi Homura.\n"
+            + INDENT + " Have you seem Madoka anywhere?\n"
+            + INDENT + DIVIDER + '\n';
     }
 
     public static String bye_msg() {
-        return indent + divider + '\n'
-            + indent + " No matter what, don't become a magical girl.\n"
-            + indent + " Farewell.\n"
-            + indent + divider;
+        return INDENT + DIVIDER + '\n'
+            + INDENT + " No matter what, don't become a magical girl.\n"
+            + INDENT + " Farewell.\n"
+            + INDENT + DIVIDER;
     }
 
     public static void print_items() {
@@ -37,15 +37,15 @@ public class Homura {
             numbered_items.add((i+1) + ".) " + tasks.get(i));
         }
         for (String item : numbered_items) {
-            System.out.println(indent + " " + item);
+            System.out.println(INDENT + " " + item);
         }
     }
 
     public static void print_items_formatted() {
-        System.out.println(indent + divider);
-        System.out.println(indent + " " + tasks.size() + " tasks(s) in your list");
+        System.out.println(INDENT + DIVIDER);
+        System.out.println(INDENT + " " + tasks.size() + " tasks(s) in your list");
         print_items();
-        System.out.println(indent + divider + '\n');
+        System.out.println(INDENT + DIVIDER + '\n');
     }
 
     public static void cmd_mark(String inp) {
@@ -71,8 +71,8 @@ public class Homura {
         tasks.add(t);
         System.out.println(t.add_str());
         System.out.println(
-            indent + " " + tasks.size() + " task(s) in your list" + '\n'
-                + indent + divider + '\n'
+            INDENT + " " + tasks.size() + " task(s) in your list" + '\n'
+                + INDENT + DIVIDER + '\n'
         );
     }
 
@@ -81,8 +81,8 @@ public class Homura {
         tasks.add(d);
         System.out.println(d.add_str());
         System.out.println(
-            indent + " " + tasks.size() + " task(s) in your list" + '\n'
-                + indent + divider + '\n'
+            INDENT + " " + tasks.size() + " task(s) in your list" + '\n'
+                + INDENT + DIVIDER + '\n'
         );
     }
 
@@ -91,8 +91,8 @@ public class Homura {
         tasks.add(e);
         System.out.println(e.add_str());
         System.out.println(
-            indent + " " + tasks.size() + " task(s) in your list" + '\n'
-                + indent + divider + '\n'
+            INDENT + " " + tasks.size() + " task(s) in your list" + '\n'
+                + INDENT + DIVIDER + '\n'
         );
     }
 
@@ -105,11 +105,11 @@ public class Homura {
         Todo t = tasks.get(i);
         tasks.remove(i);
         System.out.println(
-            indent + divider + '\n'
-                + indent + " " + t.getClass().getSimpleName() + " removed" + '\n'
-                + indent + indent + t + '\n'
-                + indent + " " + tasks.size() + " tasks(s) in your list" + '\n'
-                + indent + divider + '\n'
+            INDENT + DIVIDER + '\n'
+                + INDENT + " " + t.getClass().getSimpleName() + " removed" + '\n'
+                + INDENT + INDENT + t + '\n'
+                + INDENT + " " + tasks.size() + " tasks(s) in your list" + '\n'
+                + INDENT + DIVIDER + '\n'
         );
     }
 
