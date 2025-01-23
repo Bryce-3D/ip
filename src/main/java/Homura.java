@@ -13,7 +13,7 @@ public class Homura {
 
     // How to read input inspired by
     // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/main/Java/0001-0100/CF_0001A.java
-    private static Scanner sc = new Scanner(System.in);
+    private final static Scanner SC = new Scanner(System.in);
 
     public static String intro_msg() {
         return INDENT + DIVIDER + '\n'
@@ -118,7 +118,7 @@ public class Homura {
         while (true) {
             // How to read input inspired by
             // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/main/Java/0001-0100/CF_0001A.java
-            String inp = sc.nextLine();
+            String inp = SC.nextLine();
 
             // Exit the chatbot
             if (inp.equals("bye")) {
