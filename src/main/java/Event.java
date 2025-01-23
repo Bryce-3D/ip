@@ -20,11 +20,11 @@ public class Event extends TODO {
         }
         try {
             inp = inp.substring(6);   // Remove the "event " in front
-            String[] split_inp = inp.split(" /from ");
-            String descr = split_inp[0];
-            split_inp = split_inp[1].split(" /to ");
-            String sta = split_inp[0];
-            String end = split_inp[1];
+            String[] splitInps = inp.split(" /from ");
+            String descr = splitInps[0];
+            splitInps = splitInps[1].split(" /to ");
+            String sta = splitInps[0];
+            String end = splitInps[1];
             return new Event(descr, sta, end);
         } catch (Exception e) {
             throw new InvalidInputHomuraException("event", inp);

@@ -19,9 +19,9 @@ public class Deadline extends  TODO {
         }
         try {
             inp = inp.substring(9);   // Remove the "deadline " in front
-            String[] split_inp = inp.split(" /by ");
-            String descr = split_inp[0];
-            String deadline = split_inp[1];
+            String[] splitInps = inp.split(" /by ");
+            String descr = splitInps[0];
+            String deadline = splitInps[1];
             return new Deadline(descr, deadline);
         } catch (Exception e) {
             throw new InvalidInputHomuraException("deadline", inp);
