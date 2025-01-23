@@ -12,16 +12,16 @@ public class Homura {
 
     public static String introMsg() {
         return INDENT + DIVIDER + '\n'
-            + INDENT + " Hi, I'm Akemi Homura.\n"
-            + INDENT + " Have you seem Madoka anywhere?\n"
-            + INDENT + DIVIDER + '\n';
+                + INDENT + " Hi, I'm Akemi Homura.\n"
+                + INDENT + " Have you seem Madoka anywhere?\n"
+                + INDENT + DIVIDER + '\n';
     }
 
     public static String byeMsg() {
         return INDENT + DIVIDER + '\n'
-            + INDENT + " No matter what, don't become a magical girl.\n"
-            + INDENT + " Farewell.\n"
-            + INDENT + DIVIDER;
+                + INDENT + " No matter what, don't become a magical girl.\n"
+                + INDENT + " Farewell.\n"
+                + INDENT + DIVIDER;
     }
 
     public static void printTodos() {
@@ -66,7 +66,7 @@ public class Homura {
         tasks.add(t);
         System.out.println(t.addStr());
         System.out.println(
-            INDENT + " " + tasks.size() + " task(s) in your list" + '\n'
+                INDENT + " " + tasks.size() + " task(s) in your list" + '\n'
                 + INDENT + DIVIDER + '\n'
         );
     }
@@ -76,7 +76,7 @@ public class Homura {
         tasks.add(d);
         System.out.println(d.addStr());
         System.out.println(
-            INDENT + " " + tasks.size() + " task(s) in your list" + '\n'
+                INDENT + " " + tasks.size() + " task(s) in your list" + '\n'
                 + INDENT + DIVIDER + '\n'
         );
     }
@@ -86,7 +86,7 @@ public class Homura {
         tasks.add(e);
         System.out.println(e.addStr());
         System.out.println(
-            INDENT + " " + tasks.size() + " task(s) in your list" + '\n'
+                INDENT + " " + tasks.size() + " task(s) in your list" + '\n'
                 + INDENT + DIVIDER + '\n'
         );
     }
@@ -100,7 +100,7 @@ public class Homura {
         Todo t = tasks.get(i);
         tasks.remove(i);
         System.out.println(
-            INDENT + DIVIDER + '\n'
+                INDENT + DIVIDER + '\n'
                 + INDENT + " " + t.getClass().getSimpleName() + " removed" + '\n'
                 + INDENT + INDENT + t + '\n'
                 + INDENT + " " + tasks.size() + " tasks(s) in your list" + '\n'
@@ -131,26 +131,26 @@ public class Homura {
             String cmd = splitInps[0].toLowerCase();
 
             switch (cmd) {
-                case "mark":   // Mark a Todo on the list
-                    cmdMark(inp);
-                    break;
-                case "unmark":   // Unmark a Todo on the list
-                    cmdUnmark(inp);
-                    break;
-                case "todo":   // Add a Todo to the list
-                    cmdTodo(inp);
-                    break;
-                case "deadline":   // Add a deadline to the list
-                    cmdDeadline(inp);
-                    break;
-                case "event":   // Add an event to the list
-                    cmdEvent(inp);
-                    break;
-                case "delete":   // Remove an event from the list
-                    cmdDelete(inp);
-                    break;
-                default:   // Not a command
-                    throw new InvalidCmdHomuraException(cmd);
+            case "mark":   // Mark a Todo on the list
+                cmdMark(inp);
+                break;
+            case "unmark":   // Unmark a Todo on the list
+                cmdUnmark(inp);
+                break;
+            case "todo":   // Add a Todo to the list
+                cmdTodo(inp);
+                break;
+            case "deadline":   // Add a deadline to the list
+                cmdDeadline(inp);
+                break;
+            case "event":   // Add an event to the list
+                cmdEvent(inp);
+                break;
+            case "delete":   // Remove an event from the list
+                cmdDelete(inp);
+                break;
+            default:   // Not a command
+                throw new InvalidCmdHomuraException(cmd);
 //                    break;
             }
         }

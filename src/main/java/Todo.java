@@ -32,22 +32,22 @@ public class Todo {
         // Getting class name as a string inspired by
         // https://stackoverflow.com/questions/6271417/java-get-the-current-class-name
         return INDENT + divider + '\n'
-            + INDENT + " " + getClass().getSimpleName() + " added" + '\n'
-            + INDENT + " " + this + '\n'
-            + INDENT + divider;
+                + INDENT + " " + getClass().getSimpleName() + " added" + '\n'
+                + INDENT + " " + this + '\n'
+                + INDENT + divider;
     }
 
     public String markStr() {
         return INDENT + divider + '\n'
-            + INDENT + " " + getClass().getSimpleName() + " marked as done" + '\n'
-            + INDENT + " " + this + '\n'
-            + INDENT + divider;
+                + INDENT + " " + getClass().getSimpleName() + " marked as done" + '\n'
+                + INDENT + " " + this + '\n'
+                + INDENT + divider;
     }
 
     public String unmarkStr() {
         return INDENT + divider + '\n'
-            + INDENT + " " + this.getClass().getSimpleName() + " marked as not done" + '\n'
-            + INDENT + " " + this.toString() + '\n'
-            + INDENT + divider;
+                + INDENT + " " + this.getClass().getSimpleName() + " marked as not done" + '\n'
+                + INDENT + " " + this.toString() + '\n'
+                + INDENT + divider;
     }
 }
