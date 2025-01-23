@@ -43,6 +43,7 @@ public class Homura {
 
     public static void print_items_formatted() {
         System.out.println(indent + divider);
+        System.out.println(indent + " " + tasks.size() + " tasks(s) in your list");
         print_items();
         System.out.println(indent + divider + '\n');
     }
@@ -125,21 +126,39 @@ public class Homura {
                 continue;
             }
 
+            // Remove an event from the list
+            if (cmd.equals("delete")) {
+                int i = Integer.parseInt(split_inp[1]) - 1;
+                if (i >= tasks.size()) {
+                    throw new InvalidInputHomuraException(cmd, inp);
+                }
+                TODO t = tasks.get(i);
+                tasks.remove(i);
+                System.out.println(
+                    indent + divider + '\n'
+                    + indent + " " + t.getClass().getSimpleName() + " removed" + '\n'
+                    + indent + indent + t + '\n'
+                    + indent + " " + tasks.size() + " tasks(s) in your list" + '\n'
+                    + indent + divider + '\n'
+                );
+                continue;
+            }
+
 
             // Not a command
             throw new InvalidCmdHomuraException(cmd);
+        }
+    }
+}
 
+// RECYCLING BIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //            // Not a command
 //            // System.out.println((format_echo(inp)));
 //            System.out.println(indent + divider);
 //            System.out.println(indent + " nya~");
 //            System.out.println(indent + divider);
 //            System.out.println();
-        }
-    }
-}
 
-// RECYCLING BIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 /*
     public static String format_echo(String s) {
         return indent + divider + '\n'
