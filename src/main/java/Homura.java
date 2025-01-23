@@ -135,15 +135,44 @@ public class Homura {
             String[] split_inp = inp.split(" ");
             String cmd = split_inp[0].toLowerCase();
 
+            switch (cmd) {
+                case "mark":   // Mark a TODO on the list
+                    cmd_mark(inp);
+                    break;
+                case "unmark":   // Unmark a TODO on the list
+                    cmd_unmark(inp);
+                    break;
+                case "todo":   // Add a TODO to the list
+                    cmd_todo(inp);
+                    break;
+                case "deadline":   // Add a deadline to the list
+                    cmd_deadline(inp);
+                    break;
+                case "event":   // Add an event to the list
+                    cmd_event(inp);
+                    break;
+                case "delete":   // Remove an event from the list
+                    cmd_delete(inp);
+                    break;
+                default:   // Not a command
+                    throw new InvalidCmdHomuraException(cmd);
+//                    break;
+            }
+        }
+    }
+}
+
+// RECYCLING BIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*
             // Mark a todo on the list
             if (cmd.equals("mark")) {
-                cmd_mark(inp);
+                // cmd_mark(inp);
                 continue;
             }
 
             // Unmark a todo on the list
             if (cmd.equals("unmark")) {
-                cmd_unmark(inp);
+                // cmd_unmark(inp);
                 continue;
             }
 
@@ -173,11 +202,8 @@ public class Homura {
 
             // Not a command
             throw new InvalidCmdHomuraException(cmd);
-        }
-    }
-}
+ */
 
-// RECYCLING BIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //            // Not a command
 //            // System.out.println((format_echo(inp)));
 //            System.out.println(indent + divider);
