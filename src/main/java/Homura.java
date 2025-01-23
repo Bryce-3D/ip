@@ -48,6 +48,71 @@ public class Homura {
         System.out.println(indent + divider + '\n');
     }
 
+    public static void cmd_mark(String inp) {
+        // How to convert String to int inspired by
+        // https://stackoverflow.com/questions/5585779/how-do-i-convert-a-string-to-an-int-in-java
+        String[] split_inp = inp.split(" ");
+        int i = Integer.parseInt(split_inp[1]) - 1;
+        tasks.get(i).is_done = true;
+        System.out.println(tasks.get(i).mark_str());
+        System.out.println('\n');
+    }
+
+    public static void cmd_unmark(String inp) {
+        String[] split_inp = inp.split(" ");
+        int i = Integer.parseInt(split_inp[1]) - 1;
+        tasks.get(i).is_done = false;
+        System.out.println(tasks.get(i).unmark_str());
+        System.out.println('\n');
+    }
+
+    public static void cmd_todo(String inp) {
+        TODO t = TODO.parse(inp);
+        tasks.add(t);
+        System.out.println(t.add_str());
+        System.out.println(
+            indent + " " + tasks.size() + " task(s) in your list" + '\n'
+                + indent + divider + '\n'
+        );
+    }
+
+    public static void cmd_deadline(String inp) {
+        Deadline d = Deadline.parse(inp);
+        tasks.add(d);
+        System.out.println(d.add_str());
+        System.out.println(
+            indent + " " + tasks.size() + " task(s) in your list" + '\n'
+                + indent + divider + '\n'
+        );
+    }
+
+    public static void cmd_event(String inp) {
+        Event e = Event.parse(inp);
+        tasks.add(e);
+        System.out.println(e.add_str());
+        System.out.println(
+            indent + " " + tasks.size() + " task(s) in your list" + '\n'
+                + indent + divider + '\n'
+        );
+    }
+
+    public static void cmd_delete(String inp) {
+        String[] split_inp = inp.split(" ");
+        int i = Integer.parseInt(split_inp[1]) - 1;
+        if (i >= tasks.size()) {
+            throw new InvalidInputHomuraException("delete", inp);
+        }
+        TODO t = tasks.get(i);
+        tasks.remove(i);
+        System.out.println(
+            indent + divider + '\n'
+                + indent + " " + t.getClass().getSimpleName() + " removed" + '\n'
+                + indent + indent + t + '\n'
+                + indent + " " + tasks.size() + " tasks(s) in your list" + '\n'
+                + indent + divider + '\n'
+        );
+    }
+
     public static void main(String[] args) {
         System.out.println(intro_msg());
         while (true) {
@@ -72,78 +137,39 @@ public class Homura {
 
             // Mark a todo on the list
             if (cmd.equals("mark")) {
-                // How to convert String to int inspired by
-                // https://stackoverflow.com/questions/5585779/how-do-i-convert-a-string-to-an-int-in-java
-                int i = Integer.parseInt(split_inp[1]) - 1;
-                tasks.get(i).is_done = true;
-                System.out.println(tasks.get(i).mark_str());
-                System.out.println('\n');
+                cmd_mark(inp);
                 continue;
             }
 
             // Unmark a todo on the list
             if (cmd.equals("unmark")) {
-                int i = Integer.parseInt(split_inp[1]) - 1;
-                tasks.get(i).is_done = false;
-                System.out.println(tasks.get(i).unmark_str());
-                System.out.println('\n');
+                cmd_unmark(inp);
                 continue;
             }
 
             // Add a TODO to the list
             if (cmd.equals("todo")) {
-                TODO t = TODO.parse(inp);
-                tasks.add(t);
-                System.out.println(t.add_str());
-                System.out.println(
-                    indent + " " + tasks.size() + " task(s) in your list" + '\n'
-                    + indent + divider + '\n'
-                );
+                cmd_todo(inp);
                 continue;
             }
 
             // Add a deadline to the list
             if (cmd.equals("deadline")) {
-                Deadline d = Deadline.parse(inp);
-                tasks.add(d);
-                System.out.println(d.add_str());
-                System.out.println(
-                    indent + " " + tasks.size() + " task(s) in your list" + '\n'
-                    + indent + divider + '\n'
-                );
+                cmd_deadline(inp);
                 continue;
             }
 
             // Add an event to the list
             if (cmd.equals("event")) {
-                Event e = Event.parse(inp);
-                tasks.add(e);
-                System.out.println(e.add_str());
-                System.out.println(
-                    indent + " " + tasks.size() + " task(s) in your list" + '\n'
-                    + indent + divider + '\n'
-                );
+                cmd_event(inp);
                 continue;
             }
 
             // Remove an event from the list
             if (cmd.equals("delete")) {
-                int i = Integer.parseInt(split_inp[1]) - 1;
-                if (i >= tasks.size()) {
-                    throw new InvalidInputHomuraException(cmd, inp);
-                }
-                TODO t = tasks.get(i);
-                tasks.remove(i);
-                System.out.println(
-                    indent + divider + '\n'
-                    + indent + " " + t.getClass().getSimpleName() + " removed" + '\n'
-                    + indent + indent + t + '\n'
-                    + indent + " " + tasks.size() + " tasks(s) in your list" + '\n'
-                    + indent + divider + '\n'
-                );
+                cmd_deadline(inp);
                 continue;
             }
-
 
             // Not a command
             throw new InvalidCmdHomuraException(cmd);
