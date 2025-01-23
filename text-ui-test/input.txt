@@ -10,5 +10,4 @@ unmark 1
 unmark 2
 unmark 3
 list
-this_is_not_a_valid_command
 bye
