@@ -34,7 +34,7 @@ public class Event extends Todo {
     @Override
     public String toString() {
         String ans = "[E]";
-        if (is_done) {
+        if (isDone) {
             ans += "[✓] ";
         } else {
             ans += "[ ] ";

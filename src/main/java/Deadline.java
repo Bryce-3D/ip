@@ -31,7 +31,7 @@ public class Deadline extends Todo {
     @Override
     public String toString() {
         String ans = "[D]";
-        if (is_done) {
+        if (isDone) {
             ans += "[✓] ";
         } else {
             ans += "[ ] ";
