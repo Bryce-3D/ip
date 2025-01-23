@@ -25,13 +25,13 @@ public class Homura {
     }
 
     public static void printTodos() {
-        ArrayList<String> numbered_items = new ArrayList<String>();
+        ArrayList<String> numberedTasks = new ArrayList<String>();
         for (int i = 0; i < tasks.size(); i++) {
             // Converting int to string representation inspired by
             // https://stackoverflow.com/questions/5071040/java-convert-integer-to-string
-            numbered_items.add((i+1) + ".) " + tasks.get(i));
+            numberedTasks.add((i+1) + ".) " + tasks.get(i));
         }
-        for (String item : numbered_items) {
+        for (String item : numberedTasks) {
             System.out.println(INDENT + " " + item);
         }
     }
@@ -46,16 +46,16 @@ public class Homura {
     public static void cmdMark(String inp) {
         // How to convert String to int inspired by
         // https://stackoverflow.com/questions/5585779/how-do-i-convert-a-string-to-an-int-in-java
-        String[] split_inp = inp.split(" ");
-        int i = Integer.parseInt(split_inp[1]) - 1;
+        String[] splitInps = inp.split(" ");
+        int i = Integer.parseInt(splitInps[1]) - 1;
         tasks.get(i).isDone = true;
         System.out.println(tasks.get(i).mark_str());
         System.out.println('\n');
     }
 
     public static void cmdUnmark(String inp) {
-        String[] split_inp = inp.split(" ");
-        int i = Integer.parseInt(split_inp[1]) - 1;
+        String[] splitInps = inp.split(" ");
+        int i = Integer.parseInt(splitInps[1]) - 1;
         tasks.get(i).isDone = false;
         System.out.println(tasks.get(i).unmark_str());
         System.out.println('\n');
@@ -92,8 +92,8 @@ public class Homura {
     }
 
     public static void cmdDelete(String inp) {
-        String[] split_inp = inp.split(" ");
-        int i = Integer.parseInt(split_inp[1]) - 1;
+        String[] splitInps = inp.split(" ");
+        int i = Integer.parseInt(splitInps[1]) - 1;
         if (i >= tasks.size()) {
             throw new InvalidInputHomuraException("delete", inp);
         }
@@ -127,8 +127,8 @@ public class Homura {
                 continue;
             }
 
-            String[] split_inp = inp.split(" ");
-            String cmd = split_inp[0].toLowerCase();
+            String[] splitInps = inp.split(" ");
+            String cmd = splitInps[0].toLowerCase();
 
             switch (cmd) {
                 case "mark":   // Mark a Todo on the list
