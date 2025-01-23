@@ -3,33 +3,28 @@ import java.util.Scanner;
 
 public class Homura {
     public final static String INDENT = " ".repeat(4);
-//    public final static String divider =
-//        '★' + (
-//            "~".repeat(4) + '☆'
-//            + "~".repeat(4) + '★'
-//        ).repeat(8);
     public final static String DIVIDER = "~".repeat(80);
-    public static ArrayList<Todo> tasks = new ArrayList<Todo>();
-
     // How to read input inspired by
     // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/main/Java/0001-0100/CF_0001A.java
     private final static Scanner SC = new Scanner(System.in);
 
-    public static String intro_msg() {
+    public static ArrayList<Todo> tasks = new ArrayList<Todo>();
+
+    public static String introMsg() {
         return INDENT + DIVIDER + '\n'
             + INDENT + " Hi, I'm Akemi Homura.\n"
             + INDENT + " Have you seem Madoka anywhere?\n"
             + INDENT + DIVIDER + '\n';
     }
 
-    public static String bye_msg() {
+    public static String byeMsg() {
         return INDENT + DIVIDER + '\n'
             + INDENT + " No matter what, don't become a magical girl.\n"
             + INDENT + " Farewell.\n"
             + INDENT + DIVIDER;
     }
 
-    public static void print_items() {
+    public static void printTodos() {
         ArrayList<String> numbered_items = new ArrayList<String>();
         for (int i = 0; i < tasks.size(); i++) {
             // Converting int to string representation inspired by
@@ -41,14 +36,14 @@ public class Homura {
         }
     }
 
-    public static void print_items_formatted() {
+    public static void printTodosFormatted() {
         System.out.println(INDENT + DIVIDER);
         System.out.println(INDENT + " " + tasks.size() + " tasks(s) in your list");
-        print_items();
+        printTodos();
         System.out.println(INDENT + DIVIDER + '\n');
     }
 
-    public static void cmd_mark(String inp) {
+    public static void cmdMark(String inp) {
         // How to convert String to int inspired by
         // https://stackoverflow.com/questions/5585779/how-do-i-convert-a-string-to-an-int-in-java
         String[] split_inp = inp.split(" ");
@@ -58,7 +53,7 @@ public class Homura {
         System.out.println('\n');
     }
 
-    public static void cmd_unmark(String inp) {
+    public static void cmdUnmark(String inp) {
         String[] split_inp = inp.split(" ");
         int i = Integer.parseInt(split_inp[1]) - 1;
         tasks.get(i).isDone = false;
@@ -66,7 +61,7 @@ public class Homura {
         System.out.println('\n');
     }
 
-    public static void cmd_todo(String inp) {
+    public static void cmdTodo(String inp) {
         Todo t = Todo.parse(inp);
         tasks.add(t);
         System.out.println(t.add_str());
@@ -76,7 +71,7 @@ public class Homura {
         );
     }
 
-    public static void cmd_deadline(String inp) {
+    public static void cmdDeadline(String inp) {
         Deadline d = Deadline.parse(inp);
         tasks.add(d);
         System.out.println(d.add_str());
@@ -86,7 +81,7 @@ public class Homura {
         );
     }
 
-    public static void cmd_event(String inp) {
+    public static void cmdEvent(String inp) {
         Event e = Event.parse(inp);
         tasks.add(e);
         System.out.println(e.add_str());
@@ -96,7 +91,7 @@ public class Homura {
         );
     }
 
-    public static void cmd_delete(String inp) {
+    public static void cmdDelete(String inp) {
         String[] split_inp = inp.split(" ");
         int i = Integer.parseInt(split_inp[1]) - 1;
         if (i >= tasks.size()) {
@@ -114,7 +109,7 @@ public class Homura {
     }
 
     public static void main(String[] args) {
-        System.out.println(intro_msg());
+        System.out.println(introMsg());
         while (true) {
             // How to read input inspired by
             // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/main/Java/0001-0100/CF_0001A.java
@@ -122,13 +117,13 @@ public class Homura {
 
             // Exit the chatbot
             if (inp.equals("bye")) {
-                System.out.println(bye_msg());
+                System.out.println(byeMsg());
                 break;
             }
 
             // List items in the Todo list
             if (inp.equals("list")) {
-                print_items_formatted();
+                printTodosFormatted();
                 continue;
             }
 
@@ -137,22 +132,22 @@ public class Homura {
 
             switch (cmd) {
                 case "mark":   // Mark a Todo on the list
-                    cmd_mark(inp);
+                    cmdMark(inp);
                     break;
                 case "unmark":   // Unmark a Todo on the list
-                    cmd_unmark(inp);
+                    cmdUnmark(inp);
                     break;
                 case "todo":   // Add a Todo to the list
-                    cmd_todo(inp);
+                    cmdTodo(inp);
                     break;
                 case "deadline":   // Add a deadline to the list
-                    cmd_deadline(inp);
+                    cmdDeadline(inp);
                     break;
                 case "event":   // Add an event to the list
-                    cmd_event(inp);
+                    cmdEvent(inp);
                     break;
                 case "delete":   // Remove an event from the list
-                    cmd_delete(inp);
+                    cmdDelete(inp);
                     break;
                 default:   // Not a command
                     throw new InvalidCmdHomuraException(cmd);
@@ -163,6 +158,14 @@ public class Homura {
 }
 
 // RECYCLING BIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*
+    public final static String divider =
+        '★' + (
+            "~".repeat(4) + '☆'
+            + "~".repeat(4) + '★'
+        ).repeat(8);
+ */
+
 /*
             // Mark a todo on the list
             if (cmd.equals("mark")) {
