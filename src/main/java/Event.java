@@ -1,4 +1,4 @@
-public class Event extends TODO {
+public class Event extends Todo {
     /*
     Attributes from ToDo
         str  description
@@ -16,7 +16,7 @@ public class Event extends TODO {
     public static Event parse(String inp) {
         inp = inp.strip();
         if (inp.length() <= 6) {
-            throw new EmptyInputHomuraException("TODO", inp);
+            throw new EmptyInputHomuraException("Todo", inp);
         }
         try {
             inp = inp.substring(6);   // Remove the "event " in front

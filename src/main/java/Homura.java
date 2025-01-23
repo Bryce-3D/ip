@@ -9,7 +9,7 @@ public class Homura {
 //            + "~".repeat(4) + '★'
 //        ).repeat(8);
     public final static String divider = "~".repeat(80);
-    public static ArrayList<TODO> tasks = new ArrayList<TODO>();
+    public static ArrayList<Todo> tasks = new ArrayList<Todo>();
 
     // How to read input inspired by
     // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/main/Java/0001-0100/CF_0001A.java
@@ -67,7 +67,7 @@ public class Homura {
     }
 
     public static void cmd_todo(String inp) {
-        TODO t = TODO.parse(inp);
+        Todo t = Todo.parse(inp);
         tasks.add(t);
         System.out.println(t.add_str());
         System.out.println(
@@ -102,7 +102,7 @@ public class Homura {
         if (i >= tasks.size()) {
             throw new InvalidInputHomuraException("delete", inp);
         }
-        TODO t = tasks.get(i);
+        Todo t = tasks.get(i);
         tasks.remove(i);
         System.out.println(
             indent + divider + '\n'
@@ -126,7 +126,7 @@ public class Homura {
                 break;
             }
 
-            // List items in the TODO list
+            // List items in the Todo list
             if (inp.equals("list")) {
                 print_items_formatted();
                 continue;
@@ -136,13 +136,13 @@ public class Homura {
             String cmd = split_inp[0].toLowerCase();
 
             switch (cmd) {
-                case "mark":   // Mark a TODO on the list
+                case "mark":   // Mark a Todo on the list
                     cmd_mark(inp);
                     break;
-                case "unmark":   // Unmark a TODO on the list
+                case "unmark":   // Unmark a Todo on the list
                     cmd_unmark(inp);
                     break;
-                case "todo":   // Add a TODO to the list
+                case "todo":   // Add a Todo to the list
                     cmd_todo(inp);
                     break;
                 case "deadline":   // Add a deadline to the list
@@ -176,7 +176,7 @@ public class Homura {
                 continue;
             }
 
-            // Add a TODO to the list
+            // Add a Todo to the list
             if (cmd.equals("todo")) {
                 cmd_todo(inp);
                 continue;

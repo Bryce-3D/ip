@@ -1,22 +1,22 @@
-public class TODO {
+public class Todo {
     public static final String indent = Homura.indent;
     public static final String divider = Homura.divider;
 
     public String description;
     public boolean is_done;
 
-    public TODO(String descr) {
+    public Todo(String descr) {
         description = descr;
         is_done = false;
     }
 
-    public static TODO parse(String inp) {
+    public static Todo parse(String inp) {
         inp = inp.strip();
         if (inp.length() <= 5) {
-            throw new EmptyInputHomuraException("TODO", inp);
+            throw new EmptyInputHomuraException("Todo", inp);
         }
         inp = inp.substring(5);   // Remove the "todo " in front
-        return new TODO(inp);
+        return new Todo(inp);
     }
 
     @Override

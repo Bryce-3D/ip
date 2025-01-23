@@ -1,11 +1,11 @@
-public class Deadline extends  TODO {
+public class Deadline extends Todo {
     /*
     Attributes from ToDo
         str  description
         bool is_done
      */
     public String deadline;
-    // TODO rename this to "by"
+    // Todo rename this to "by"
 
     public Deadline(String description, String deadline) {
         super(description);
@@ -15,7 +15,7 @@ public class Deadline extends  TODO {
     public static Deadline parse(String inp) {
         inp = inp.strip();
         if (inp.length() <= 9) {
-            throw new EmptyInputHomuraException("TODO", inp);
+            throw new EmptyInputHomuraException("Todo", inp);
         }
         try {
             inp = inp.substring(9);   // Remove the "deadline " in front
