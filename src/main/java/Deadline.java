@@ -31,12 +31,12 @@ public class Deadline extends Todo {
     @Override
     public String toString() {
         String ans = "[D]";
-        if (isDone) {
+        if (getIsDone()) {
             ans += "[✓] ";
         } else {
             ans += "[ ] ";
         }
-        ans += description + " (by: " + deadline + ")";
+        ans += getDescription() + " (by: " + deadline + ")";
         return ans;
     }
 }

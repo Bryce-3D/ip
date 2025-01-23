@@ -34,12 +34,12 @@ public class Event extends Todo {
     @Override
     public String toString() {
         String ans = "[E]";
-        if (isDone) {
+        if (getIsDone()) {
             ans += "[✓] ";
         } else {
             ans += "[ ] ";
         }
-        ans += description
+        ans += getDescription()
             + " (from: " + sta
             + " to: " + end + ")";
         return ans;

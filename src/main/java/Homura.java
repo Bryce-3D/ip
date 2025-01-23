@@ -48,7 +48,7 @@ public class Homura {
         // https://stackoverflow.com/questions/5585779/how-do-i-convert-a-string-to-an-int-in-java
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
-        tasks.get(i).isDone = true;
+        tasks.get(i).setIsDone(true);
         System.out.println(tasks.get(i).markStr());
         System.out.println('\n');
     }
@@ -56,7 +56,7 @@ public class Homura {
     public static void cmdUnmark(String inp) {
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
-        tasks.get(i).isDone = false;
+        tasks.get(i).setIsDone(false);
         System.out.println(tasks.get(i).unmarkStr());
         System.out.println('\n');
     }
