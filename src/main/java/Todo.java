@@ -1,6 +1,6 @@
 public class Todo {
-    private static final String INDENT = Homura.INDENT;
-    private static final String DIVIDER = Homura.DIVIDER;
+    private static final String INDENT = Homura.getINDENT();
+    private static final String DIVIDER = Homura.getDIVIDER();
 
     private String description;
     private boolean isDone;

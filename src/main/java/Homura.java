@@ -2,13 +2,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Homura {
-    public final static String INDENT = " ".repeat(4);
-    public final static String DIVIDER = "~".repeat(80);
+    private final static String INDENT = " ".repeat(4);
+    private final static String DIVIDER = "~".repeat(80);
     // How to read input inspired by
     // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/main/Java/0001-0100/CF_0001A.java
     private final static Scanner SC = new Scanner(System.in);
+    private static ArrayList<Todo> tasks = new ArrayList<Todo>();
 
-    public static ArrayList<Todo> tasks = new ArrayList<Todo>();
+    public static String getINDENT() { return INDENT; }
+    public static String getDIVIDER() { return DIVIDER; }
 
     public static String introMsg() {
         return INDENT + DIVIDER + '\n'
