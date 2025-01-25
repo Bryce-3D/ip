@@ -7,6 +7,10 @@ public class Deadline extends Todo {
     private String by;
     // Todo rename this to "by"
 
+    public String getBy() {
+        return by;
+    }
+
     public Deadline(String description, String by) {
         super(description);
         this.by = by;
