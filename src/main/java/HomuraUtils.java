@@ -15,7 +15,7 @@ public class HomuraUtils {
      * @param fn The filename.
      * @return The file contents or null.
      */
-    public static String read_file(String fn) {
+    public static String readFile(String fn) {
         File f = new File(fn);
         // How to read the contents of a file inspired by
         // https://stackoverflow.com/questions/72361778/how-can-i-get-java-to-read-all-text-in-file
@@ -35,7 +35,7 @@ public class HomuraUtils {
      * @param txt The text to write.
      * @param fn The filename.
      */
-    public static void write_file(String txt, String fn) {
+    public static void writeFile(String txt, String fn) {
         File f = new File(fn);
         try {
             f.createNewFile();

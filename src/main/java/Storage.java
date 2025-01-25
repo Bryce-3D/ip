@@ -16,7 +16,7 @@ public class Storage {
      * @param t The Todo to store.
      * @return The storage representation of t.
      */
-    public static String to_str(Todo t) {
+    public static String toStr(Todo t) {
         String ans = "t" + DIVIDER;
         if (t.getIsDone()) {
             ans += 1;
@@ -33,7 +33,7 @@ public class Storage {
      * @param d The Deadline to store.
      * @return The storage representation of d.
      */
-    public static String to_str(Deadline d) {
+    public static String toStr(Deadline d) {
         String ans = "d" + DIVIDER;
         if (d.getIsDone()) {
             ans += 1;
@@ -51,7 +51,7 @@ public class Storage {
      * @param e The Event to store.
      * @return The storage representation of e.
      */
-    public static String to_str(Event e) {
+    public static String toStr(Event e) {
         // e | 0 or 1 | descr | sta | end
         String ans = "e" + DIVIDER;
         if (e.getIsDone()) {
@@ -71,7 +71,7 @@ public class Storage {
      * @param s The storage String representation.
      * @return The corresponding Todo, Deadline, or Event.
      */
-    public static Todo from_str(String s) {
+    public static Todo fromStr(String s) {
         ArrayList<String> ss = HomuraUtils.split(s, DIVIDER);
         Todo ans;
         switch (ss.get(0)) {
