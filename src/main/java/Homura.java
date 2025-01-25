@@ -65,14 +65,17 @@ public class Homura {
 
 
     // Bot on/off logic ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
     /**
-     * Turn the bot on
+     * Turn the bot on.
      */
     public static void on() {
         todos = Storage.readTodos(TODOS_FILENAME);
         System.out.println(introMsg());
     }
+
+    /**
+     * Turn the bot off.
+     */
     public static void off() {
         Storage.writeTodos(todos, TODOS_FILENAME);
         System.out.println(byeMsg());
