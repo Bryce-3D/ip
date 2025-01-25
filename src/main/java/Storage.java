@@ -121,11 +121,11 @@ public class Storage {
      */
     public static ArrayList<Todo> readTodos(String fn) {
         String ftxt = HomuraUtils.readFile(fn);
+        if (ftxt == null) {
+            return new ArrayList<Todo>();
+        }
         ArrayList<String> txts = HomuraUtils.split(ftxt, "\n");
         ArrayList<Todo> ans = new ArrayList<Todo>();
-        if (ftxt == null) {
-            return ans;
-        }
         for (String txt : txts) {
             ans.add(fromStr(txt));
         }

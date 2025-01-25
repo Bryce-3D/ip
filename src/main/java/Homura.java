@@ -183,7 +183,7 @@ public class Homura {
     // Main ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public static void main(String[] args) {
         on();
-        
+
         while (true) {
             // How to read input inspired by
             // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/main/
@@ -192,7 +192,7 @@ public class Homura {
 
             // Exit the chatbot
             if (inp.equals("bye")) {
-                off()
+                off();
                 break;
             }
 
