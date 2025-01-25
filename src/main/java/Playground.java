@@ -5,6 +5,38 @@ import java.util.*;
 
 public class Playground {
     public static void main(String[] args) {
+        Todo t = new Todo("Waow");
+        Deadline d = new Deadline("stuff","now");
+        Event e = new Event("You", "now", "later");
+
+        ArrayList<Todo> a = new ArrayList<Todo>();
+        a.add(t); a.add(d); a.add(e);
+
+        String fn = "Test2.txt";
+        Storage.writeTodos(a,fn);
+        ArrayList<Todo> a0 = Storage.readTodos(fn);
+        HomuraUtils.printArrList(a0);
+
+
+
+
+
+
+
+
+//        ArrayList<String> a = new ArrayList<String>();
+//        a.add("a");
+//        a.add("b");
+//        a.add("c");
+//        HomuraUtils.printArrList(a);
+
+
+
+
+
+
+
+
 //        Todo t = new Todo("Waow");
 //        Deadline d = new Deadline("stuff","now");
 //        Event e = new Event("You", "now", "later");
