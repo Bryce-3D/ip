@@ -72,7 +72,6 @@ public class Homura {
         todos = Storage.readTodos(TODOS_FILENAME);
         System.out.println(introMsg());
     }
-
     /**
      * Turn the bot off.
      */
@@ -183,7 +182,8 @@ public class Homura {
 
     // Main ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public static void main(String[] args) {
-        System.out.println(introMsg());
+        on();
+        
         while (true) {
             // How to read input inspired by
             // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/main/
@@ -192,7 +192,7 @@ public class Homura {
 
             // Exit the chatbot
             if (inp.equals("bye")) {
-                System.out.println(byeMsg());
+                off()
                 break;
             }
 
