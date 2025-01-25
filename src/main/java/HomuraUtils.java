@@ -86,4 +86,10 @@ public class HomuraUtils {
         }
         return ans;
     }
+
+    public static void printArrList(ArrayList<? extends Object> a) {
+        for (Object o : a) {
+            System.out.println(o);
+        }
+    }
 }
