@@ -27,7 +27,7 @@ public class Playground {
 
 
         String s0 = "Wait | what | ???";
-        ArrayList<String> ss = Storage.split(s0," | ");
+        ArrayList<String> ss = HomuraUtils.split(s0," | ");
         for (String s : ss) {
             System.out.println(s);
         }
