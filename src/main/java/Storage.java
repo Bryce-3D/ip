@@ -120,7 +120,7 @@ public class Storage {
     public static ArrayList<Todo> readTodos(String fn) {
         String ftxt = HomuraUtils.readFile(fn);
         if (ftxt == null) {
-            return null;
+            return new ArrayList<Todo>();
         }
         ArrayList<String> txts = HomuraUtils.split(ftxt, "\n");
         ArrayList<Todo> ans = new ArrayList<Todo>();
