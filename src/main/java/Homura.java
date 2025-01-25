@@ -2,57 +2,88 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Homura {
+    // Attributes/Fields ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public final static String INDENT = " ".repeat(4);
     public final static String DIVIDER = "~".repeat(80);
 
     // How to read input inspired by
-    // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/main/Java/0001-0100/CF_0001A.java
+    // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/
+    // main/Java/0001-0100/CF_0001A.java
     private final static Scanner SC = new Scanner(System.in);
     private static ArrayList<Todo> tasks = new ArrayList<Todo>();
 
+
+    // Bot Messages ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    /**
+     * Generates the message on bot startup.
+     *
+     * @return The message on bot startup.
+     */
     public static String introMsg() {
         return INDENT + DIVIDER + '\n'
                 + INDENT + " Hi, I'm Akemi Homura.\n"
                 + INDENT + " Have you seem Madoka anywhere?\n"
                 + INDENT + DIVIDER + '\n';
     }
-
+    /**
+     * Generates the message on bot shutdown.
+     *
+     * @return The message on bot shutdown.
+     */
     public static String byeMsg() {
         return INDENT + DIVIDER + '\n'
                 + INDENT + " No matter what, don't become a magical girl.\n"
                 + INDENT + " Farewell.\n"
                 + INDENT + DIVIDER;
     }
-
+    /**
+     * Prints the todos to the command line interface.
+     */
     public static void printTodos() {
         ArrayList<String> numberedTasks = new ArrayList<String>();
         for (int i = 0; i < tasks.size(); i++) {
             // Converting int to string representation inspired by
-            // https://stackoverflow.com/questions/5071040/java-convert-integer-to-string
+            // https://stackoverflow.com/questions/5071040/
+            // java-convert-integer-to-string
             numberedTasks.add((i+1) + ".) " + tasks.get(i));
         }
         for (String item : numberedTasks) {
             System.out.println(INDENT + " " + item);
         }
     }
-
+    /**
+     * Prints the todos to the command line interface with dividers.
+     */
     public static void printTodosFormatted() {
         System.out.println(INDENT + DIVIDER);
-        System.out.println(INDENT + " " + tasks.size() + " tasks(s) in your list");
+        System.out.println(INDENT + " "
+                + tasks.size() + " tasks(s) in your list");
         printTodos();
         System.out.println(INDENT + DIVIDER + '\n');
     }
 
+
+    // Bot commands logic ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    /**
+     * Handles the logic of the mark command.
+     *
+     * @param inp The full line of input to the bot.
+     */
     public static void cmdMark(String inp) {
         // How to convert String to int inspired by
-        // https://stackoverflow.com/questions/5585779/how-do-i-convert-a-string-to-an-int-in-java
+        // https://stackoverflow.com/questions/5585779/
+        // how-do-i-convert-a-string-to-an-int-in-java
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
         tasks.get(i).setIsDone(true);
         System.out.println(tasks.get(i).markStr());
         System.out.println('\n');
     }
-
+    /**
+     * Handles the logic of the unmark command.
+     *
+     * @param inp The full line of input to the bot.
+     */
     public static void cmdUnmark(String inp) {
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
@@ -60,17 +91,26 @@ public class Homura {
         System.out.println(tasks.get(i).unmarkStr());
         System.out.println('\n');
     }
-
+    /**
+     * Handles the logic of the todo command.
+     *
+     * @param inp The full line of input to the bot.
+     */
     public static void cmdTodo(String inp) {
         Todo t = Todo.parse(inp);
         tasks.add(t);
         System.out.println(t.addStr());
         System.out.println(
-                INDENT + " " + tasks.size() + " task(s) in your list" + '\n'
+                INDENT + " " + tasks.size()
+                + " task(s) in your list" + '\n'
                 + INDENT + DIVIDER + '\n'
         );
     }
-
+    /**
+     * Handles the logic of the deadline command.
+     *
+     * @param inp The full line of input to the bot.
+     */
     public static void cmdDeadline(String inp) {
         Deadline d = Deadline.parse(inp);
         tasks.add(d);
@@ -80,7 +120,11 @@ public class Homura {
                 + INDENT + DIVIDER + '\n'
         );
     }
-
+    /**
+     * Handles the logic of the event command.
+     *
+     * @param inp The full line of input to the bot.
+     */
     public static void cmdEvent(String inp) {
         Event e = Event.parse(inp);
         tasks.add(e);
@@ -90,7 +134,11 @@ public class Homura {
                 + INDENT + DIVIDER + '\n'
         );
     }
-
+    /**
+     * Handles the logic of the delete command.
+     *
+     * @param inp The full line of input to the bot.
+     */
     public static void cmdDelete(String inp) {
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
@@ -101,18 +149,23 @@ public class Homura {
         tasks.remove(i);
         System.out.println(
                 INDENT + DIVIDER + '\n'
-                + INDENT + " " + t.getClass().getSimpleName() + " removed" + '\n'
+                + INDENT + " " + t.getClass().getSimpleName()
+                + " removed" + '\n'
                 + INDENT + INDENT + t + '\n'
-                + INDENT + " " + tasks.size() + " tasks(s) in your list" + '\n'
+                + INDENT + " " + tasks.size()
+                + " tasks(s) in your list" + '\n'
                 + INDENT + DIVIDER + '\n'
         );
     }
 
+
+    // Main ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public static void main(String[] args) {
         System.out.println(introMsg());
         while (true) {
             // How to read input inspired by
-            // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/main/Java/0001-0100/CF_0001A.java
+            // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/main/
+            // Java/0001-0100/CF_0001A.java
             String inp = SC.nextLine();
 
             // Exit the chatbot
@@ -151,7 +204,6 @@ public class Homura {
                 break;
             default:   // Not a command
                 throw new InvalidCmdHomuraException(cmd);
-//                    break;
             }
         }
     }
