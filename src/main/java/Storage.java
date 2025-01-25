@@ -110,20 +110,22 @@ public class Storage {
         return ans;
     }
 
+
     // Functions to read/write the Todos ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Read a list of Todos from a file.
+     * Returns an empty list if the file does not exist.
      *
      * @param fn The file name being read from.
      * @return The ArrayList of Todos.
      */
     public static ArrayList<Todo> readTodos(String fn) {
         String ftxt = HomuraUtils.readFile(fn);
-        if (ftxt == null) {
-            return new ArrayList<Todo>();
-        }
         ArrayList<String> txts = HomuraUtils.split(ftxt, "\n");
         ArrayList<Todo> ans = new ArrayList<Todo>();
+        if (ftxt == null) {
+            return ans;
+        }
         for (String txt : txts) {
             ans.add(fromStr(txt));
         }
@@ -131,6 +133,7 @@ public class Storage {
     }
     /**
      * Write a list of Todos to a file.
+     * Will overwrite the given file if it already exists.
      *
      * @param tasks The Todos to write.
      * @param fn The filename being written to.
