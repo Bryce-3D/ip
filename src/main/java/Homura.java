@@ -5,12 +5,13 @@ public class Homura {
     // Attributes/Fields ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public final static String INDENT = " ".repeat(4);
     public final static String DIVIDER = "~".repeat(80);
+    public final static String FILENAME = "HomuraTodos.txt";
 
     // How to read input inspired by
     // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/
     // main/Java/0001-0100/CF_0001A.java
     private final static Scanner SC = new Scanner(System.in);
-    private static ArrayList<Todo> tasks = new ArrayList<Todo>();
+    private static ArrayList<Todo> todos = new ArrayList<Todo>();
 
 
     // Bot Messages ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -41,11 +42,11 @@ public class Homura {
      */
     public static void printTodos() {
         ArrayList<String> numberedTasks = new ArrayList<String>();
-        for (int i = 0; i < tasks.size(); i++) {
+        for (int i = 0; i < todos.size(); i++) {
             // Converting int to string representation inspired by
             // https://stackoverflow.com/questions/5071040/
             // java-convert-integer-to-string
-            numberedTasks.add((i+1) + ".) " + tasks.get(i));
+            numberedTasks.add((i+1) + ".) " + todos.get(i));
         }
         for (String item : numberedTasks) {
             System.out.println(INDENT + " " + item);
@@ -57,7 +58,7 @@ public class Homura {
     public static void printTodosFormatted() {
         System.out.println(INDENT + DIVIDER);
         System.out.println(INDENT + " "
-                + tasks.size() + " tasks(s) in your list");
+                + todos.size() + " tasks(s) in your list");
         printTodos();
         System.out.println(INDENT + DIVIDER + '\n');
     }
@@ -75,8 +76,8 @@ public class Homura {
         // how-do-i-convert-a-string-to-an-int-in-java
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
-        tasks.get(i).setIsDone(true);
-        System.out.println(tasks.get(i).markStr());
+        todos.get(i).setIsDone(true);
+        System.out.println(todos.get(i).markStr());
         System.out.println('\n');
     }
     /**
@@ -87,8 +88,8 @@ public class Homura {
     public static void cmdUnmark(String inp) {
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
-        tasks.get(i).setIsDone(false);
-        System.out.println(tasks.get(i).unmarkStr());
+        todos.get(i).setIsDone(false);
+        System.out.println(todos.get(i).unmarkStr());
         System.out.println('\n');
     }
     /**
@@ -98,10 +99,10 @@ public class Homura {
      */
     public static void cmdTodo(String inp) {
         Todo t = Todo.parse(inp);
-        tasks.add(t);
+        todos.add(t);
         System.out.println(t.addStr());
         System.out.println(
-                INDENT + " " + tasks.size()
+                INDENT + " " + todos.size()
                 + " task(s) in your list" + '\n'
                 + INDENT + DIVIDER + '\n'
         );
@@ -113,10 +114,10 @@ public class Homura {
      */
     public static void cmdDeadline(String inp) {
         Deadline d = Deadline.parse(inp);
-        tasks.add(d);
+        todos.add(d);
         System.out.println(d.addStr());
         System.out.println(
-                INDENT + " " + tasks.size() + " task(s) in your list" + '\n'
+                INDENT + " " + todos.size() + " task(s) in your list" + '\n'
                 + INDENT + DIVIDER + '\n'
         );
     }
@@ -127,10 +128,10 @@ public class Homura {
      */
     public static void cmdEvent(String inp) {
         Event e = Event.parse(inp);
-        tasks.add(e);
+        todos.add(e);
         System.out.println(e.addStr());
         System.out.println(
-                INDENT + " " + tasks.size() + " task(s) in your list" + '\n'
+                INDENT + " " + todos.size() + " task(s) in your list" + '\n'
                 + INDENT + DIVIDER + '\n'
         );
     }
@@ -142,17 +143,17 @@ public class Homura {
     public static void cmdDelete(String inp) {
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
-        if (i >= tasks.size()) {
+        if (i >= todos.size()) {
             throw new InvalidInputHomuraException("delete", inp);
         }
-        Todo t = tasks.get(i);
-        tasks.remove(i);
+        Todo t = todos.get(i);
+        todos.remove(i);
         System.out.println(
                 INDENT + DIVIDER + '\n'
                 + INDENT + " " + t.getClass().getSimpleName()
                 + " removed" + '\n'
                 + INDENT + INDENT + t + '\n'
-                + INDENT + " " + tasks.size()
+                + INDENT + " " + todos.size()
                 + " tasks(s) in your list" + '\n'
                 + INDENT + DIVIDER + '\n'
         );
@@ -160,7 +161,7 @@ public class Homura {
 
 
 
-    
+
 
     // Main ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public static void main(String[] args) {
