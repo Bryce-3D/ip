@@ -65,6 +65,12 @@ public class Storage {
         return ans;
     }
 
+    /**
+     * Convert a storage String to a Todo or one of its subclasses.
+     *
+     * @param s The storage String representation.
+     * @return The corresponding Todo, Deadline, or Event.
+     */
     public static Todo from_str(String s) {
         ArrayList<String> ss = HomuraUtils.split(s, DIVIDER);
         Todo ans;
