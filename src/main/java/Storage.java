@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Storage {
-    public static final String DIVIDER = "|||";
-    
+    public static final String DIVIDER = " | ";
+
     // Todo <-> Storage String conversions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Convert a Todo to a String representation for storage.
@@ -66,28 +66,22 @@ public class Storage {
     }
 
     public static Todo from_str(String s) {
-        // TODO !!!!! CuRRENTLY BUGGY !!!!! TODO
-        String[] ss = s.split(DIVIDER);
-
-        for (String s0 : ss) {
-            System.out.println(s0);
-        }
-
+        ArrayList<String> ss = HomuraUtils.split(s, DIVIDER);
         Todo ans;
-        switch (ss[0]) {
+        switch (ss.get(0)) {
         case "t":
-            ans = new Todo(ss[3]);
+            ans = new Todo(ss.get(2));
             break;
         case "d":
-            ans = new Deadline(ss[2],ss[3]);
+            ans = new Deadline(ss.get(2),ss.get(3));
             break;
         case "e":
-            ans = new Event(ss[2],ss[3],ss[4]);
+            ans = new Event(ss.get(2),ss.get(3),ss.get(4));
             break;
         default:
             return null;
         }
-        if (ss[1].equals("1")) {
+        if (ss.get(1).equals("1")) {
             ans.setIsDone(true);
         }
         return ans;
