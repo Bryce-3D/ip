@@ -7,6 +7,13 @@ public class Event extends Todo {
     private String sta;
     private String end;
 
+    public String getSta() {
+        return sta;
+    }
+    public String getEnd() {
+        return end;
+    }
+
     public Event(String description, String sta, String end) {
         super(description);
         this.sta = sta;

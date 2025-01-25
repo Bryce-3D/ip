@@ -4,12 +4,16 @@ public class Deadline extends Todo {
         str  description
         bool isDone
      */
-    private String deadline;
+    private String by;
     // Todo rename this to "by"
 
-    public Deadline(String description, String deadline) {
+    public String getBy() {
+        return by;
+    }
+
+    public Deadline(String description, String by) {
         super(description);
-        this.deadline = deadline;
+        this.by = by;
     }
 
     public static Deadline parse(String inp) {
@@ -21,8 +25,8 @@ public class Deadline extends Todo {
             inp = inp.substring(9);   // Remove the "deadline " in front
             String[] splitInps = inp.split(" /by ");
             String descr = splitInps[0];
-            String deadline = splitInps[1];
-            return new Deadline(descr, deadline);
+            String by = splitInps[1];
+            return new Deadline(descr, by);
         } catch (Exception e) {
             throw new InvalidInputHomuraException("deadline", inp);
         }
@@ -36,7 +40,7 @@ public class Deadline extends Todo {
         } else {
             ans += "[ ] ";
         }
-        ans += getDescription() + " (by: " + deadline + ")";
+        ans += getDescription() + " (by: " + by + ")";
         return ans;
     }
 }

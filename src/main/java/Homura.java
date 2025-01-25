@@ -2,122 +2,197 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Homura {
+    // Attributes/Fields ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public final static String INDENT = " ".repeat(4);
     public final static String DIVIDER = "~".repeat(80);
+    public final static String TODOS_FILENAME = "HomuraTodos.txt";
 
     // How to read input inspired by
-    // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/main/Java/0001-0100/CF_0001A.java
+    // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/
+    // main/Java/0001-0100/CF_0001A.java
     private final static Scanner SC = new Scanner(System.in);
-    private static ArrayList<Todo> tasks = new ArrayList<Todo>();
+    private static ArrayList<Todo> todos = new ArrayList<Todo>();
 
+
+    // Bot Messages ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    /**
+     * Generates the message on bot startup.
+     *
+     * @return The message on bot startup.
+     */
     public static String introMsg() {
         return INDENT + DIVIDER + '\n'
                 + INDENT + " Hi, I'm Akemi Homura.\n"
                 + INDENT + " Have you seem Madoka anywhere?\n"
                 + INDENT + DIVIDER + '\n';
     }
-
+    /**
+     * Generates the message on bot shutdown.
+     *
+     * @return The message on bot shutdown.
+     */
     public static String byeMsg() {
         return INDENT + DIVIDER + '\n'
                 + INDENT + " No matter what, don't become a magical girl.\n"
                 + INDENT + " Farewell.\n"
                 + INDENT + DIVIDER;
     }
-
+    /**
+     * Prints the todos to the command line interface.
+     */
     public static void printTodos() {
         ArrayList<String> numberedTasks = new ArrayList<String>();
-        for (int i = 0; i < tasks.size(); i++) {
+        for (int i = 0; i < todos.size(); i++) {
             // Converting int to string representation inspired by
-            // https://stackoverflow.com/questions/5071040/java-convert-integer-to-string
-            numberedTasks.add((i+1) + ".) " + tasks.get(i));
+            // https://stackoverflow.com/questions/5071040/
+            // java-convert-integer-to-string
+            numberedTasks.add((i+1) + ".) " + todos.get(i));
         }
         for (String item : numberedTasks) {
             System.out.println(INDENT + " " + item);
         }
     }
-
+    /**
+     * Prints the todos to the command line interface with dividers.
+     */
     public static void printTodosFormatted() {
         System.out.println(INDENT + DIVIDER);
-        System.out.println(INDENT + " " + tasks.size() + " tasks(s) in your list");
+        System.out.println(INDENT + " "
+                + todos.size() + " tasks(s) in your list");
         printTodos();
         System.out.println(INDENT + DIVIDER + '\n');
     }
 
-    public static void cmdMark(String inp) {
-        // How to convert String to int inspired by
-        // https://stackoverflow.com/questions/5585779/how-do-i-convert-a-string-to-an-int-in-java
-        String[] splitInps = inp.split(" ");
-        int i = Integer.parseInt(splitInps[1]) - 1;
-        tasks.get(i).setIsDone(true);
-        System.out.println(tasks.get(i).markStr());
-        System.out.println('\n');
+
+    // Bot on/off logic ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    /**
+     * Turn the bot on.
+     */
+    public static void on() {
+        todos = Storage.readTodos(TODOS_FILENAME);
+        System.out.println(introMsg());
+    }
+    /**
+     * Turn the bot off.
+     */
+    public static void off() {
+        Storage.writeTodos(todos, TODOS_FILENAME);
+        System.out.println(byeMsg());
     }
 
+
+    // Bot commands logic ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    /**
+     * Handles the logic of the mark command.
+     *
+     * @param inp The full line of input to the bot.
+     */
+    public static void cmdMark(String inp) {
+        // How to convert String to int inspired by
+        // https://stackoverflow.com/questions/5585779/
+        // how-do-i-convert-a-string-to-an-int-in-java
+        String[] splitInps = inp.split(" ");
+        int i = Integer.parseInt(splitInps[1]) - 1;
+        todos.get(i).setIsDone(true);
+        System.out.println(todos.get(i).markStr());
+        System.out.println('\n');
+    }
+    /**
+     * Handles the logic of the unmark command.
+     *
+     * @param inp The full line of input to the bot.
+     */
     public static void cmdUnmark(String inp) {
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
-        tasks.get(i).setIsDone(false);
-        System.out.println(tasks.get(i).unmarkStr());
+        todos.get(i).setIsDone(false);
+        System.out.println(todos.get(i).unmarkStr());
         System.out.println('\n');
     }
-
+    /**
+     * Handles the logic of the todo command.
+     *
+     * @param inp The full line of input to the bot.
+     */
     public static void cmdTodo(String inp) {
         Todo t = Todo.parse(inp);
-        tasks.add(t);
+        todos.add(t);
         System.out.println(t.addStr());
         System.out.println(
-                INDENT + " " + tasks.size() + " task(s) in your list" + '\n'
+                INDENT + " " + todos.size()
+                + " task(s) in your list" + '\n'
                 + INDENT + DIVIDER + '\n'
         );
     }
-
+    /**
+     * Handles the logic of the deadline command.
+     *
+     * @param inp The full line of input to the bot.
+     */
     public static void cmdDeadline(String inp) {
         Deadline d = Deadline.parse(inp);
-        tasks.add(d);
+        todos.add(d);
         System.out.println(d.addStr());
         System.out.println(
-                INDENT + " " + tasks.size() + " task(s) in your list" + '\n'
+                INDENT + " " + todos.size() + " task(s) in your list" + '\n'
                 + INDENT + DIVIDER + '\n'
         );
     }
-
+    /**
+     * Handles the logic of the event command.
+     *
+     * @param inp The full line of input to the bot.
+     */
     public static void cmdEvent(String inp) {
         Event e = Event.parse(inp);
-        tasks.add(e);
+        todos.add(e);
         System.out.println(e.addStr());
         System.out.println(
-                INDENT + " " + tasks.size() + " task(s) in your list" + '\n'
+                INDENT + " " + todos.size() + " task(s) in your list" + '\n'
                 + INDENT + DIVIDER + '\n'
         );
     }
-
+    /**
+     * Handles the logic of the delete command.
+     *
+     * @param inp The full line of input to the bot.
+     */
     public static void cmdDelete(String inp) {
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
-        if (i >= tasks.size()) {
+        if (i >= todos.size()) {
             throw new InvalidInputHomuraException("delete", inp);
         }
-        Todo t = tasks.get(i);
-        tasks.remove(i);
+        Todo t = todos.get(i);
+        todos.remove(i);
         System.out.println(
                 INDENT + DIVIDER + '\n'
-                + INDENT + " " + t.getClass().getSimpleName() + " removed" + '\n'
+                + INDENT + " " + t.getClass().getSimpleName()
+                + " removed" + '\n'
                 + INDENT + INDENT + t + '\n'
-                + INDENT + " " + tasks.size() + " tasks(s) in your list" + '\n'
+                + INDENT + " " + todos.size()
+                + " tasks(s) in your list" + '\n'
                 + INDENT + DIVIDER + '\n'
         );
     }
 
+
+
+
+
+    // Main ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public static void main(String[] args) {
-        System.out.println(introMsg());
+        on();
+
         while (true) {
             // How to read input inspired by
-            // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/main/Java/0001-0100/CF_0001A.java
+            // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/main/
+            // Java/0001-0100/CF_0001A.java
             String inp = SC.nextLine();
 
             // Exit the chatbot
             if (inp.equals("bye")) {
-                System.out.println(byeMsg());
+                off();
                 break;
             }
 
@@ -151,7 +226,6 @@ public class Homura {
                 break;
             default:   // Not a command
                 throw new InvalidCmdHomuraException(cmd);
-//                    break;
             }
         }
     }
