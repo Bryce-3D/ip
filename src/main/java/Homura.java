@@ -5,7 +5,7 @@ public class Homura {
     // Attributes/Fields ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public final static String INDENT = " ".repeat(4);
     public final static String DIVIDER = "~".repeat(80);
-    public final static String FILENAME = "HomuraTodos.txt";
+    public final static String TODOS_FILENAME = "HomuraTodos.txt";
 
     // How to read input inspired by
     // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/
@@ -61,6 +61,21 @@ public class Homura {
                 + todos.size() + " tasks(s) in your list");
         printTodos();
         System.out.println(INDENT + DIVIDER + '\n');
+    }
+
+
+    // Bot on/off logic ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    /**
+     * Turn the bot on
+     */
+    public static void on() {
+        todos = Storage.readTodos(TODOS_FILENAME);
+        System.out.println(introMsg());
+    }
+    public static void off() {
+        Storage.writeTodos(todos, TODOS_FILENAME);
+        System.out.println(byeMsg());
     }
 
 
