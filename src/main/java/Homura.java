@@ -115,7 +115,7 @@ public class Homura {
      * @param inp The full line of input to the bot.
      */
     public static void cmdTodo(String inp) {
-        Todo t = Todo.parse(inp);
+        Todo t = Todo.parseUserInp(inp);
         todos.add(t);
         System.out.println(t.addStr());
         System.out.println(
@@ -130,7 +130,7 @@ public class Homura {
      * @param inp The full line of input to the bot.
      */
     public static void cmdDeadline(String inp) {
-        Deadline d = Deadline.parse(inp);
+        Deadline d = Deadline.parseUserInp(inp);
         todos.add(d);
         System.out.println(d.addStr());
         System.out.println(
@@ -144,7 +144,7 @@ public class Homura {
      * @param inp The full line of input to the bot.
      */
     public static void cmdEvent(String inp) {
-        Event e = Event.parse(inp);
+        Event e = Event.parseUserInp(inp);
         todos.add(e);
         System.out.println(e.addStr());
         System.out.println(
@@ -230,6 +230,10 @@ public class Homura {
         }
     }
 }
+
+
+
+
 
 // RECYCLING BIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 /*

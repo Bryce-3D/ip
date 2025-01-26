@@ -3,11 +3,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Event extends Todo {
-    /*
-    Attributes from ToDo
-        str  description
-        bool isDone
-     */
+    // Attributes + Getters and Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // Todo.str  description
+    // Todo.bool isDone
     private LocalDate sta;
     private LocalDate end;
 
@@ -18,6 +16,12 @@ public class Event extends Todo {
     public static final DateTimeFormatter dtfToStorage
             = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
+    public LocalDate getSta() { return sta; }
+    public LocalDate getEnd() { return end; }
+
+
+
+    // Constructors and Factory Methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public Event(String description, LocalDate sta, LocalDate end) {
         super(description);
         this.sta = sta;
@@ -28,63 +32,7 @@ public class Event extends Todo {
         this.sta = LocalDate.parse(staStr, dtfParse);
         this.end = LocalDate.parse(endStr, dtfParse);
     }
-
-    public LocalDate getSta() {
-        return sta;
-    }
-    public LocalDate getEnd() {
-        return end;
-    }
-
-    @Override
-    public String toString() {
-        String ans = "[E]";
-        if (getIsDone()) {
-            ans += "[✓] ";
-        } else {
-            ans += "[ ] ";
-        }
-        ans += getDescription()
-                + " (from: " + sta.format(dtfToString)
-                + " to: " + end.format(dtfToString) + ")";
-        return ans;
-    }
-
-    /**
-     * Converts a storage string representation to an Event.
-     *
-     * @param s The storage string.
-     * @return The Event.
-     */
-    public static Event fromStorageStr(String s) {
-        ArrayList<String> ss = HomuraUtils.split(s, Storage.DIVIDER);
-        Event ans = new Event(ss.get(2),ss.get(3),ss.get(4));
-        if (ss.get(1).equals("1")) {
-            ans.setIsDone(true);
-        }
-        return ans;
-    }
-    /**
-     * Converts to a String representation for storage.
-     * The current format is `e | 0 or 1 | descr | sta | end`.
-     *
-     * @return The storage representation.
-     */
-    @Override
-    public String toStorageStr() {
-        String ans = "e" + Storage.DIVIDER;
-        if (getIsDone()) {
-            ans += 1;
-        } else {
-            ans += 0;
-        }
-        ans += Storage.DIVIDER + getDescription()
-                + Storage.DIVIDER + sta
-                + Storage.DIVIDER + end;
-        return ans;
-    }
-
-    public static Event parse(String inp) {
+    public static Event parseUserInp(String inp) {
         inp = inp.strip();
         if (inp.length() <= 6) {
             throw new EmptyInputHomuraException("Todo", inp);
@@ -101,9 +49,69 @@ public class Event extends Todo {
             throw new InvalidInputHomuraException("event", inp);
         }
     }
+
+
+
+    // String Methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    @Override
+    public String toString() {
+        String ans = "[E]";
+        if (getIsDone()) {
+            ans += "[✓] ";
+        } else {
+            ans += "[ ] ";
+        }
+        ans += getDescription()
+                + " (from: " + sta.format(dtfToString)
+                + " to: " + end.format(dtfToString) + ")";
+        return ans;
+    }
+    public static Event fromStorageStr(String s) {
+        ArrayList<String> ss = HomuraUtils.split(s, Storage.DIVIDER);
+        Event ans = new Event(ss.get(2),ss.get(3),ss.get(4));
+        if (ss.get(1).equals("1")) {
+            ans.setIsDone(true);
+        }
+        return ans;
+    }
+    @Override
+    public String toStorageStr() {
+        // e | 0 or 1 | descr | sta | end
+        String ans = "e" + Storage.DIVIDER;
+        if (getIsDone()) {
+            ans += 1;
+        } else {
+            ans += 0;
+        }
+        ans += Storage.DIVIDER + getDescription()
+                + Storage.DIVIDER + sta.format(dtfToStorage)
+                + Storage.DIVIDER + end.format(dtfToStorage);
+        return ans;
+    }
 }
 
+
+
+
+
 // Recycling Bin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    /**
+     * Converts a storage string representation to an Event.
+     *
+     * @param s The storage string.
+     * @return The Event.
+     */
+
+    /**
+     * Converts to a String representation for storage.
+     * The current format is `e | 0 or 1 | descr | sta | end`.
+     *
+     * @return The storage representation.
+     */
+
+
+
 /*
     @Override
     public String mark_str() {
