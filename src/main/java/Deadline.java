@@ -1,18 +1,33 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 public class Deadline extends Todo {
     /*
     Attributes from ToDo
         str  description
         bool isDone
      */
-    private String by;
-    // Todo rename this to "by"
+    private LocalDate by;
 
-    public Deadline(String description, String by) {
+    public static final DateTimeFormatter dtfParse
+            = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    public static final DateTimeFormatter dtfToString
+            = DateTimeFormatter.ofPattern("MMM dd yyyy");
+    public static final DateTimeFormatter dtfToStorage
+            = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+    public Deadline(String description, LocalDate by) {
         super(description);
         this.by = by;
     }
 
-    public String getBy() {
+    public Deadline(String description, String byStr) {
+        super(description);
+        by = LocalDate.parse(byStr, dtfParse);
+    }
+
+    public LocalDate getBy() {
         return by;
     }
 
@@ -31,24 +46,37 @@ public class Deadline extends Todo {
             ans += 0;
         }
         ans += Storage.DIVIDER + getDescription()
-                + Storage.DIVIDER + by;
+                + Storage.DIVIDER + by.format(dtfToStorage);
         return ans;
     }
+    // TODO
+    /*
+    - Implement a fromStorageStr() function
+    - Replicate similar updates to Event.java
+    - Also implement fromStorageStr() in Todo.java
+    - Update how Storage.writeTodos() words (likely deprecating
+      Storage.fromStr() in the process)
+     */
 
     public static Deadline parse(String inp) {
         inp = inp.strip();
         if (inp.length() <= 9) {
             throw new EmptyInputHomuraException("Todo", inp);
         }
-        try {
-            inp = inp.substring(9);   // Remove the "deadline " in front
-            String[] splitInps = inp.split(" /by ");
-            String descr = splitInps[0];
-            String by = splitInps[1];
-            return new Deadline(descr, by);
-        } catch (Exception e) {
-            throw new InvalidInputHomuraException("deadline", inp);
-        }
+        inp = inp.substring(9);   // Remove the "deadline " in front
+        String[] splitInps = inp.split(" /by ");
+        String descr = splitInps[0];
+        String byStr = splitInps[1];
+        return new Deadline(descr,byStr);
+//        try {
+//            inp = inp.substring(9);   // Remove the "deadline " in front
+//            String[] splitInps = inp.split(" /by ");
+//            String descr = splitInps[0];
+//            String byStr = splitInps[1];
+//            return new Deadline(descr,byStr);
+//        } catch (Exception e) {
+//            throw new InvalidInputHomuraException("deadline", inp);
+//        }
     }
 
     @Override
@@ -59,7 +87,8 @@ public class Deadline extends Todo {
         } else {
             ans += "[ ] ";
         }
-        ans += getDescription() + " (by: " + by + ")";
+        ans += getDescription() + " (by: "
+                + by.format(dtfToString) + ")";
         return ans;
     }
 }
