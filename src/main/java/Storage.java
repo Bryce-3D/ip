@@ -21,21 +21,14 @@ public class Storage {
         Todo ans;
         switch (ss.get(0)) {
         case "t":
-            ans = new Todo(ss.get(2));
-            break;
+            return Todo.fromStorageStr(s);
         case "d":
-            ans = new Deadline(ss.get(2),ss.get(3));
-            break;
+            return Deadline.fromStorageStr(s);
         case "e":
-            ans = new Event(ss.get(2),ss.get(3),ss.get(4));
-            break;
+            return Event.fromStorageStr(s);
         default:
             return null;
         }
-        if (ss.get(1).equals("1")) {
-            ans.setIsDone(true);
-        }
-        return ans;
     }
 
 

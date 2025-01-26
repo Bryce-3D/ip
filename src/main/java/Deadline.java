@@ -82,7 +82,7 @@ public class Deadline extends Todo {
     - Implement a fromStorageStr() function
     - Replicate similar updates to Event.java
     - Also implement fromStorageStr() in Todo.java
-    - Update how Storage.writeTodos() words (likely deprecating
+    - Update how Storage.readTodos() words (likely deprecating
       Storage.fromStr() in the process)
      */
 
