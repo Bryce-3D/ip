@@ -31,6 +31,23 @@ public class Todo {
             return "[T][ ] " + description;
         }
     }
+    
+    /**
+     * Convert to a String representation for storage.
+     * The current format is `t | 0 or 1 | descr`.
+     *
+     * @return The storage representation.
+     */
+    public String toStorageStr() {
+        String ans = "t" + Storage.DIVIDER;
+        if (isDone) {
+            ans += 1;
+        } else {
+            ans += 0;
+        }
+        ans += Storage.DIVIDER + description;
+        return ans;
+    }
 
     public String addStr() {
         // Getting class name as a string inspired by

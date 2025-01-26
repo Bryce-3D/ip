@@ -7,6 +7,12 @@ public class Event extends Todo {
     private String sta;
     private String end;
 
+    public Event(String description, String sta, String end) {
+        super(description);
+        this.sta = sta;
+        this.end = end;
+    }
+
     public String getSta() {
         return sta;
     }
@@ -14,10 +20,24 @@ public class Event extends Todo {
         return end;
     }
 
-    public Event(String description, String sta, String end) {
-        super(description);
-        this.sta = sta;
-        this.end = end;
+    /**
+     * Convert to a String representation for storage.
+     * The current format is `e | 0 or 1 | descr | sta | end`.
+     *
+     * @return The storage representation.
+     */
+    @Override
+    public String toStorageStr() {
+        String ans = "e" + Storage.DIVIDER;
+        if (getIsDone()) {
+            ans += 1;
+        } else {
+            ans += 0;
+        }
+        ans += Storage.DIVIDER + getDescription()
+                + Storage.DIVIDER + sta
+                + Storage.DIVIDER + end;
+        return ans;
     }
 
     public static Event parse(String inp) {

@@ -7,13 +7,32 @@ public class Deadline extends Todo {
     private String by;
     // Todo rename this to "by"
 
+    public Deadline(String description, String by) {
+        super(description);
+        this.by = by;
+    }
+
     public String getBy() {
         return by;
     }
 
-    public Deadline(String description, String by) {
-        super(description);
-        this.by = by;
+    /**
+     * Convert to a String representation for storage.
+     * The current format is `d | 0 or 1 | descr | by`.
+     *
+     * @return The storage representation.
+     */
+    @Override
+    public String toStorageStr() {
+        String ans = "d" + Storage.DIVIDER;
+        if (getIsDone()) {
+            ans += 1;
+        } else {
+            ans += 0;
+        }
+        ans += Storage.DIVIDER + getDescription()
+                + Storage.DIVIDER + by;
+        return ans;
     }
 
     public static Deadline parse(String inp) {
