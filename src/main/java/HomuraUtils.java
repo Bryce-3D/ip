@@ -5,7 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class HomuraUtils {
     /**
@@ -57,6 +59,28 @@ public class HomuraUtils {
      * @return The parts of `s` after being split along `div`.
      */
     public static ArrayList<String> split(String s, String div) {
+        // Credits to ChatGPT for showing `Pattern.quote()` on the query
+        // "Hi! Does Java have a built in function to split a string on
+        // another string rather than a regular expression?"
+        String[] ansArr = s.split(Pattern.quote(div));
+        ArrayList<String> ans = new ArrayList<String>(Arrays.asList(ansArr));
+        return ans;
+    }
+
+    public static void printArrList(ArrayList<? extends Object> a) {
+        for (Object o : a) {
+            System.out.println(o);
+        }
+    }
+}
+
+
+
+
+
+// RECYCLING BIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*
+    public static ArrayList<String> split(String s, String div) {
         // Indices where `div` appears in `s`
         ArrayList<Integer> inds = new ArrayList<Integer>();
         int l_s = s.length();
@@ -86,10 +110,4 @@ public class HomuraUtils {
         }
         return ans;
     }
-
-    public static void printArrList(ArrayList<? extends Object> a) {
-        for (Object o : a) {
-            System.out.println(o);
-        }
-    }
-}
+ */
