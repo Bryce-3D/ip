@@ -8,8 +8,6 @@ import java.util.Scanner;
 public class Storage {
     public static final String DIVIDER = " | ";
 
-    // Todo <-> Storage String conversions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // Todo -> Storage conversion moved to Todo classes
     /**
      * Convert a storage String to a Todo or one of its subclasses.
      *
@@ -18,7 +16,6 @@ public class Storage {
      */
     public static Todo fromStr(String s) {
         ArrayList<String> ss = HomuraUtils.split(s, DIVIDER);
-        Todo ans;
         switch (ss.get(0)) {
         case "t":
             return Todo.fromStorageStr(s);
@@ -30,9 +27,6 @@ public class Storage {
             return null;
         }
     }
-
-
-    // Functions to read/write the Todos ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Read a list of Todos from a file.
      * Returns an empty list if the file does not exist.
