@@ -14,6 +14,7 @@ public class Homura {
     private static ArrayList<Todo> todos = new ArrayList<Todo>();
 
 
+
     // Bot Messages ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Generates the message on bot startup.
@@ -64,6 +65,7 @@ public class Homura {
     }
 
 
+
     // Bot on/off logic ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Turn the bot on.
@@ -79,6 +81,7 @@ public class Homura {
         Storage.writeTodos(todos, TODOS_FILENAME);
         System.out.println(byeMsg());
     }
+
 
 
     // Bot commands logic ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
