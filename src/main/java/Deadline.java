@@ -8,6 +8,11 @@ public class Deadline extends Todo {
     // Todo.bool isDone
     private LocalDate by;
 
+    // Inspired by ChatGPT using queries "Hi! Can I have some
+    // examples on how I can use LocalDate.Format() to format
+    // my dates in Java?" and "Hi! Can I have some samples of
+    // how LocalDate in Java can parse a string and return a
+    // LocalDate object?"
     public static final DateTimeFormatter dtfParse
             = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     public static final DateTimeFormatter dtfToString
