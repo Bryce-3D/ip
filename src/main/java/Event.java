@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Event extends Todo {
     /*
     Attributes from ToDo
@@ -20,8 +22,36 @@ public class Event extends Todo {
         return end;
     }
 
+    @Override
+    public String toString() {
+        String ans = "[E]";
+        if (getIsDone()) {
+            ans += "[✓] ";
+        } else {
+            ans += "[ ] ";
+        }
+        ans += getDescription()
+                + " (from: " + sta
+                + " to: " + end + ")";
+        return ans;
+    }
+
     /**
-     * Convert to a String representation for storage.
+     * Converts a storage string representation to an Event.
+     *
+     * @param s The storage string.
+     * @return The Event.
+     */
+    public static Event fromStorageStr(String s) {
+        ArrayList<String> ss = HomuraUtils.split(s, Storage.DIVIDER);
+        Event ans = new Event(ss.get(2),ss.get(3),ss.get(4));
+        if (ss.get(1).equals("1")) {
+            ans.setIsDone(true);
+        }
+        return ans;
+    }
+    /**
+     * Converts to a String representation for storage.
      * The current format is `e | 0 or 1 | descr | sta | end`.
      *
      * @return The storage representation.
@@ -56,20 +86,6 @@ public class Event extends Todo {
         } catch (Exception e) {
             throw new InvalidInputHomuraException("event", inp);
         }
-    }
-
-    @Override
-    public String toString() {
-        String ans = "[E]";
-        if (getIsDone()) {
-            ans += "[✓] ";
-        } else {
-            ans += "[ ] ";
-        }
-        ans += getDescription()
-            + " (from: " + sta
-            + " to: " + end + ")";
-        return ans;
     }
 }
 

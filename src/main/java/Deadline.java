@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Deadline extends Todo {
@@ -31,8 +32,35 @@ public class Deadline extends Todo {
         return by;
     }
 
+    @Override
+    public String toString() {
+        String ans = "[D]";
+        if (getIsDone()) {
+            ans += "[✓] ";
+        } else {
+            ans += "[ ] ";
+        }
+        ans += getDescription() + " (by: "
+                + by.format(dtfToString) + ")";
+        return ans;
+    }
+
     /**
-     * Convert to a String representation for storage.
+     * Converts a storage string representation to a Deadline.
+     *
+     * @param s The storage string.
+     * @return The Deadline.
+     */
+    public static Deadline fromStorageStr(String s) {
+        ArrayList<String> ss = HomuraUtils.split(s, Storage.DIVIDER);
+        Deadline ans = new Deadline(ss.get(2),ss.get(3));
+        if (ss.get(1).equals("1")) {
+            ans.setIsDone(true);
+        }
+        return ans;
+    }
+    /**
+     * Converts to a String representation for storage.
      * The current format is `d | 0 or 1 | descr | by`.
      *
      * @return The storage representation.
@@ -63,34 +91,18 @@ public class Deadline extends Todo {
         if (inp.length() <= 9) {
             throw new EmptyInputHomuraException("Todo", inp);
         }
-        inp = inp.substring(9);   // Remove the "deadline " in front
-        String[] splitInps = inp.split(" /by ");
-        String descr = splitInps[0];
-        String byStr = splitInps[1];
-        return new Deadline(descr,byStr);
-//        try {
-//            inp = inp.substring(9);   // Remove the "deadline " in front
-//            String[] splitInps = inp.split(" /by ");
-//            String descr = splitInps[0];
-//            String byStr = splitInps[1];
-//            return new Deadline(descr,byStr);
-//        } catch (Exception e) {
-//            throw new InvalidInputHomuraException("deadline", inp);
-//        }
+        try {
+            inp = inp.substring(9);   // Remove the "deadline " in front
+            String[] splitInps = inp.split(" /by ");
+            String descr = splitInps[0];
+            String byStr = splitInps[1];
+            return new Deadline(descr,byStr);
+        } catch (Exception e) {
+            throw new InvalidInputHomuraException("deadline", inp);
+        }
     }
 
-    @Override
-    public String toString() {
-        String ans = "[D]";
-        if (getIsDone()) {
-            ans += "[✓] ";
-        } else {
-            ans += "[ ] ";
-        }
-        ans += getDescription() + " (by: "
-                + by.format(dtfToString) + ")";
-        return ans;
-    }
+
 }
 
 // Recycling Bin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

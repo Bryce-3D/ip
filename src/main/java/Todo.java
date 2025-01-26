@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Todo {
     private static final String INDENT = Homura.INDENT;
     private static final String DIVIDER = Homura.DIVIDER;
@@ -33,7 +35,21 @@ public class Todo {
     }
 
     /**
-     * Convert to a String representation for storage.
+     * Converts a storage string representation to a Todo.
+     *
+     * @param s The storage string.
+     * @return The Todo.
+     */
+    public static Todo fromStorageStr(String s) {
+        ArrayList<String> ss = HomuraUtils.split(s, Storage.DIVIDER);
+        Todo ans = new Todo(ss.get(2));
+        if (ss.get(1).equals("1")) {
+            ans.setIsDone(true);
+        }
+        return ans;
+    }
+    /**
+     * Converts to a String representation for storage.
      * The current format is `t | 0 or 1 | descr`.
      *
      * @return The storage representation.
