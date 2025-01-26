@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Event extends Todo {
@@ -6,19 +8,31 @@ public class Event extends Todo {
         str  description
         bool isDone
      */
-    private String sta;
-    private String end;
+    private LocalDate sta;
+    private LocalDate end;
 
-    public Event(String description, String sta, String end) {
+    public static final DateTimeFormatter dtfParse
+            = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    public static final DateTimeFormatter dtfToString
+            = DateTimeFormatter.ofPattern("MMM dd yyyy");
+    public static final DateTimeFormatter dtfToStorage
+            = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+    public Event(String description, LocalDate sta, LocalDate end) {
         super(description);
         this.sta = sta;
         this.end = end;
     }
+    public Event(String description, String staStr, String endStr) {
+        super(description);
+        this.sta = LocalDate.parse(staStr, dtfParse);
+        this.end = LocalDate.parse(endStr, dtfParse);
+    }
 
-    public String getSta() {
+    public LocalDate getSta() {
         return sta;
     }
-    public String getEnd() {
+    public LocalDate getEnd() {
         return end;
     }
 
@@ -31,8 +45,8 @@ public class Event extends Todo {
             ans += "[ ] ";
         }
         ans += getDescription()
-                + " (from: " + sta
-                + " to: " + end + ")";
+                + " (from: " + sta.format(dtfToString)
+                + " to: " + end.format(dtfToString) + ")";
         return ans;
     }
 
