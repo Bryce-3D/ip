@@ -31,7 +31,7 @@ public class Todo {
             return "[T][ ] " + description;
         }
     }
-    
+
     /**
      * Convert to a String representation for storage.
      * The current format is `t | 0 or 1 | descr`.
