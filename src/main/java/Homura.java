@@ -118,7 +118,7 @@ public class Homura {
      * @param inp The full line of input to the bot.
      */
     public static void cmdTodo(String inp) {
-        Todo t = Todo.parseUserInp(inp);
+        Todo t = Parser.parseTodoInp(inp);
         todos.add(t);
         System.out.println(t.addStr());
         System.out.println(
@@ -133,7 +133,7 @@ public class Homura {
      * @param inp The full line of input to the bot.
      */
     public static void cmdDeadline(String inp) {
-        Deadline d = Deadline.parseUserInp(inp);
+        Deadline d = Parser.parseDeadlineInp(inp);
         todos.add(d);
         System.out.println(d.addStr());
         System.out.println(
@@ -147,7 +147,7 @@ public class Homura {
      * @param inp The full line of input to the bot.
      */
     public static void cmdEvent(String inp) {
-        Event e = Event.parseUserInp(inp);
+        Event e = Parser.parseEventInp(inp);
         todos.add(e);
         System.out.println(e.addStr());
         System.out.println(

@@ -7,7 +7,6 @@ public class Parser {
         inp = inp.substring(5);   // Remove the "todo " in front
         return new Todo(inp);
     }
-
     public static Deadline parseDeadlineInp(String inp) {
         inp = inp.strip();
         if (inp.length() <= 9) {
@@ -23,7 +22,6 @@ public class Parser {
             throw new InvalidInputHomuraException("deadline", inp);
         }
     }
-
     public static Event parseEventInp(String inp) {
         inp = inp.strip();
         if (inp.length() <= 6) {
