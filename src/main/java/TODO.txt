@@ -1,1 +1,19 @@
+Week 3 TODOs
 - Continue working on A-MoreOOP asdfasdfasddfasdfasdfasdfasdf
+    - Ui: deals with interactions with the user
+    - TaskList: contains the task list e.g., it has operations to add/delete tasks in the list
+- Do A-Packages
+    - Use src/main/java as root, package f/f.java is in src/main/java/f/f.java
+    - Minimal: put all classes in one package e.g., duke
+- A-Gradle
+- A-JUnit
+- A-Jar
+- Do the ff as parallel branches
+    - A-Javadoc
+    - A-CodingStandard
+    - branch-Level-9
+        - find task by keyword
+- Start learning JavaFX
+
+Other TODOs
+-
