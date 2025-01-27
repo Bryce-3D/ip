@@ -1,6 +1,6 @@
 todo good morning chat
-deadline what did they mean by this chat /by your favourite holiday
-event chat is this real /from now /to later
+deadline what did they mean by this chat /by 2040-11-01
+event chat is this real /from 0001-01-01 /to 9999-12-31
 list
 mark 1
 mark 2
