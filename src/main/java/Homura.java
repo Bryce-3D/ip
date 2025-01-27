@@ -20,53 +20,7 @@ public class Homura {
 
 
     // Bot Messages ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    /**
-     * Generates the message on bot startup.
-     *
-     * @return The message on bot startup.
-     */
-    public static String introMsg() {
-        return INDENT + DIVIDER + '\n'
-                + INDENT + " Hi, I'm Akemi Homura.\n"
-                + INDENT + " Have you seem Madoka anywhere?\n"
-                + INDENT + DIVIDER + '\n';
-    }
-    /**
-     * Generates the message on bot shutdown.
-     *
-     * @return The message on bot shutdown.
-     */
-    public static String byeMsg() {
-        return INDENT + DIVIDER + '\n'
-                + INDENT + " No matter what, don't become a magical girl.\n"
-                + INDENT + " Farewell.\n"
-                + INDENT + DIVIDER;
-    }
-    /**
-     * Prints the todos to the command line interface.
-     */
-    public static void printTodos() {
-        ArrayList<String> numberedTasks = new ArrayList<String>();
-        for (int i = 0; i < todos.size(); i++) {
-            // Converting int to string representation inspired by
-            // https://stackoverflow.com/questions/5071040/
-            // java-convert-integer-to-string
-            numberedTasks.add((i+1) + ".) " + todos.get(i));
-        }
-        for (String item : numberedTasks) {
-            System.out.println(INDENT + " " + item);
-        }
-    }
-    /**
-     * Prints the todos to the command line interface with dividers.
-     */
-    public static void printTodosFormatted() {
-        System.out.println(INDENT + DIVIDER);
-        System.out.println(INDENT + " "
-                + todos.size() + " tasks(s) in your list");
-        printTodos();
-        System.out.println(INDENT + DIVIDER + '\n');
-    }
+    // Moved to Ui.java now
 
 
 
@@ -76,14 +30,14 @@ public class Homura {
      */
     public static void on() {
         todos = Storage.readTodos(TODOS_FILENAME);
-        System.out.println(introMsg());
+        System.out.println(Ui.introMsg());
     }
     /**
      * Turn the bot off.
      */
     public static void off() {
         Storage.writeTodos(todos, TODOS_FILENAME);
-        System.out.println(byeMsg());
+        System.out.println(Ui.byeMsg());
     }
 
 
@@ -205,7 +159,7 @@ public class Homura {
 
             // List items in the Todo list
             if (inp.equals("list")) {
-                printTodosFormatted();
+                Ui.printTodosFormatted();
                 continue;
             }
 
@@ -243,6 +197,56 @@ public class Homura {
 
 
 // RECYCLING BIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*
+    /**
+     * Generates the message on bot startup.
+     *
+     * @return The message on bot startup.
+     * /
+    public static String introMsg() {
+        return INDENT + DIVIDER + '\n'
+                + INDENT + " Hi, I'm Akemi Homura.\n"
+                + INDENT + " Have you seem Madoka anywhere?\n"
+                + INDENT + DIVIDER + '\n';
+    }
+    /**
+     * Generates the message on bot shutdown.
+     *
+     * @return The message on bot shutdown.
+     * /
+    public static String byeMsg() {
+        return INDENT + DIVIDER + '\n'
+                + INDENT + " No matter what, don't become a magical girl.\n"
+                + INDENT + " Farewell.\n"
+                + INDENT + DIVIDER;
+    }
+    /**
+     * Prints the todos to the command line interface.
+     * /
+    public static void printTodos() {
+        ArrayList<String> numberedTasks = new ArrayList<String>();
+        for (int i = 0; i < todos.size(); i++) {
+            // Converting int to string representation inspired by
+            // https://stackoverflow.com/questions/5071040/
+            // java-convert-integer-to-string
+            numberedTasks.add((i+1) + ".) " + todos.get(i));
+        }
+        for (String item : numberedTasks) {
+            System.out.println(INDENT + " " + item);
+        }
+    }
+    /**
+     * Prints the todos to the command line interface with dividers.
+     * /
+    public static void printTodosFormatted() {
+        System.out.println(INDENT + DIVIDER);
+        System.out.println(INDENT + " "
+                + todos.size() + " tasks(s) in your list");
+        printTodos();
+        System.out.println(INDENT + DIVIDER + '\n');
+    }
+ */
+
 /*
     public final static String divider =
         '★' + (
