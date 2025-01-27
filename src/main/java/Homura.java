@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Homura {
-    // Attributes/Fields ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // Attributes + Getters and Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public final static String INDENT = " ".repeat(4);
     public final static String DIVIDER = "~".repeat(80);
     public final static String TODOS_FILENAME = "HomuraTodos.txt";
@@ -12,6 +12,10 @@ public class Homura {
     // main/Java/0001-0100/CF_0001A.java
     private final static Scanner SC = new Scanner(System.in);
     private static ArrayList<Todo> todos = new ArrayList<Todo>();
+
+    public static ArrayList<Todo> getTodos() {
+        return todos;
+    }
 
 
 
