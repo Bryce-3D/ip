@@ -16,4 +16,4 @@ Week 3 TODOs
 - Start learning JavaFX
 
 Other TODOs
--
+- Update runtest.bat to also auto-delete HomuraTodos.txt
