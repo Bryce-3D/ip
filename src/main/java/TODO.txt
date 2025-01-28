@@ -1,7 +1,4 @@
 Week 3 TODOs
-- Continue working on A-MoreOOP asdfasdfasddfasdfasdfasdfasdf
-    - Ui: deals with interactions with the user
-    - TaskList: contains the task list e.g., it has operations to add/delete tasks in the list
 - Do A-Packages
     - Use src/main/java as root, package f/f.java is in src/main/java/f/f.java
     - Minimal: put all classes in one package e.g., duke
@@ -16,5 +13,4 @@ Week 3 TODOs
 - Start learning JavaFX
 
 Other TODOs
-- Update runtest.bat to also auto-delete HomuraTodos.txt
 - Deal with the addStr(), markStr(), and unmarkStr() functions in Todo.java
