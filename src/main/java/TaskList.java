@@ -1,24 +1,28 @@
 import java.util.ArrayList;
 
 public class TaskList {
-    private static ArrayList<Todo> todos = new ArrayList<Todo>();
+    // Attributes + Getters and Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    private ArrayList<Todo> todos;
+    public ArrayList<Todo> getTodos() { return todos; }
+    public void setTodos(ArrayList<Todo> todos) { this.todos = todos; }
 
-    public static ArrayList<Todo> getTodos() { return todos; }
-    public static void setTodos(ArrayList<Todo> todos) {
-        TaskList.todos = todos;
+
+
+    // Constructors and Factory Methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    public TaskList() {
+        todos = new ArrayList<Todo>();
     }
 
-    // Copy all functionality of ArrayList that I need
-    public static Todo get(int i) {
-        return todos.get(i);
-    }
-    public static void add(Todo t) {
-        todos.add(t);
-    }
-    public static void remove(int i) {
-        todos.remove(i);
-    }
-    public static int size() {
-        return todos.size();
-    }
+
+
+    // Functionality copied from ArrayList ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    public Todo get(int i) { return todos.get(i); }
+    public void add(Todo t) { todos.add(t); }
+    public void remove(int i) { todos.remove(i); }
+    public int size() { return todos.size(); }
+
+
+
+    // Extra functionality ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // None
 }
