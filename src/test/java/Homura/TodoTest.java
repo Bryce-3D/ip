@@ -4,8 +4,10 @@ package Homura;
 // https://se-education.org/guides/tutorials/junit.html#adding-junit-support-to-your-project
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class TodoTest {
+    // Normal Inputs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     @Test
     public void fromStorageStr_normalUnmarked_success() {
         String descr = "find Madoka";
@@ -27,7 +29,6 @@ public class TodoTest {
         t1.setIsDone(true);
         assertEquals(t1,t0);
     }
-
     @Test
     public void toStorageStr_normalUnmarked_success() {
         String descr = "survive >20 hrs of CS2103T per week";
@@ -46,5 +47,17 @@ public class TodoTest {
         String s1 = "t" + Storage.DIVIDER + "1"
                 + Storage.DIVIDER + descr;
         assertEquals(s1,s0);
+    }
+
+
+
+    // Invalid Inputs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    @Test
+    public void fromStorageStr_invalid_die() {
+        try {
+            Todo.fromStorageStr("chat what did they mean by this");
+            fail();
+        } catch (Exception e) {
+        }
     }
 }
