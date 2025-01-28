@@ -5,17 +5,58 @@ import java.util.*;
 
 public class Playground {
     public static void main(String[] args) {
-        Todo t = new Todo("Waow");
-        Deadline d = new Deadline("stuff","now");
-        Event e = new Event("You", "now", "later");
+        // How to initialize ArrayList with values inspired by
+        // https://stackoverflow.com/questions/1005073/
+        // initialization-of-an-arraylist-in-one-line
+        ArrayList<Integer> aa = new ArrayList<Integer>(
+                Arrays.asList(1,2,3)
+        );
+        ArrayList<Integer> a = L.getA();
+        a = aa;
 
-        ArrayList<Todo> a = new ArrayList<Todo>();
-        a.add(t); a.add(d); a.add(e);
+        for (int i : L.getA()) {
+            System.out.println(i);
+        }
+    }
+}
 
-        String fn = "Test2.txt";
-        Storage.writeTodos(a,fn);
-        ArrayList<Todo> a0 = Storage.readTodos(fn);
-        HomuraUtils.printArrList(a0);
+// From testing
+// I can't seem just modify it
+// change a's reference -> does not change L.a's reference, need like
+// pointers or references from C++ or something
+// mafan sia
+
+// How to declare multiple classes in a single file inspired by
+// https://stackoverflow.com/questions/2336692/
+// java-multiple-class-declarations-in-one-file
+class L {
+    private static ArrayList<Integer> a = new ArrayList<Integer>();
+    public static ArrayList<Integer> getA() { return a; }
+    // public static
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//        Todo t = new Todo("Waow");
+//        Deadline d = new Deadline("stuff","now");
+//        Event e = new Event("You", "now", "later");
+//
+//        ArrayList<Todo> a = new ArrayList<Todo>();
+//        a.add(t); a.add(d); a.add(e);
+//
+//        String fn = "Test2.txt";
+//        Storage.writeTodos(a,fn);
+//        ArrayList<Todo> a0 = Storage.readTodos(fn);
+//        HomuraUtils.printArrList(a0);
 
 
 
@@ -98,5 +139,3 @@ public class Playground {
 
 
 //        System.out.println("Test");
-    }
-}

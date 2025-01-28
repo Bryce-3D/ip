@@ -18,14 +18,6 @@ public class Todo {
         description = descr;
         isDone = false;
     }
-    public static Todo parseUserInp(String inp) {
-        inp = inp.strip();
-        if (inp.length() <= 5) {
-            throw new EmptyInputHomuraException("Todo", inp);
-        }
-        inp = inp.substring(5);   // Remove the "todo " in front
-        return new Todo(inp);
-    }
 
 
 
@@ -89,6 +81,18 @@ public class Todo {
 
 
 // Recycling Bin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*
+    public static Todo parseUserInp(String inp) {
+        inp = inp.strip();
+        if (inp.length() <= 5) {
+            throw new EmptyInputHomuraException("Todo", inp);
+        }
+        inp = inp.substring(5);   // Remove the "todo " in front
+        return new Todo(inp);
+    }
+ */
+
+
 
     /**
      * Converts a storage string representation to a Todo.

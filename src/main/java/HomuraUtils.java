@@ -24,7 +24,7 @@ public class HomuraUtils {
         try {
             Scanner sc = new Scanner(f).useDelimiter("\\A");
             return sc.next();
-        } catch (FileNotFoundException e) {
+        } catch (Exception e) {
             return null;
         }
     }

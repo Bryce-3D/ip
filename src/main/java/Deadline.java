@@ -33,21 +33,6 @@ public class Deadline extends Todo {
         super(description);
         by = LocalDate.parse(byStr, dtfParse);
     }
-    public static Deadline parseUserInp(String inp) {
-        inp = inp.strip();
-        if (inp.length() <= 9) {
-            throw new EmptyInputHomuraException("Todo", inp);
-        }
-        try {
-            inp = inp.substring(9);   // Remove the "deadline " in front
-            String[] splitInps = inp.split(" /by ");
-            String descr = splitInps[0];
-            String byStr = splitInps[1];
-            return new Deadline(descr,byStr);
-        } catch (Exception e) {
-            throw new InvalidInputHomuraException("deadline", inp);
-        }
-    }
 
 
 
@@ -92,6 +77,25 @@ public class Deadline extends Todo {
 
 
 // Recycling Bin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*
+    public static Deadline parseUserInp(String inp) {
+        inp = inp.strip();
+        if (inp.length() <= 9) {
+            throw new EmptyInputHomuraException("Todo", inp);
+        }
+        try {
+            inp = inp.substring(9);   // Remove the "deadline " in front
+            String[] splitInps = inp.split(" /by ");
+            String descr = splitInps[0];
+            String byStr = splitInps[1];
+            return new Deadline(descr,byStr);
+        } catch (Exception e) {
+            throw new InvalidInputHomuraException("deadline", inp);
+        }
+    }
+ */
+
+
 
     /**
      * Converts a storage string representation to a Deadline.

@@ -28,6 +28,14 @@ java -classpath ../bin Homura < input.txt > ACTUAL.TXT
 cp EXPECTED.TXT EXPECTED-UNIX.TXT
 dos2unix ACTUAL.TXT EXPECTED-UNIX.TXT
 
+# OWN EDIT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#Inspired by ChatGPT with query "Hi! I want to remove a file using
+#the rm command on a command line interface. However, I don't want
+#it to give me the "file does not exist" notification if it does
+#not exist. Is there a way for me to do this? Thanks!".
+rm HomuraTodos.txt 2>/dev/null
+# END OF OWN EDIT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 # compare the output to the expected output
 diff ACTUAL.TXT EXPECTED-UNIX.TXT
 if [ $? -eq 0 ]

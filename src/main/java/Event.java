@@ -32,23 +32,6 @@ public class Event extends Todo {
         this.sta = LocalDate.parse(staStr, dtfParse);
         this.end = LocalDate.parse(endStr, dtfParse);
     }
-    public static Event parseUserInp(String inp) {
-        inp = inp.strip();
-        if (inp.length() <= 6) {
-            throw new EmptyInputHomuraException("Todo", inp);
-        }
-        try {
-            inp = inp.substring(6);   // Remove the "event " in front
-            String[] splitInps = inp.split(" /from ");
-            String descr = splitInps[0];
-            splitInps = splitInps[1].split(" /to ");
-            String sta = splitInps[0];
-            String end = splitInps[1];
-            return new Event(descr, sta, end);
-        } catch (Exception e) {
-            throw new InvalidInputHomuraException("event", inp);
-        }
-    }
 
 
 
@@ -95,6 +78,27 @@ public class Event extends Todo {
 
 
 // Recycling Bin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*
+    public static Event parseUserInp(String inp) {
+        inp = inp.strip();
+        if (inp.length() <= 6) {
+            throw new EmptyInputHomuraException("Todo", inp);
+        }
+        try {
+            inp = inp.substring(6);   // Remove the "event " in front
+            String[] splitInps = inp.split(" /from ");
+            String descr = splitInps[0];
+            splitInps = splitInps[1].split(" /to ");
+            String sta = splitInps[0];
+            String end = splitInps[1];
+            return new Event(descr, sta, end);
+        } catch (Exception e) {
+            throw new InvalidInputHomuraException("event", inp);
+        }
+    }
+ */
+
+
 
     /**
      * Converts a storage string representation to an Event.
