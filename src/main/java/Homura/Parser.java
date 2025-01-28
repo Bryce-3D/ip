@@ -8,7 +8,7 @@ public class Parser {
     public static Todo parseTodoInp(String inp) {
         inp = inp.strip();
         if (inp.length() <= 5) {
-            throw new EmptyInputHomuraException("Todo", inp);
+            throw new EmptyInputHomuraException("todo", inp);
         }
         inp = inp.substring(5);   // Remove the "todo " in front
         return new Todo(inp);
@@ -16,7 +16,7 @@ public class Parser {
     public static Deadline parseDeadlineInp(String inp) {
         inp = inp.strip();
         if (inp.length() <= 9) {
-            throw new EmptyInputHomuraException("Todo", inp);
+            throw new EmptyInputHomuraException("deadline", inp);
         }
         try {
             inp = inp.substring(9);   // Remove the "deadline " in front
@@ -31,7 +31,7 @@ public class Parser {
     public static Event parseEventInp(String inp) {
         inp = inp.strip();
         if (inp.length() <= 6) {
-            throw new EmptyInputHomuraException("Todo", inp);
+            throw new EmptyInputHomuraException("event", inp);
         }
         try {
             inp = inp.substring(6);   // Remove the "event " in front

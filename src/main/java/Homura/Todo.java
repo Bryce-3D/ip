@@ -80,6 +80,22 @@ public class Todo {
                 + INDENT + " " + this.toString() + '\n'
                 + INDENT + DIVIDER;
     }
+
+
+
+    // Etc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    @Override
+    public boolean equals(Object o) {
+        // Non-null Todo
+        if (o == null) { return false; }
+        if (!(o instanceof Todo)) { return false; }
+        Todo t = (Todo) o;
+
+        // Compare attributes
+        if (!description.equals(t.description)) { return false; }
+        if (!isDone == t.isDone) { return false; }
+        return true;
+    }
 }
 
 

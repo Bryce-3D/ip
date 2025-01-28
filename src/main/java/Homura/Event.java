@@ -22,9 +22,13 @@ public class Event extends Todo {
     public static final DateTimeFormatter dtfToStorage
             = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-    public LocalDate getSta() { return sta; }
-    public LocalDate getEnd() { return end; }
+    public LocalDate getSta() {
+        return sta;
+    }
 
+    public LocalDate getEnd() {
+        return end;
+    }
 
 
     // Constructors and Factory Methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -33,12 +37,12 @@ public class Event extends Todo {
         this.sta = sta;
         this.end = end;
     }
+
     public Event(String description, String staStr, String endStr) {
         super(description);
         this.sta = LocalDate.parse(staStr, dtfParse);
         this.end = LocalDate.parse(endStr, dtfParse);
     }
-
 
 
     // String Methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -55,14 +59,16 @@ public class Event extends Todo {
                 + " to: " + end.format(dtfToString) + ")";
         return ans;
     }
+
     public static Event fromStorageStr(String s) {
         ArrayList<String> ss = HomuraUtils.split(s, Storage.DIVIDER);
-        Event ans = new Event(ss.get(2),ss.get(3),ss.get(4));
+        Event ans = new Event(ss.get(2), ss.get(3), ss.get(4));
         if (ss.get(1).equals("1")) {
             ans.setIsDone(true);
         }
         return ans;
     }
+
     @Override
     public String toStorageStr() {
         // e | 0 or 1 | descr | sta | end
@@ -76,6 +82,25 @@ public class Event extends Todo {
                 + Storage.DIVIDER + sta.format(dtfToStorage)
                 + Storage.DIVIDER + end.format(dtfToStorage);
         return ans;
+    }
+
+
+    // Etc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    @Override
+    public boolean equals(Object o) {
+        // Non-null Event
+        if (o == null) { return false; }
+        if (!(o instanceof Event)) { return false; }
+        Event e = (Event) o;
+
+        // Compare attributes
+        if (!getDescription().equals(e.getDescription())) {
+            return false;
+        }
+        if (!getIsDone() == e.getIsDone()) { return false; }
+        if (!sta.equals(e.sta)) { return false; }
+        if (!end.equals(e.end)) { return false; }
+        return true;
     }
 }
 
