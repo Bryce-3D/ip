@@ -34,13 +34,13 @@ public class Storage {
      * @param fn The file name being read from.
      * @return The ArrayList of Todos.
      */
-    public static ArrayList<Todo> readTodos(String fn) {
+    public static TaskList readTodos(String fn) {
         String ftxt = HomuraUtils.readFile(fn);
         if (ftxt == null) {
-            return new ArrayList<Todo>();
+            return new TaskList();
         }
         ArrayList<String> txts = HomuraUtils.split(ftxt, "\n");
-        ArrayList<Todo> ans = new ArrayList<Todo>();
+        TaskList ans = new TaskList();
         for (String txt : txts) {
             ans.add(fromStr(txt));
         }
@@ -53,9 +53,9 @@ public class Storage {
      * @param tasks The Todos to write.
      * @param fn The filename being written to.
      */
-    public static void writeTodos(ArrayList<Todo> tasks, String fn) {
+    public static void writeTodos(TaskList tasks, String fn) {
         ArrayList<String> txts = new ArrayList<String>();
-        for (Todo t : tasks) {
+        for (Todo t : tasks.getTodos()) {
             txts.add(t.toStorageStr());
         }
         // String concatenation inspired by

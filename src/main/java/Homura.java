@@ -11,9 +11,9 @@ public class Homura {
     // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/
     // main/Java/0001-0100/CF_0001A.java
     private final static Scanner SC = new Scanner(System.in);
-    private static ArrayList<Todo> todos = new ArrayList<Todo>();
+    private static TaskList todos = new TaskList();
 
-    public static ArrayList<Todo> getTodos() {
+    public static TaskList getTodos() {
         return todos;
     }
 
