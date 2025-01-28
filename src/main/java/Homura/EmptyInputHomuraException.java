@@ -25,4 +25,16 @@ public class EmptyInputHomuraException extends HomuraRuntimeException {
             + " - Empty input passed to cmd " + cmd + ":" + '\n'
             + indent + indent + inp;
     }
+    @Override
+    public boolean equals(Object o) {
+        // Non-null EmptyInputHomuraException
+        if (o == null) { return false; }
+        if (!(o instanceof EmptyInputHomuraException)) { return false; }
+        EmptyInputHomuraException e = (EmptyInputHomuraException) o;
+
+        // Compare attributes
+        if (!cmd.equals(e.cmd)) { return false; }
+        if (!inp.equals(e.inp)) { return false; }
+        return true;
+    }
 }
