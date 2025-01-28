@@ -11,8 +11,6 @@ Week 3 TODOs
 
 Other TODOs
 - Deal with the addStr(), markStr(), and unmarkStr() functions in Todo.java
-- Fix runtest.bat which got bricked by shoving everything
-  in the package Homura
 - Cite all uses of ChatGPT in the README.md
   Instructions can be found at
   https://nus-cs2103-ay2425s2.github.io/website/admin/
