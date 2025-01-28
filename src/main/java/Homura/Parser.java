@@ -25,13 +25,13 @@ public class Parser {
             String byStr = splitInps[1];
             return new Deadline(descr,byStr);
         } catch (Exception e) {
-            throw new InvalidInputHomuraException("event", inp);
+            throw new InvalidInputHomuraException("deadline", inp);
         }
     }
     public static Event parseEventInp(String inp) {
         inp = inp.strip();
         if (inp.length() <= 6) {
-            throw new EmptyInputHomuraException("Todo", inp);
+            throw new EmptyInputHomuraException("event", inp);
         }
         try {
             inp = inp.substring(6);   // Remove the "event " in front
