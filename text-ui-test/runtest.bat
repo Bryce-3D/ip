@@ -19,3 +19,7 @@ java -classpath ..\bin Homura < input.txt > ACTUAL.TXT
 
 REM compare the output to the expected output
 FC ACTUAL.TXT EXPECTED.TXT
+
+REM How to delete a file inspired by
+REM https://stackoverflow.com/questions/13764103/batch-script-to-delete-files
+del "HomuraTodos.txt"

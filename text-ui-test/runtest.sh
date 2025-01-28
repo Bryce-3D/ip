@@ -34,7 +34,6 @@ dos2unix ACTUAL.TXT EXPECTED-UNIX.TXT
 #it to give me the "file does not exist" notification if it does
 #not exist. Is there a way for me to do this? Thanks!".
 rm HomuraTodos.txt 2>/dev/null
-echo 2
 # END OF OWN EDIT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # compare the output to the expected output
