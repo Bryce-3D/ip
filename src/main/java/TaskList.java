@@ -9,9 +9,8 @@ public class TaskList {
 
 
     // Constructors and Factory Methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    public TaskList() {
-        todos = new ArrayList<Todo>();
-    }
+    public TaskList() { todos = new ArrayList<Todo>(); }
+    public TaskList(ArrayList<Todo> todos) { this.todos = todos; }
 
 
 
