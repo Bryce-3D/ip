@@ -1,7 +1,4 @@
 Week 3 TODOs
-- Do A-Packages
-    - Use src/main/java as root, package f/f.java is in src/main/java/f/f.java
-    - Minimal: put all classes in one package e.g., duke
 - A-Gradle
 - A-JUnit
 - A-Jar
@@ -14,3 +11,5 @@ Week 3 TODOs
 
 Other TODOs
 - Deal with the addStr(), markStr(), and unmarkStr() functions in Todo.java
+- Fix runtest.sh and runtest.bat that both got bricked by shoving everything
+  in the package Homura

@@ -1,18 +1,20 @@
+// How to use and create packages inspired by
+// https://github.com/weiseng18/ip/tree/master/src/main/java/panorama
+// and
+// https://www.w3schools.com/java/java_packages.asp
+package Homura;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-public class Deadline extends Todo {
+public class Event extends Todo {
     // Attributes + Getters and Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Todo.str  description
     // Todo.bool isDone
-    private LocalDate by;
+    private LocalDate sta;
+    private LocalDate end;
 
-    // Inspired by ChatGPT using queries "Hi! Can I have some
-    // examples on how I can use LocalDate.Format() to format
-    // my dates in Java?" and "Hi! Can I have some samples of
-    // how LocalDate in Java can parse a string and return a
-    // LocalDate object?"
     public static final DateTimeFormatter dtfParse
             = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     public static final DateTimeFormatter dtfToString
@@ -20,18 +22,21 @@ public class Deadline extends Todo {
     public static final DateTimeFormatter dtfToStorage
             = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-    public LocalDate getBy() { return by; }
+    public LocalDate getSta() { return sta; }
+    public LocalDate getEnd() { return end; }
 
 
 
     // Constructors and Factory Methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    public Deadline(String description, LocalDate by) {
+    public Event(String description, LocalDate sta, LocalDate end) {
         super(description);
-        this.by = by;
+        this.sta = sta;
+        this.end = end;
     }
-    public Deadline(String description, String byStr) {
+    public Event(String description, String staStr, String endStr) {
         super(description);
-        by = LocalDate.parse(byStr, dtfParse);
+        this.sta = LocalDate.parse(staStr, dtfParse);
+        this.end = LocalDate.parse(endStr, dtfParse);
     }
 
 
@@ -39,19 +44,20 @@ public class Deadline extends Todo {
     // String Methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     @Override
     public String toString() {
-        String ans = "[D]";
+        String ans = "[E]";
         if (getIsDone()) {
             ans += "[✓] ";
         } else {
             ans += "[ ] ";
         }
-        ans += getDescription() + " (by: "
-                + by.format(dtfToString) + ")";
+        ans += getDescription()
+                + " (from: " + sta.format(dtfToString)
+                + " to: " + end.format(dtfToString) + ")";
         return ans;
     }
-    public static Deadline fromStorageStr(String s) {
+    public static Event fromStorageStr(String s) {
         ArrayList<String> ss = HomuraUtils.split(s, Storage.DIVIDER);
-        Deadline ans = new Deadline(ss.get(2),ss.get(3));
+        Event ans = new Event(ss.get(2),ss.get(3),ss.get(4));
         if (ss.get(1).equals("1")) {
             ans.setIsDone(true);
         }
@@ -59,15 +65,16 @@ public class Deadline extends Todo {
     }
     @Override
     public String toStorageStr() {
-        // d | 0 or 1 | descr | by
-        String ans = "d" + Storage.DIVIDER;
+        // e | 0 or 1 | descr | sta | end
+        String ans = "e" + Storage.DIVIDER;
         if (getIsDone()) {
             ans += 1;
         } else {
             ans += 0;
         }
         ans += Storage.DIVIDER + getDescription()
-                + Storage.DIVIDER + by.format(dtfToStorage);
+                + Storage.DIVIDER + sta.format(dtfToStorage)
+                + Storage.DIVIDER + end.format(dtfToStorage);
         return ans;
     }
 }
@@ -78,19 +85,21 @@ public class Deadline extends Todo {
 
 // Recycling Bin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 /*
-    public static Deadline parseUserInp(String inp) {
+    public static Event parseUserInp(String inp) {
         inp = inp.strip();
-        if (inp.length() <= 9) {
+        if (inp.length() <= 6) {
             throw new EmptyInputHomuraException("Todo", inp);
         }
         try {
-            inp = inp.substring(9);   // Remove the "deadline " in front
-            String[] splitInps = inp.split(" /by ");
+            inp = inp.substring(6);   // Remove the "event " in front
+            String[] splitInps = inp.split(" /from ");
             String descr = splitInps[0];
-            String byStr = splitInps[1];
-            return new Deadline(descr,byStr);
+            splitInps = splitInps[1].split(" /to ");
+            String sta = splitInps[0];
+            String end = splitInps[1];
+            return new Event(descr, sta, end);
         } catch (Exception e) {
-            throw new InvalidInputHomuraException("deadline", inp);
+            throw new InvalidInputHomuraException("event", inp);
         }
     }
  */
@@ -98,35 +107,26 @@ public class Deadline extends Todo {
 
 
     /**
-     * Converts a storage string representation to a Deadline.
+     * Converts a storage string representation to an Event.
      *
      * @param s The storage string.
-     * @return The Deadline.
+     * @return The Event.
      */
 
     /**
      * Converts to a String representation for storage.
-     * The current format is `d | 0 or 1 | descr | by`.
+     * The current format is `e | 0 or 1 | descr | sta | end`.
      *
      * @return The storage representation.
      */
 
 
 
-// TODO
-    /*
-    - Implement a fromStorageStr() function
-    - Replicate similar updates to Event.java
-    - Also implement fromStorageStr() in Todo.java
-    - Update how Storage.readTodos() words (likely deprecating
-      Storage.fromStr() in the process)
-     */
-
 /*
     @Override
     public String mark_str() {
         return indent + divider + '\n'
-            + indent + " Deadline marked as done" + '\n'
+            + indent + " Event marked as done" + '\n'
             + indent + " " + this.toString() + '\n'
             + indent + divider + '\n';
     }
@@ -135,7 +135,7 @@ public class Deadline extends Todo {
     @Override
     public String unmark_str() {
         return indent + divider + '\n'
-            + indent + "Deadline marked as not done" + '\n'
+            + indent + "Event marked as not done" + '\n'
             + indent + " " + this.toString() + '\n'
             + indent + divider + '\n';
     }
