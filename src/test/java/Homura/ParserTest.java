@@ -14,7 +14,6 @@ public class ParserTest {
         Todo t1 = new Todo("find Kaname Madoka");
         assertEquals(t1,t0);
     }
-
     @Test
     public void parseDeadlineInp_normal1_success() {
         Deadline d0 = Parser.parseDeadlineInp(
@@ -25,7 +24,6 @@ public class ParserTest {
         );
         assertEquals(d1,d0);
     }
-
     @Test
     public void parseEventInp_normal1_success() {
         Event e0 = Parser.parseEventInp(
@@ -37,6 +35,9 @@ public class ParserTest {
         assertEquals(e1,e0);
     }
 
+
+    
+    // Empty Inputs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     @Test
     public void parseTodoInp_blank_empInpHomExc() {
         try {
@@ -48,7 +49,6 @@ public class ParserTest {
             assertEquals(e0,e);
         }
     }
-
     @Test
     public void parseDeadlineInp_blank_empInpHomExc() {
         try {
@@ -60,7 +60,6 @@ public class ParserTest {
             assertEquals(e0,e);
         }
     }
-
     @Test
     public void parseEventInp_blank_empInpHomExc() {
         try {
