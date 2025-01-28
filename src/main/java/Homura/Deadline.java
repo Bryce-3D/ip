@@ -26,8 +26,9 @@ public class Deadline extends Todo {
     public static final DateTimeFormatter dtfToStorage
             = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-    public LocalDate getBy() { return by; }
-
+    public LocalDate getBy() {
+        return by;
+    }
 
 
     // Constructors and Factory Methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -35,11 +36,11 @@ public class Deadline extends Todo {
         super(description);
         this.by = by;
     }
+
     public Deadline(String description, String byStr) {
         super(description);
         by = LocalDate.parse(byStr, dtfParse);
     }
-
 
 
     // String Methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -55,14 +56,16 @@ public class Deadline extends Todo {
                 + by.format(dtfToString) + ")";
         return ans;
     }
+
     public static Deadline fromStorageStr(String s) {
         ArrayList<String> ss = HomuraUtils.split(s, Storage.DIVIDER);
-        Deadline ans = new Deadline(ss.get(2),ss.get(3));
+        Deadline ans = new Deadline(ss.get(2), ss.get(3));
         if (ss.get(1).equals("1")) {
             ans.setIsDone(true);
         }
         return ans;
     }
+
     @Override
     public String toStorageStr() {
         // d | 0 or 1 | descr | by
@@ -75,6 +78,24 @@ public class Deadline extends Todo {
         ans += Storage.DIVIDER + getDescription()
                 + Storage.DIVIDER + by.format(dtfToStorage);
         return ans;
+    }
+
+
+    // Etc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    @Override
+    public boolean equals(Object o) {
+        // Non-null Deadline
+        if (o == null) { return false; }
+        if (!(o instanceof Deadline)) { return false; }
+        Deadline d = (Deadline) o;
+
+        // Compare attributes
+        if (!getDescription().equals(d.getDescription())) {
+            return false;
+        }
+        if (!getIsDone() == d.getIsDone()) { return false; }
+        if (!by.equals(d.by)) { return false; }
+        return true;
     }
 }
 
