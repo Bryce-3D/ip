@@ -119,6 +119,25 @@ use --help for a list of possible options
 How can I fix this? Thanks!
 '
 
+#Explanation from ChatGPT on how this works
+: '
+Changes Explained
+
+Package-aware Compilation:
+Instead of using ../src/main/java/*.java, the script now uses find to
+recursively locate all .java files in the ../src/main/java directory.
+The find command with -exec javac ensures all .java files are compiled,
+respecting the directory structure of the package.
+
+Running the Program:
+After placing your Java class in a package, you must use the fully qualified
+class name to run it. For example, if your class is Homura inside the package
+Homura, the correct invocation is java -classpath ../bin Homura.Homura.
+
+No Changes for File Removal:
+The line for removing HomuraTodos.txt remains unchanged.
+'
+
 
 #OLD VERSION OF CODE BELOW ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
