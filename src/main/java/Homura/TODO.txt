@@ -1,5 +1,4 @@
 Week 3 TODOs
-- A-Gradle
 - A-JUnit
 - A-Jar
 - Do the ff as parallel branches
