@@ -12,7 +12,7 @@ public class ParserTest {
     public void parseTodoInp_normal1_success() {
         Todo t0 = Parser.parseTodoInp("todo find Kaname Madoka");
         Todo t1 = new Todo("find Kaname Madoka");
-        assertEquals(t0,t1);
+        assertEquals(t1,t0);
     }
 
     @Test
@@ -23,7 +23,7 @@ public class ParserTest {
         Deadline d1 = new Deadline(
                 "Meguca", "2025-12-31"
         );
-        assertEquals(d0,d1);
+        assertEquals(d1,d0);
     }
 
     @Test
@@ -34,7 +34,7 @@ public class ParserTest {
         Event e1 = new Event("suffering",
                 "0001-01-01", "9999-12-31"
         );
-        assertEquals(e0,e1);
+        assertEquals(e1,e0);
     }
 
     @Test
@@ -45,7 +45,7 @@ public class ParserTest {
         } catch (Exception e) {
             EmptyInputHomuraException e0
                     = new EmptyInputHomuraException("todo", "todo");
-            assertEquals(e,e0);
+            assertEquals(e0,e);
         }
     }
 
@@ -57,7 +57,7 @@ public class ParserTest {
         } catch (Exception e) {
             EmptyInputHomuraException e0
                     = new EmptyInputHomuraException("deadline", "deadline");
-            assertEquals(e,e0);
+            assertEquals(e0,e);
         }
     }
 
@@ -69,7 +69,7 @@ public class ParserTest {
         } catch (Exception e) {
             EmptyInputHomuraException e0
                     = new EmptyInputHomuraException("event", "event");
-            assertEquals(e,e0);
+            assertEquals(e0,e);
         }
     }
 }
