@@ -1,3 +1,7 @@
+/**
+ * A class representing a Todo item.
+ */
+
 // How to use and create packages inspired by
 // https://github.com/weiseng18/ip/tree/master/src/main/java/panorama
 // and
@@ -28,6 +32,11 @@ public class Todo {
 
 
     // String Methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    /**
+     * Returns a string representation of the object.
+     *
+     * @return A string representation of the object.
+     */
     @Override
     public String toString() {
         if (isDone) {
@@ -36,6 +45,12 @@ public class Todo {
             return "[T][ ] " + description;
         }
     }
+    /**
+     * Converts a storage string to the object.
+     *
+     * @param s The storage string.
+     * @return The object derived from the storage string.
+     */
     public static Todo fromStorageStr(String s) {
         ArrayList<String> ss = HomuraUtils.split(s, Storage.DIVIDER);
         Todo ans = new Todo(ss.get(2));
@@ -44,6 +59,11 @@ public class Todo {
         }
         return ans;
     }
+    /**
+     * Returns a string representation of the object for storage.
+     *
+     * @return A string representation of the object for storage.
+     */
     public String toStorageStr() {
         // t | 0 or 1 | descr
         String ans = "t" + Storage.DIVIDER;
@@ -60,6 +80,11 @@ public class Todo {
 
     // Special String Methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // !TODO! Either remove these or fix it
+    /**
+     * Generates a string to send when a Todo is created.
+     *
+     * @return The string to send when a Todo is created.
+     */
     public String addStr() {
         // Getting class name as a string inspired by
         // https://stackoverflow.com/questions/6271417/java-get-the-current-class-name
@@ -68,12 +93,22 @@ public class Todo {
                 + INDENT + " " + this + '\n'
                 + INDENT + DIVIDER;
     }
+    /**
+     * Generates a string to send when a Todo is marked.
+     *
+     * @return The string to send when a Todo is marked.
+     */
     public String markStr() {
         return INDENT + DIVIDER + '\n'
                 + INDENT + " " + getClass().getSimpleName() + " marked as done" + '\n'
                 + INDENT + " " + this + '\n'
                 + INDENT + DIVIDER;
     }
+    /**
+     * Generates a string to send when a Todo is unmarked.
+     *
+     * @return The string to send when a Todo is unmarked.
+     */
     public String unmarkStr() {
         return INDENT + DIVIDER + '\n'
                 + INDENT + " " + this.getClass().getSimpleName() + " marked as not done" + '\n'
@@ -84,6 +119,12 @@ public class Todo {
 
 
     // Etc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    /**
+     * Compares if the object is the same as this.
+     *
+     * @param o The object being compared to.
+     * @return Whether the objects are equal or not.
+     */
     @Override
     public boolean equals(Object o) {
         // Non-null Todo
