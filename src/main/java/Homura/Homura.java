@@ -1,3 +1,7 @@
+/**
+ * A class for the main logic of the chatbot Homura.
+ */
+
 // How to use and create packages inspired by
 // https://github.com/weiseng18/ip/tree/master/src/main/java/panorama
 // and
@@ -32,14 +36,14 @@ public class Homura {
 
     // Bot on/off logic ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
-     * Turn the bot on.
+     * Turns the bot on.
      */
     public static void on() {
         todos = Storage.readTodos(TODOS_FILENAME);
         System.out.println(Ui.introMsg());
     }
     /**
-     * Turn the bot off.
+     * Turns the bot off.
      */
     public static void off() {
         Storage.writeTodos(todos, TODOS_FILENAME);
