@@ -142,6 +142,17 @@ public class Homura {
                 + INDENT + DIVIDER + '\n'
         );
     }
+    /**
+     * Handles the logic of the find command.
+     *
+     * @param inp The full line of input to the bot.
+     */
+    public static void cmdFind(String inp) {
+        String[] splitInps = inp.split(" ");
+        String s= splitInps[1];
+        ArrayList<Todo> matches = todos.findTodosWith(s);
+        Ui.printFoundTodosFormatted(matches);
+    }
 
 
 
@@ -190,6 +201,9 @@ public class Homura {
                 break;
             case "delete":   // Remove an event from the list
                 cmdDelete(inp);
+                break;
+            case "find":   // Find todos in the list with some text
+                cmdFind(inp);
                 break;
             default:   // Not a command
                 throw new InvalidCmdHomuraException(cmd);
