@@ -7,8 +7,8 @@ package Homura;
 public class EmptyInputHomuraException extends HomuraRuntimeException {
     public static final String indent = "    ";
 
-    public String cmd;
-    public String inp;
+    private String cmd;
+    private String inp;
 
     public EmptyInputHomuraException() {
         super();
