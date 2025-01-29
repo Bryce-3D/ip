@@ -29,5 +29,19 @@ public class TaskList {
 
 
     // Extra functionality ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // None
+    /**
+     * Finds all todos that contain s in its description.
+     *
+     * @param s The string to lookup.
+     * @return An ArrayList of all todos with s in its description.
+     */
+    public ArrayList<Todo> findTodosWith(String s) {
+        ArrayList<Todo> ans = new ArrayList<Todo>();
+        for (Todo t : todos) {
+            if (t.contains(s)) {
+                ans.add(t);
+            }
+        }
+        return ans;
+    }
 }
