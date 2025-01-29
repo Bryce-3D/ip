@@ -7,7 +7,7 @@ package Homura;
 public class InvalidCmdHomuraException extends HomuraRuntimeException {
     public static final String indent = "    ";
 
-    public String cmd;
+    private String cmd;
 
     public InvalidCmdHomuraException() {
         super();
