@@ -1,3 +1,7 @@
+/**
+ * A class for handling storage of the todos.
+ */
+
 // How to use and create packages inspired by
 // https://github.com/weiseng18/ip/tree/master/src/main/java/panorama
 // and
@@ -15,7 +19,7 @@ public class Storage {
     public static final String DIVIDER = " | ";
 
     /**
-     * Convert a storage String to a Todo or one of its subclasses.
+     * Converts a storage String to a Todo or one of its subclasses.
      *
      * @param s The storage String representation.
      * @return The corresponding Todo, Deadline, or Event.
@@ -34,7 +38,7 @@ public class Storage {
         }
     }
     /**
-     * Read a list of Todos from a file.
+     * Reads a list of Todos from a file.
      * Returns an empty list if the file does not exist.
      *
      * @param fn The file name being read from.
@@ -53,7 +57,7 @@ public class Storage {
         return ans;
     }
     /**
-     * Write a list of Todos to a file.
+     * Writes a list of Todos to a file.
      * Will overwrite the given file if it already exists.
      *
      * @param tasks The Todos to write.

@@ -1,3 +1,7 @@
+/**
+ * A class for parsing.
+ */
+
 // How to use and create packages inspired by
 // https://github.com/weiseng18/ip/tree/master/src/main/java/panorama
 // and
@@ -5,6 +9,12 @@
 package Homura;
 
 public class Parser {
+    /**
+     * Parses a Todo command from the user.
+     *
+     * @param inp The user's full input.
+     * @return The created Todo object.
+     */
     public static Todo parseTodoInp(String inp) {
         inp = inp.strip();
         if (inp.length() <= 5) {
@@ -13,6 +23,12 @@ public class Parser {
         inp = inp.substring(5);   // Remove the "todo " in front
         return new Todo(inp);
     }
+    /**
+     * Parses a Deadline command from the user.
+     *
+     * @param inp The user's full input.
+     * @return The created Deadline object.
+     */
     public static Deadline parseDeadlineInp(String inp) {
         inp = inp.strip();
         if (inp.length() <= 9) {
@@ -28,6 +44,12 @@ public class Parser {
             throw new InvalidInputHomuraException("deadline", inp);
         }
     }
+    /**
+     * Parses an Event command from the user.
+     *
+     * @param inp The user's full input.
+     * @return The created Event object.
+     */
     public static Event parseEventInp(String inp) {
         inp = inp.strip();
         if (inp.length() <= 6) {
