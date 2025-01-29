@@ -1,3 +1,7 @@
+/**
+ * A class for utility helper functions.
+ */
+
 // Helper functions
 
 // How to use and create packages inspired by
@@ -72,6 +76,11 @@ public class HomuraUtils {
         return ans;
     }
 
+    /**
+     * Prints an ArrayList in a readable format.
+     *
+     * @param a The ArrayList to print.
+     */
     public static void printArrList(ArrayList<? extends Object> a) {
         for (Object o : a) {
             System.out.println(o);

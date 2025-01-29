@@ -1,3 +1,7 @@
+/**
+ * A class representing an Event item.
+ */
+
 // How to use and create packages inspired by
 // https://github.com/weiseng18/ip/tree/master/src/main/java/panorama
 // and
@@ -25,10 +29,10 @@ public class Event extends Todo {
     public LocalDate getSta() {
         return sta;
     }
-
     public LocalDate getEnd() {
         return end;
     }
+
 
 
     // Constructors and Factory Methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -37,7 +41,6 @@ public class Event extends Todo {
         this.sta = sta;
         this.end = end;
     }
-
     public Event(String description, String staStr, String endStr) {
         super(description);
         this.sta = LocalDate.parse(staStr, dtfParse);
@@ -45,7 +48,13 @@ public class Event extends Todo {
     }
 
 
+
     // String Methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    /**
+     * Returns a string representation of the object.
+     *
+     * @return A string representation of the object.
+     */
     @Override
     public String toString() {
         String ans = "[E]";
@@ -59,7 +68,12 @@ public class Event extends Todo {
                 + " to: " + end.format(dtfToString) + ")";
         return ans;
     }
-
+    /**
+     * Converts a storage string to the object.
+     *
+     * @param s The storage string.
+     * @return The object derived from the storage string.
+     */
     public static Event fromStorageStr(String s) {
         ArrayList<String> ss = HomuraUtils.split(s, Storage.DIVIDER);
         Event ans = new Event(ss.get(2), ss.get(3), ss.get(4));
@@ -68,7 +82,11 @@ public class Event extends Todo {
         }
         return ans;
     }
-
+    /**
+     * Returns a string representation of the object for storage.
+     *
+     * @return A string representation of the object for storage.
+     */
     @Override
     public String toStorageStr() {
         // e | 0 or 1 | descr | sta | end
@@ -85,7 +103,14 @@ public class Event extends Todo {
     }
 
 
+    
     // Etc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    /**
+     * Compares if the object is the same as this.
+     *
+     * @param o The object being compared to.
+     * @return Whether the objects are equal or not.
+     */
     @Override
     public boolean equals(Object o) {
         // Non-null Event

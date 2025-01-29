@@ -1,3 +1,7 @@
+/**
+ * A class for handling the UI.
+ */
+
 // How to use and create packages inspired by
 // https://github.com/weiseng18/ip/tree/master/src/main/java/panorama
 // and
