@@ -58,4 +58,33 @@ public class Ui {
         printTodos();
         System.out.println(INDENT + DIVIDER + '\n');
     }
+    /**
+     * Prints an arbitrary list of todos to the command line interface.
+     *
+     * @param todos The ArrayList of todos to print.
+     */
+    public static void printTodos(ArrayList<Todo> todos) {
+        ArrayList<String> numberedTasks = new ArrayList<String>();
+        for (int i = 0; i < todos.size(); i++) {
+            // Converting int to string representation inspired by
+            // https://stackoverflow.com/questions/5071040/
+            // java-convert-integer-to-string
+            numberedTasks.add((i+1) + ".) " + todos.get(i));
+        }
+        for (String item : numberedTasks) {
+            System.out.println(INDENT + " " + item);
+        }
+    }
+    /**
+     * Prints a found list of todos to the CLI with dividers.
+     *
+     * @param todos The ArrayList of todos to print.
+     */
+    public static void printFoundTodosFormatted(ArrayList<Todo> todos) {
+        System.out.println(INDENT + DIVIDER);
+        System.out.println(INDENT + " "
+                + todos.size() + " tasks(s) found in your list");
+        printTodos(todos);
+        System.out.println(INDENT + DIVIDER + '\n');
+    }
 }
