@@ -1,5 +1,4 @@
 Week 3 TODOs
-- A-Jar
 - Do the ff as parallel branches
     - A-Javadoc
     - A-CodingStandard
