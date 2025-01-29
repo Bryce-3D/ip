@@ -39,10 +39,17 @@ application {
 }
 
 shadowJar {
-    archiveBaseName = "duke"
+//    archiveBaseName = "duke"
+    archiveBaseName = "homura"   // Edited
     archiveClassifier = null
 }
 
 run{
     standardInput = System.in
 }
+
+// Inspired by https://se-education.org/guides/tutorials/jar.html
+// mainClassName = 'seedu.duke.Main'
+// It erorrs if I put `Homura.Homura.main`, so it likely means
+// the file rather than the main function
+mainClassName = 'Homura.Homura'
