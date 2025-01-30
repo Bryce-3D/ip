@@ -87,9 +87,11 @@ public class Todo {
      */
     public String addStr() {
         // Getting class name as a string inspired by
-        // https://stackoverflow.com/questions/6271417/java-get-the-current-class-name
+        // https://stackoverflow.com/questions/6271417/
+        // java-get-the-current-class-name
         return INDENT + DIVIDER + '\n'
-                + INDENT + " " + getClass().getSimpleName() + " added" + '\n'
+                + INDENT + " " + getClass().getSimpleName()
+                + " added" + '\n'
                 + INDENT + " " + this + '\n'
                 + INDENT + DIVIDER;
     }
@@ -100,7 +102,8 @@ public class Todo {
      */
     public String markStr() {
         return INDENT + DIVIDER + '\n'
-                + INDENT + " " + getClass().getSimpleName() + " marked as done" + '\n'
+                + INDENT + " " + getClass().getSimpleName()
+                + " marked as done" + '\n'
                 + INDENT + " " + this + '\n'
                 + INDENT + DIVIDER;
     }
@@ -111,7 +114,8 @@ public class Todo {
      */
     public String unmarkStr() {
         return INDENT + DIVIDER + '\n'
-                + INDENT + " " + this.getClass().getSimpleName() + " marked as not done" + '\n'
+                + INDENT + " " + this.getClass().getSimpleName()
+                + " marked as not done" + '\n'
                 + INDENT + " " + this.toString() + '\n'
                 + INDENT + DIVIDER;
     }

@@ -352,4 +352,5 @@ public class Homura {
  */
 
 // String concatenation inspired by
-// https://stackoverflow.com/questions/523871/best-way-to-concatenate-list-of-string-objects
+// https://stackoverflow.com/questions/523871/
+// best-way-to-concatenate-list-of-string-objects

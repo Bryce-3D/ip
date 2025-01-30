@@ -29,7 +29,8 @@ public class HomuraUtils {
     public static String readFile(String fn) {
         File f = new File(fn);
         // How to read the contents of a file inspired by
-        // https://stackoverflow.com/questions/72361778/how-can-i-get-java-to-read-all-text-in-file
+        // https://stackoverflow.com/questions/72361778/
+        // how-can-i-get-java-to-read-all-text-in-file
         try {
             Scanner sc = new Scanner(f).useDelimiter("\\A");
             return sc.next();
