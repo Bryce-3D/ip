@@ -1,26 +1,29 @@
 /**
- * An exception for when an invalid command is passed to Homura.
+ * An exception for when a command receives an invalid input.
  */
 
 // How to use and create packages inspired by
 // https://github.com/weiseng18/ip/tree/master/src/main/java/panorama
 // and
 // https://www.w3schools.com/java/java_packages.asp
-package Homura;
+package homura;
 
-public class InvalidCmdHomuraException extends HomuraRuntimeException {
+public class InvalidInputHomuraException extends HomuraRuntimeException {
     public static final String indent = "    ";
 
     private String cmd;
+    private String inp;
 
     /**
-     * Creates an InvalidCmdHomuraException.
-     * 
-     * @param cmd The invalid passed command.
+     * Creates an InvalidInputHomuraException.
+     *
+     * @param cmd The passed command.
+     * @param inp The full passed input.
      */
-    public InvalidCmdHomuraException(String cmd) {
+    public InvalidInputHomuraException(String cmd, String inp) {
         super();
         this.cmd = cmd;
+        this.inp = inp;
     }
 
     /**
@@ -31,6 +34,7 @@ public class InvalidCmdHomuraException extends HomuraRuntimeException {
     @Override
     public String toString() {
         return getClass().getSimpleName()
-            + " - Invalid cmd passed: " + cmd;
+            + " - Invalid input passed to cmd " + cmd + ":" + '\n'
+            + indent + indent + inp;
     }
 }

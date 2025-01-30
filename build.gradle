@@ -35,7 +35,7 @@ test {
 // OWN EDIT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 application {
 //    mainClass.set("seedu.duke.Duke")
-    mainClass.set("Homura.Homura")
+    mainClass.set("homura.Homura")
 }
 
 shadowJar {

@@ -18,7 +18,7 @@ IF ERRORLEVEL 1 (
 
 REM run the program, feed commands from input.txt file and redirect the output to the ACTUAL.TXT
 REM Use fully qualified class name (package + class name)
-java -classpath ..\bin Homura.Homura < input.txt > ACTUAL.TXT
+java -classpath ..\bin homura.homura < input.txt > ACTUAL.TXT
 
 REM convert ACTUAL.TXT and EXPECTED.TXT to UNIX format
 REM Windows doesn't have a direct dos2unix equivalent; you can use PowerShell if needed.
@@ -69,7 +69,7 @@ Used a for /r loop to compile all .java files under ..\src\main\java recursively
 The %%f represents each .java file found.
 Running the Program:
 
-The fully qualified class name (e.g., Homura.Homura) is specified when running the program. This includes the package name.
+The fully qualified class name (e.g., homura.homura) is specified when running the program. This includes the package name.
 Unix Format Conversion:
 
 Since Windows batch scripts don't have a direct dos2unix equivalent, I used PowerShell commands to convert CRLF line endings (\r\n) to LF (\n) in the files.
@@ -100,7 +100,7 @@ IF ERRORLEVEL 1 (
 REM no error here, errorlevel == 0
 
 REM run the program, feed commands from input.txt file and redirect the output to the ACTUAL.TXT
-java -classpath ..\bin Homura < input.txt > ACTUAL.TXT
+java -classpath ..\bin homura < input.txt > ACTUAL.TXT
 
 REM compare the output to the expected output
 FC ACTUAL.TXT EXPECTED.TXT
@@ -169,7 +169,7 @@ IF ERRORLEVEL 1 (
 REM no error here, errorlevel == 0
 
 REM run the program, feed commands from input.txt file and redirect the output to the ACTUAL.TXT
-java -classpath ..\bin Homura < input.txt > ACTUAL.TXT
+java -classpath ..\bin homura < input.txt > ACTUAL.TXT
 
 REM compare the output to the expected output
 FC ACTUAL.TXT EXPECTED.TXT

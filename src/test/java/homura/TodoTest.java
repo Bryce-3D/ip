@@ -1,4 +1,4 @@
-package Homura;
+package homura;
 
 // Copied from and inspired by
 // https://se-education.org/guides/tutorials/junit.html#adding-junit-support-to-your-project
