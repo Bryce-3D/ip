@@ -1,12 +1,4 @@
-Week 3 TODOs
-- Do the ff as parallel branches
-    - A-Javadoc
-    - A-CodingStandard
-    - branch-Level-9
-        - find task by keyword
-- Start learning JavaFX
-
-Other TODOs
+List of Optional TODOs
 - Deal with the addStr(), markStr(), and unmarkStr() functions in Todo.java
 - Handle exceptions in Homura rather than just crashing Homura
 - Cite all uses of ChatGPT in the README.md
