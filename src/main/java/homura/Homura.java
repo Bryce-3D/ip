@@ -268,7 +268,7 @@ public class Homura {
         case "delete":   // Remove an event from the list
             return cmdDeleteJavafx(inp);
         case "find":   // Find todos in the list with some text
-            return cmdFindJavaFX(inp);
+            return cmdFindJavafx(inp);
         default:   // Not a command
             throw new InvalidCmdHomuraException(cmd);
         }
