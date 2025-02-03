@@ -5,6 +5,8 @@ List of Optional TODOs
   Instructions can be found at
   https://nus-cs2103-ay2425s2.github.io/website/admin/
   appendixB-policies.html#giving-credit-for-reused-work
+- Reorder the commands in Homura.java, why are mark/unmark above
+  todo/deadline/event???
 
 
 
