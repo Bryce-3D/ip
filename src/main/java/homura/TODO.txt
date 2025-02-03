@@ -7,6 +7,8 @@ List of Optional TODOs
   appendixB-policies.html#giving-credit-for-reused-work
 - Reorder the commands in Homura.java, why are mark/unmark above
   todo/deadline/event???
+- Make `bye` and `list` proper commands rather than special cases that only
+  work when the exact string "bye" or "list" is passed
 
 
 
