@@ -240,8 +240,11 @@ public class Homura {
         String[] splitInps = inp.split(" ");
         String s= splitInps[1];
         ArrayList<Todo> matches = todos.findTodosWith(s);
-        return Ui.foundTodosFormatted(matches);
+        return Ui.foundTodosFormattedJavafx(matches);
 //        Ui.printFoundTodosFormatted(matches);
+    }
+    public static String cmdJavaFX(String inp) {
+        // TODO
     }
 
 

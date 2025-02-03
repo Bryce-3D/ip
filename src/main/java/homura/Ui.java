@@ -92,7 +92,7 @@ public class Ui {
         System.out.println(INDENT + DIVIDER + '\n');
     }
 
-    public static String todosStr() {
+    public static String todosStrJavafx() {
         ArrayList<String> numberedTasks = new ArrayList<String>();
         for (int i = 0; i < Homura.getTodos().size(); i++) {
             // Converting int to string representation inspired by
@@ -107,19 +107,19 @@ public class Ui {
         return ans;
     }
 
-    public static String todosFormatted() {
+    public static String todosFormattedJavafx() {
         return INDENT + DIVIDER + '\n'
                 + INDENT + " " + Homura.getTodos().size()
                 + " tasks(s) in your list" + '\n'
-                + todosStr()
+                + todosStrJavafx()
                 + INDENT + DIVIDER + '\n';
     }
 
-    public static String foundTodosFormatted(ArrayList<Todo> todos) {
+    public static String foundTodosFormattedJavafx(ArrayList<Todo> todos) {
         return INDENT + DIVIDER + '\n'
                 + INDENT + " " + todos.size()
                 + " tasks(s) found in your list" + '\n'
-                + todosStr()
+                + todosStrJavafx()
                 + INDENT + DIVIDER + '\n';
     }
 }
