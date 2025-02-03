@@ -107,6 +107,14 @@ public class Ui {
         return ans;
     }
 
+    public static String todosFormatted() {
+        return INDENT + DIVIDER + '\n'
+                + INDENT + " " + Homura.getTodos().size()
+                + " tasks(s) in your list" + '\n'
+                + todosStr()
+                + INDENT + DIVIDER + '\n';
+    }
+
     public static String foundTodosFormatted(ArrayList<Todo> todos) {
         return INDENT + DIVIDER + '\n'
                 + INDENT + " " + todos.size()
