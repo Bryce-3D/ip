@@ -1,8 +1,10 @@
+[Homura and Madoka pfp sauce](https://www.tumblr.com/theunholyhomucifer/702419763873366016/homurahyakuya-official-madohomu-card-artwork)
+
 # Duke project template
 
 This is a project template for a greenfield Java project. It's named after the Java mascot _Duke_. Given below are instructions on how to use it.
 
-## Setting up in Intellij
+## Setting up in Intellij)
 
 Prerequisites: JDK 17, update Intellij to the most recent version.
 
