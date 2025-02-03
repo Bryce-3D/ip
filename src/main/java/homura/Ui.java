@@ -91,4 +91,27 @@ public class Ui {
         printTodos(todos);
         System.out.println(INDENT + DIVIDER + '\n');
     }
+
+    public static String todosStr() {
+        ArrayList<String> numberedTasks = new ArrayList<String>();
+        for (int i = 0; i < Homura.getTodos().size(); i++) {
+            // Converting int to string representation inspired by
+            // https://stackoverflow.com/questions/5071040/
+            // java-convert-integer-to-string
+            numberedTasks.add((i+1) + ".) " + Homura.getTodos().get(i));
+        }
+        String ans = "";
+        for (String item : numberedTasks) {
+            ans += INDENT + " " + item + '\n';
+        }
+        return ans;
+    }
+
+    public static String foundTodosFormatted(ArrayList<Todo> todos) {
+        return INDENT + DIVIDER + '\n'
+                + INDENT + " " + todos.size()
+                + " tasks(s) found in your list" + '\n'
+                + todosStr()
+                + INDENT + DIVIDER + '\n';
+    }
 }
