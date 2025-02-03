@@ -236,15 +236,42 @@ public class Homura {
 //                        + INDENT + DIVIDER + '\n'
 //        );
     }
-    public static String cmdFindJavaFX(String inp) {
+    public static String cmdFindJavafx(String inp) {
         String[] splitInps = inp.split(" ");
         String s= splitInps[1];
         ArrayList<Todo> matches = todos.findTodosWith(s);
         return Ui.foundTodosFormattedJavafx(matches);
 //        Ui.printFoundTodosFormatted(matches);
     }
-    public static String cmdJavaFX(String inp) {
-        // TODO
+    public static String cmdJavafx(String inp) {
+        if (inp.equals("bye")) {
+            Storage.writeTodos(todos, TODOS_FILENAME);
+            return Ui.byeMsg();
+        }
+        if (inp.equals("list")) {
+            return Ui.todosFormattedJavafx();
+        }
+        String[] splitInps = inp.split(" ");
+        String cmd = splitInps[0].toLowerCase();
+
+        switch (cmd) {
+        case "mark":   // Mark a Todo on the list
+            return cmdMarkJavafx(inp);
+        case "unmark":   // Unmark a Todo on the list
+            return cmdUnmarkJavafx(inp);
+        case "todo":   // Add a Todo to the list
+            return cmdTodoJavafx(inp);
+        case "deadline":   // Add a deadline to the list
+            return cmdDeadlineJavafx(inp);
+        case "event":   // Add an event to the list
+            return cmdEventJavafx(inp);
+        case "delete":   // Remove an event from the list
+            return cmdDeleteJavafx(inp);
+        case "find":   // Find todos in the list with some text
+            return cmdFindJavaFX(inp);
+        default:   // Not a command
+            throw new InvalidCmdHomuraException(cmd);
+        }
     }
 
 
