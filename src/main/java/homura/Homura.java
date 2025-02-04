@@ -174,28 +174,28 @@ public class Homura {
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
         todos.get(i).setIsDone(true);
-        return todos.get(i).markStr();
+        return todos.get(i).markStrJavafx();
     }
     public static String cmdUnmarkJavafx(String inp) {
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
         todos.get(i).setIsDone(false);
-        return todos.get(i).unmarkStr();
+        return todos.get(i).unmarkStrJavafx();
     }
     public static String cmdTodoJavafx(String inp) {
         Todo t = Parser.parseTodoInp(inp);
         todos.add(t);
-        return t.addStr();
+        return t.addStrJavafx();
     }
     public static String cmdDeadlineJavafx(String inp) {
         Deadline d = Parser.parseDeadlineInp(inp);
         todos.add(d);
-        return d.addStr();
+        return d.addStrJavafx();
     }
     public static String cmdEventJavafx(String inp) {
         Event e = Parser.parseEventInp(inp);
         todos.add(e);
-        return e.addStr();
+        return e.addStrJavafx();
     }
     public static String cmdDeleteJavafx(String inp) {
         String[] splitInps = inp.split(" ");
