@@ -108,7 +108,7 @@ public class Ui {
                 + "Kaname Madoka. Stay as you are, forever."
                 + '\n'
                 + " Farewell."
-                + '\n'
+                + '\n' + '\n'
                 + "Send any message to close me.\n";
     }
     public static String todosStrJavafx() {
