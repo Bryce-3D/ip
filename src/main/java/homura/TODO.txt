@@ -1,5 +1,4 @@
 List of Optional TODOs
-- Deal with the addStr(), markStr(), and unmarkStr() functions in Todo.java
 - Handle exceptions in Homura rather than just crashing Homura
 - Cite all uses of ChatGPT in the README.md
   Instructions can be found at
@@ -12,6 +11,13 @@ List of Optional TODOs
 - Make the Homura actually send some message on invalid inputs rather than
   just doing nothing and having the errors appear in the CLI/console thing
   in IntelliJ only
+
+
+List of ???s
+- Deal with the addStr(), markStr(), and unmarkStr() functions in Todo.java
+  and their corresponding JavaFX versions. Is this actually good OOP design
+  or bad OOP design I genuinely don't know. But it did make editing the code
+  for `Level-10` (GUI) fairly straightforward.
 
 
 
