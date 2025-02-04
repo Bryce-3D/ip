@@ -9,6 +9,9 @@ List of Optional TODOs
   todo/deadline/event???
 - Make `bye` and `list` proper commands rather than special cases that only
   work when the exact string "bye" or "list" is passed
+- Make the Homura actually send some message on invalid inputs rather than
+  just doing nothing and having the errors appear in the CLI/console thing
+  in IntelliJ only
 
 
 
