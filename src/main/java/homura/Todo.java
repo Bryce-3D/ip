@@ -119,6 +119,18 @@ public class Todo {
                 + INDENT + " " + this.toString() + '\n'
                 + INDENT + DIVIDER;
     }
+    public String addStrJavafx() {
+        return getClass().getSimpleName() + " added" + '\n'
+                + INDENT + this + '\n';
+    }
+    public String markStrJavafx() {
+        return getClass().getSimpleName() + " marked as done" + '\n'
+                + INDENT + this + '\n';
+    }
+    public String unmarkStrJavafx() {
+        return getClass().getSimpleName() + " marked as not done" + '\n'
+                + INDENT + this + '\n';
+    }
 
 
 
