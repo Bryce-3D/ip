@@ -15,6 +15,7 @@ public class Ui {
     public final static String INDENT = " ".repeat(4);
     public final static String DIVIDER = "~".repeat(80);
 
+    // CLI Version ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Generates the message on bot startup.
      *
@@ -92,6 +93,15 @@ public class Ui {
         System.out.println(INDENT + DIVIDER + '\n');
     }
 
+    // New JavaFX Version ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    public static String byeMsgJavafx() {
+        return INDENT + DIVIDER + '\n'
+                + INDENT + " No matter what, don't become a magical girl.\n"
+                + INDENT + " Farewell.\n"
+                + '\n'
+                + INDENT + "Send any message to close me.\n"
+                + INDENT + DIVIDER;
+    }
     public static String todosStrJavafx() {
         ArrayList<String> numberedTasks = new ArrayList<String>();
         for (int i = 0; i < Homura.getTodos().size(); i++) {
