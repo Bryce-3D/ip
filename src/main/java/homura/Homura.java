@@ -245,7 +245,7 @@ public class Homura {
     public static String cmdJavafx(String inp) {
         if (inp.equals("bye")) {
             Storage.writeTodos(todos, TODOS_FILENAME);
-            return Ui.byeMsg();
+            return Ui.byeMsgJavafx();
         }
         if (inp.equals("list")) {
             return Ui.todosFormattedJavafx();
