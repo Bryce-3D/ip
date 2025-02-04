@@ -37,14 +37,14 @@ public class Homura {
     /**
      * Turns the bot on.
      */
-    public static void on() {
+    public static void turnOn() {
         todos = Storage.readTodos(TODOS_FILENAME);
         System.out.println(Ui.introMsg());
     }
     /**
      * Turns the bot off.
      */
-    public static void off() {
+    public static void turnOff() {
         Storage.writeTodos(todos, TODOS_FILENAME);
         System.out.println(Ui.byeMsg());
     }
@@ -257,7 +257,7 @@ public class Homura {
 
     // Main ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public static void main(String[] args) {
-        on();
+        turnOn();
 
         while (true) {
             // How to read input inspired by
@@ -267,7 +267,7 @@ public class Homura {
 
             // Exit the chatbot
             if (inp.equals("bye")) {
-                off();
+                turnOff();
                 break;
             }
 
