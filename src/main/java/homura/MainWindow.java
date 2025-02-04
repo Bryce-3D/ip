@@ -72,7 +72,8 @@ public class MainWindow extends AnchorPane {
             //        }
             //    }
             //```"
-            Platform.exit();
+            Platform.exit();   // Close Homura
+            return;
         }
 
         String inp = userInput.getText();
