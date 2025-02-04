@@ -23,9 +23,8 @@ public class Homura {
     private final static Scanner SC = new Scanner(System.in);
     private static TaskList todos = new TaskList();
 
-    public static TaskList getTodos() {
-        return todos;
-    }
+    public static TaskList getTodos() { return todos; }
+    public static void setTodos(TaskList todos) { Homura.todos = todos; }
 
 
 
@@ -55,33 +54,6 @@ public class Homura {
     // Bot commands logic ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Handles the logic of the mark command.
-     *
-     * @param inp The full line of input to the bot.
-     */
-    public static void cmdMark(String inp) {
-        // How to convert String to int inspired by
-        // https://stackoverflow.com/questions/5585779/
-        // how-do-i-convert-a-string-to-an-int-in-java
-        String[] splitInps = inp.split(" ");
-        int i = Integer.parseInt(splitInps[1]) - 1;
-        todos.get(i).setIsDone(true);
-        System.out.println(todos.get(i).markStr());
-        System.out.println('\n');
-    }
-    /**
-     * Handles the logic of the unmark command.
-     *
-     * @param inp The full line of input to the bot.
-     */
-    public static void cmdUnmark(String inp) {
-        String[] splitInps = inp.split(" ");
-        int i = Integer.parseInt(splitInps[1]) - 1;
-        todos.get(i).setIsDone(false);
-        System.out.println(todos.get(i).unmarkStr());
-        System.out.println('\n');
-    }
-    /**
-     * Handles the logic of the todo command.
      *
      * @param inp The full line of input to the bot.
      */
@@ -123,8 +95,36 @@ public class Homura {
                 + INDENT + DIVIDER + '\n'
         );
     }
+
     /**
      * Handles the logic of the delete command.
+     *
+     * @param inp The full line of input to the bot.
+     */
+    public static void cmdMark(String inp) {
+        // How to convert String to int inspired by
+        // https://stackoverflow.com/questions/5585779/
+        // how-do-i-convert-a-string-to-an-int-in-java
+        String[] splitInps = inp.split(" ");
+        int i = Integer.parseInt(splitInps[1]) - 1;
+        todos.get(i).setIsDone(true);
+        System.out.println(todos.get(i).markStr());
+        System.out.println('\n');
+    }
+    /**
+     * Handles the logic of the unmark command.
+     *
+     * @param inp The full line of input to the bot.
+     */
+    public static void cmdUnmark(String inp) {
+        String[] splitInps = inp.split(" ");
+        int i = Integer.parseInt(splitInps[1]) - 1;
+        todos.get(i).setIsDone(false);
+        System.out.println(todos.get(i).unmarkStr());
+        System.out.println('\n');
+    }
+    /**
+     * Handles the logic of the todo command.
      *
      * @param inp The full line of input to the bot.
      */
@@ -146,6 +146,7 @@ public class Homura {
                 + INDENT + DIVIDER + '\n'
         );
     }
+
     /**
      * Handles the logic of the find command.
      *
@@ -159,6 +160,98 @@ public class Homura {
     }
 
 
+
+    // Bot commands logic (JavaFX) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    public static String cmdTodoJavafx(String inp) {
+        Todo t = Parser.parseTodoInp(inp);
+        todos.add(t);
+        return t.addStrJavafx();
+    }
+    public static String cmdDeadlineJavafx(String inp) {
+        Deadline d = Parser.parseDeadlineInp(inp);
+        todos.add(d);
+        return d.addStrJavafx();
+    }
+    public static String cmdEventJavafx(String inp) {
+        Event e = Parser.parseEventInp(inp);
+        todos.add(e);
+        return e.addStrJavafx();
+    }
+
+    public static String cmdMarkJavafx(String inp) {
+        // How to convert String to int inspired by
+        // https://stackoverflow.com/questions/5585779/
+        // how-do-i-convert-a-string-to-an-int-in-java
+        String[] splitInps = inp.split(" ");
+        int i = Integer.parseInt(splitInps[1]) - 1;
+        todos.get(i).setIsDone(true);
+        return todos.get(i).markStrJavafx();
+    }
+    public static String cmdUnmarkJavafx(String inp) {
+        String[] splitInps = inp.split(" ");
+        int i = Integer.parseInt(splitInps[1]) - 1;
+        todos.get(i).setIsDone(false);
+        return todos.get(i).unmarkStrJavafx();
+    }
+    public static String cmdDeleteJavafx(String inp) {
+        String[] splitInps = inp.split(" ");
+        int i = Integer.parseInt(splitInps[1]) - 1;
+        if (i >= todos.size()) {
+            throw new InvalidInputHomuraException("delete", inp);
+        }
+        Todo t = todos.get(i);
+        todos.remove(i);
+        return INDENT + DIVIDER + '\n'
+                + INDENT + " " + t.getClass().getSimpleName()
+                + " removed" + '\n'
+                + INDENT + INDENT + t + '\n'
+                + INDENT + " " + todos.size()
+                + " tasks(s) in your list" + '\n'
+                + INDENT + DIVIDER + '\n';
+    }
+
+    public static String cmdListJavafx(String inp) {
+        return Ui.todosFormattedJavafx();
+    }
+    public static String cmdFindJavafx(String inp) {
+        String[] splitInps = inp.split(" ");
+        String s= splitInps[1];
+        ArrayList<Todo> matches = todos.findTodosWith(s);
+        return Ui.foundTodosFormattedJavafx(matches);
+    }
+
+    public static String cmdByeJavafx(String inp) {
+        Storage.writeTodos(todos, TODOS_FILENAME);
+        return Ui.byeMsgJavafx();
+    }
+    
+    public static String cmdJavafx(String inp) {
+        String[] splitInps = inp.split(" ");
+        String cmd = splitInps[0].toLowerCase();
+
+        switch (cmd) {
+        case "bye":   // Say goodbye to Homura
+            return cmdByeJavafx(inp);
+        case "list":
+            return cmdListJavafx(inp);
+        case "mark":   // Mark a Todo on the list
+            return cmdMarkJavafx(inp);
+        case "unmark":   // Unmark a Todo on the list
+            return cmdUnmarkJavafx(inp);
+        case "todo":   // Add a Todo to the list
+            return cmdTodoJavafx(inp);
+        case "deadline":   // Add a deadline to the list
+            return cmdDeadlineJavafx(inp);
+        case "event":   // Add an event to the list
+            return cmdEventJavafx(inp);
+        case "delete":   // Remove an event from the list
+            return cmdDeleteJavafx(inp);
+        case "find":   // Find todos in the list with some text
+            return cmdFindJavafx(inp);
+        default:   // Not a command
+            throw new InvalidCmdHomuraException(cmd);
+        }
+    }
 
 
 

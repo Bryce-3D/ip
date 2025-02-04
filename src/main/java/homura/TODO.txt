@@ -1,6 +1,14 @@
-List of Optional TODOs
-- Deal with the addStr(), markStr(), and unmarkStr() functions in Todo.java
-- Handle exceptions in Homura rather than just crashing Homura
+List of TODOs right before submitting:
+- (Codestyle) Cannot do
+      if (condition) { a += 1; }
+  Need to be on a separate line like
+      if (condition) {
+          a += 1;
+      }
+- (Codestyle) Cannot do
+      f(a,b)
+  Need space in between like
+      f(a, b)
 - Cite all uses of ChatGPT in the README.md
   Instructions can be found at
   https://nus-cs2103-ay2425s2.github.io/website/admin/
@@ -8,14 +16,22 @@ List of Optional TODOs
 
 
 
-Codestyle conventions to fix right before submitting:
-- Cannot do
-      if (condition) { a += 1; }
-  Need to be on a separate line like
-      if (condition) {
-          a += 1;
-      }
-- Cannot do
-      f(a,b)
-  Need space in between like
-      f(a, b)
+List of Main Optional TODOs (JavaFX or both versions)
+- Make the Homura actually send some message on invalid inputs rather than
+  do nothing and have the errors appear in the CLI/console thing in
+  IntelliJ only
+
+
+
+List of Optional TODOs (CLI only)
+- Handle exceptions in Homura rather than just crashing Homura
+- Make `bye` and `list` proper commands rather than special cases that only
+  work when the exact string "bye" or "list" is passed
+
+
+
+List of ???s
+- Deal with the addStr(), markStr(), and unmarkStr() functions in Todo.java
+  and their corresponding JavaFX versions. Is this actually good OOP design
+  or bad OOP design I genuinely don't know. But it did make editing the code
+  for `Level-10` (GUI) fairly straightforward.

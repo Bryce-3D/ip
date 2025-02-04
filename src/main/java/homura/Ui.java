@@ -15,6 +15,7 @@ public class Ui {
     public final static String INDENT = " ".repeat(4);
     public final static String DIVIDER = "~".repeat(80);
 
+    // CLI Version ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Generates the message on bot startup.
      *
@@ -90,5 +91,59 @@ public class Ui {
                 + todos.size() + " tasks(s) found in your list");
         printTodos(todos);
         System.out.println(INDENT + DIVIDER + '\n');
+    }
+
+    // New JavaFX Version ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    public static String introMsgJavafx() {
+        return "Good morning Madoka-chan.\n"
+                + "Did Kyuubey contact you last night?";
+    }
+    public static String byeMsgJavafx() {
+        return "Kaname Madoka, do you treasure the life you currently live? "
+                + "And do you consider your family and your friends precious?"
+                + "\n"
+                + "If that's the truth then you wouldn't try changing the "
+                + "life you have or the person you are. Otherwise you'll "
+                + "lose everything you love. Don't change, stay as you are, "
+                + "Kaname Madoka. Stay as you are, forever."
+                + '\n'
+                + " Farewell."
+                + '\n' + '\n'
+                + "Send any message to close me.\n";
+    }
+    public static String todosStrJavafx() {
+        ArrayList<String> numberedTasks = new ArrayList<String>();
+        for (int i = 0; i < Homura.getTodos().size(); i++) {
+            // Converting int to string representation inspired by
+            // https://stackoverflow.com/questions/5071040/
+            // java-convert-integer-to-string
+            numberedTasks.add((i+1) + ".) " + Homura.getTodos().get(i));
+        }
+        String ans = "";
+        for (String item : numberedTasks) {
+            ans += INDENT + " " + item + '\n';
+        }
+        return ans;
+    }
+    public static String todosStrJavafx(ArrayList<Todo> todos) {
+        ArrayList<String> numberedTasks = new ArrayList<String>();
+        for (int i = 0; i < todos.size(); i++) {
+            numberedTasks.add((i+1) + ".) " + todos.get(i));
+        }
+        String ans = "";
+        for (String item: numberedTasks) {
+            ans += INDENT + " " + item + '\n';
+        }
+        return ans;
+    }
+
+    public static String todosFormattedJavafx() {
+        return Homura.getTodos().size() + " tasks(s) in your list" + '\n'
+                + todosStrJavafx();
+    }
+
+    public static String foundTodosFormattedJavafx(ArrayList<Todo> todos) {
+        return todos.size() + " tasks(s) found in your list" + '\n'
+                + todosStrJavafx(todos);
     }
 }
