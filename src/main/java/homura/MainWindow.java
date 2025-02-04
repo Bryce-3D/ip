@@ -33,6 +33,7 @@ public class MainWindow extends AnchorPane {
     @FXML
     public void initialize() {
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
+        Homura.setTodos(Storage.readTodos(Homura.TODOS_FILENAME));
     }
 
 //    /** Injects the Duke instance */
