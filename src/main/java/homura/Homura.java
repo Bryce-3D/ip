@@ -160,6 +160,13 @@ public class Homura {
 
 
     // Bot commands logic (JavaFX) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    public static String cmdByeJavafx(String inp) {
+        Storage.writeTodos(todos, TODOS_FILENAME);
+        return Ui.byeMsgJavafx();
+    }
+    public static String cmdListJavafx(String inp) {
+        return Ui.todosFormattedJavafx();
+    }
     public static String cmdMarkJavafx(String inp) {
         // How to convert String to int inspired by
         // https://stackoverflow.com/questions/5585779/
