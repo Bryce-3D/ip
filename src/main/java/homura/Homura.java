@@ -23,9 +23,8 @@ public class Homura {
     private final static Scanner SC = new Scanner(System.in);
     private static TaskList todos = new TaskList();
 
-    public static TaskList getTodos() {
-        return todos;
-    }
+    public static TaskList getTodos() { return todos; }
+    public static void setTodos(TaskList todos) { Homura.todos = todos; }
 
 
 
