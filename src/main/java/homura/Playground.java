@@ -12,35 +12,48 @@ import java.util.*;
 
 public class Playground {
     public static void main(String[] args) {
-        // How to initialize ArrayList with values inspired by
-        // https://stackoverflow.com/questions/1005073/
-        // initialization-of-an-arraylist-in-one-line
-        ArrayList<Integer> aa = new ArrayList<Integer>(
-                Arrays.asList(1,2,3)
-        );
-        ArrayList<Integer> a = L.getA();
-        a = aa;
-
-        for (int i : L.getA()) {
-            System.out.println(i);
-        }
+        String s = "0123456789";
+        String s0 = s.substring(2,13);
+        System.out.println(s0);
     }
 }
 
-// From testing
-// I can't seem just modify it
-// change a's reference -> does not change L.a's reference, need like
-// pointers or references from C++ or something
-// mafan sia
 
-// How to declare multiple classes in a single file inspired by
-// https://stackoverflow.com/questions/2336692/
-// java-multiple-class-declarations-in-one-file
-class L {
-    private static ArrayList<Integer> a = new ArrayList<Integer>();
-    public static ArrayList<Integer> getA() { return a; }
-    // public static
-}
+
+
+
+
+
+
+
+
+//// From testing
+//// I can't seem just modify it
+//// change a's reference -> does not change L.a's reference, need like
+//// pointers or references from C++ or something
+//// mafan sia
+//
+//// How to declare multiple classes in a single file inspired by
+//// https://stackoverflow.com/questions/2336692/
+//// java-multiple-class-declarations-in-one-file
+//class L {
+//    private static ArrayList<Integer> a = new ArrayList<Integer>();
+//    public static ArrayList<Integer> getA() { return a; }
+//    // public static
+//}
+
+//        // How to initialize ArrayList with values inspired by
+//        // https://stackoverflow.com/questions/1005073/
+//        // initialization-of-an-arraylist-in-one-line
+//        ArrayList<Integer> aa = new ArrayList<Integer>(
+//                Arrays.asList(1,2,3)
+//        );
+//        ArrayList<Integer> a = L.getA();
+//        a = aa;
+//
+//        for (int i : L.getA()) {
+//            System.out.println(i);
+//        }
 
 
 

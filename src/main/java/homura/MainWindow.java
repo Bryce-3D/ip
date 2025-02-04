@@ -1,6 +1,7 @@
 package homura;
 
 // Copied from https://se-education.org/guides/tutorials/javaFxPart4.html
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -46,12 +47,16 @@ public class MainWindow extends AnchorPane {
      */
     @FXML
     private void handleUserInput() {
-        String input = userInput.getText();
-        String response = Homura.cmdJavafx(input);
+        String inp = userInput.getText();
+        String response = Homura.cmdJavafx(inp);
         dialogContainer.getChildren().addAll(
-                DialogBox.getUserDialog(input, madoImage),
+                DialogBox.getUserDialog(inp, madoImage),
                 DialogBox.getHomuDialog(response, homuImage)
         );
         userInput.clear();
+
+        if (inp.split(" ")[0].equals("bye")) {
+            Platform.exit();
+        }
     }
 }
