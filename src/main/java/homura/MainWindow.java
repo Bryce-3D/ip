@@ -34,6 +34,13 @@ public class MainWindow extends AnchorPane {
     @FXML
     public void initialize() {
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
+
+        // Send the on message
+        dialogContainer.getChildren().addAll(
+                DialogBox.getHomuDialog(Ui.introMsgJavafx(), homuImage)
+        );
+
+        // Read the saved todo list
         Homura.setTodos(Storage.readTodos(Homura.TODOS_FILENAME));
     }
 
