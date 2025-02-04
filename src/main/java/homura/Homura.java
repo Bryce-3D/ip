@@ -175,47 +175,27 @@ public class Homura {
         int i = Integer.parseInt(splitInps[1]) - 1;
         todos.get(i).setIsDone(true);
         return todos.get(i).markStr();
-//        System.out.println(todos.get(i).markStr());
-//        System.out.println('\n');
     }
     public static String cmdUnmarkJavafx(String inp) {
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
         todos.get(i).setIsDone(false);
         return todos.get(i).unmarkStr();
-//        System.out.println(todos.get(i).unmarkStr());
-//        System.out.println('\n');
     }
     public static String cmdTodoJavafx(String inp) {
         Todo t = Parser.parseTodoInp(inp);
         todos.add(t);
         return t.addStr();
-//        System.out.println(t.addStr());
-//        System.out.println(
-//                INDENT + " " + todos.size()
-//                        + " task(s) in your list" + '\n'
-//                        + INDENT + DIVIDER + '\n'
-//        );
     }
     public static String cmdDeadlineJavafx(String inp) {
         Deadline d = Parser.parseDeadlineInp(inp);
         todos.add(d);
         return d.addStr();
-//        System.out.println(d.addStr());
-//        System.out.println(
-//                INDENT + " " + todos.size() + " task(s) in your list" + '\n'
-//                        + INDENT + DIVIDER + '\n'
-//        );
     }
     public static String cmdEventJavafx(String inp) {
         Event e = Parser.parseEventInp(inp);
         todos.add(e);
         return e.addStr();
-//        System.out.println(e.addStr());
-//        System.out.println(
-//                INDENT + " " + todos.size() + " task(s) in your list" + '\n'
-//                        + INDENT + DIVIDER + '\n'
-//        );
     }
     public static String cmdDeleteJavafx(String inp) {
         String[] splitInps = inp.split(" ");
@@ -232,22 +212,12 @@ public class Homura {
                 + INDENT + " " + todos.size()
                 + " tasks(s) in your list" + '\n'
                 + INDENT + DIVIDER + '\n';
-//        System.out.println(
-//                INDENT + DIVIDER + '\n'
-//                        + INDENT + " " + t.getClass().getSimpleName()
-//                        + " removed" + '\n'
-//                        + INDENT + INDENT + t + '\n'
-//                        + INDENT + " " + todos.size()
-//                        + " tasks(s) in your list" + '\n'
-//                        + INDENT + DIVIDER + '\n'
-//        );
     }
     public static String cmdFindJavafx(String inp) {
         String[] splitInps = inp.split(" ");
         String s= splitInps[1];
         ArrayList<Todo> matches = todos.findTodosWith(s);
         return Ui.foundTodosFormattedJavafx(matches);
-//        Ui.printFoundTodosFormatted(matches);
     }
     public static String cmdJavafx(String inp) {
         String[] splitInps = inp.split(" ");
