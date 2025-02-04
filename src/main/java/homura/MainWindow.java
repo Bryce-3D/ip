@@ -51,6 +51,27 @@ public class MainWindow extends AnchorPane {
     private void handleUserInput() {
         // Extra logic for turning off (1/2)
         if (isOffing) {
+            // Inspired by asking ChatGPT the following query
+            // "Hi! I'm now trying to make my application exit upon receiving
+            // the command "bye". However, I'm not sure how to do this. I
+            // currently have this handler to handle the user's inputs.
+            //
+            //```
+            //    @FXML
+            //    private void handleUserInput() {
+            //        String inp = userInput.getText();
+            //        String response = Homura.cmdJavafx(inp);
+            //        dialogContainer.getChildren().addAll(
+            //                DialogBox.getUserDialog(inp, madoImage),
+            //                DialogBox.getHomuDialog(response, homuImage)
+            //        );
+            //        userInput.clear();
+            //
+            //        if (inp.split(" ")[0].equals("bye")) {
+            //            // Do something to make the program exit
+            //        }
+            //    }
+            //```"
             Platform.exit();
         }
 
