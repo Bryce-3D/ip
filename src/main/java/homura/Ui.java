@@ -127,18 +127,12 @@ public class Ui {
     }
 
     public static String todosFormattedJavafx() {
-        return INDENT + DIVIDER + '\n'
-                + INDENT + " " + Homura.getTodos().size()
-                + " tasks(s) in your list" + '\n'
-                + todosStrJavafx()
-                + INDENT + DIVIDER + '\n';
+        return Homura.getTodos().size() + " tasks(s) in your list" + '\n'
+                + todosStrJavafx();
     }
 
     public static String foundTodosFormattedJavafx(ArrayList<Todo> todos) {
-        return INDENT + DIVIDER + '\n'
-                + INDENT + " " + todos.size()
-                + " tasks(s) found in your list" + '\n'
-                + todosStrJavafx()
-                + INDENT + DIVIDER + '\n';
+        return todos.size() + " tasks(s) found in your list" + '\n'
+                + todosStrJavafx();
     }
 }
