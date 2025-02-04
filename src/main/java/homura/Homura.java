@@ -57,33 +57,6 @@ public class Homura {
      *
      * @param inp The full line of input to the bot.
      */
-    public static void cmdMark(String inp) {
-        // How to convert String to int inspired by
-        // https://stackoverflow.com/questions/5585779/
-        // how-do-i-convert-a-string-to-an-int-in-java
-        String[] splitInps = inp.split(" ");
-        int i = Integer.parseInt(splitInps[1]) - 1;
-        todos.get(i).setIsDone(true);
-        System.out.println(todos.get(i).markStr());
-        System.out.println('\n');
-    }
-    /**
-     * Handles the logic of the unmark command.
-     *
-     * @param inp The full line of input to the bot.
-     */
-    public static void cmdUnmark(String inp) {
-        String[] splitInps = inp.split(" ");
-        int i = Integer.parseInt(splitInps[1]) - 1;
-        todos.get(i).setIsDone(false);
-        System.out.println(todos.get(i).unmarkStr());
-        System.out.println('\n');
-    }
-    /**
-     * Handles the logic of the todo command.
-     *
-     * @param inp The full line of input to the bot.
-     */
     public static void cmdTodo(String inp) {
         Todo t = Parser.parseTodoInp(inp);
         todos.add(t);
@@ -122,8 +95,36 @@ public class Homura {
                 + INDENT + DIVIDER + '\n'
         );
     }
+
     /**
      * Handles the logic of the delete command.
+     *
+     * @param inp The full line of input to the bot.
+     */
+    public static void cmdMark(String inp) {
+        // How to convert String to int inspired by
+        // https://stackoverflow.com/questions/5585779/
+        // how-do-i-convert-a-string-to-an-int-in-java
+        String[] splitInps = inp.split(" ");
+        int i = Integer.parseInt(splitInps[1]) - 1;
+        todos.get(i).setIsDone(true);
+        System.out.println(todos.get(i).markStr());
+        System.out.println('\n');
+    }
+    /**
+     * Handles the logic of the unmark command.
+     *
+     * @param inp The full line of input to the bot.
+     */
+    public static void cmdUnmark(String inp) {
+        String[] splitInps = inp.split(" ");
+        int i = Integer.parseInt(splitInps[1]) - 1;
+        todos.get(i).setIsDone(false);
+        System.out.println(todos.get(i).unmarkStr());
+        System.out.println('\n');
+    }
+    /**
+     * Handles the logic of the todo command.
      *
      * @param inp The full line of input to the bot.
      */
@@ -145,6 +146,7 @@ public class Homura {
                 + INDENT + DIVIDER + '\n'
         );
     }
+
     /**
      * Handles the logic of the find command.
      *
@@ -160,28 +162,6 @@ public class Homura {
 
 
     // Bot commands logic (JavaFX) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    public static String cmdByeJavafx(String inp) {
-        Storage.writeTodos(todos, TODOS_FILENAME);
-        return Ui.byeMsgJavafx();
-    }
-    public static String cmdListJavafx(String inp) {
-        return Ui.todosFormattedJavafx();
-    }
-    public static String cmdMarkJavafx(String inp) {
-        // How to convert String to int inspired by
-        // https://stackoverflow.com/questions/5585779/
-        // how-do-i-convert-a-string-to-an-int-in-java
-        String[] splitInps = inp.split(" ");
-        int i = Integer.parseInt(splitInps[1]) - 1;
-        todos.get(i).setIsDone(true);
-        return todos.get(i).markStrJavafx();
-    }
-    public static String cmdUnmarkJavafx(String inp) {
-        String[] splitInps = inp.split(" ");
-        int i = Integer.parseInt(splitInps[1]) - 1;
-        todos.get(i).setIsDone(false);
-        return todos.get(i).unmarkStrJavafx();
-    }
     public static String cmdTodoJavafx(String inp) {
         Todo t = Parser.parseTodoInp(inp);
         todos.add(t);
@@ -196,6 +176,22 @@ public class Homura {
         Event e = Parser.parseEventInp(inp);
         todos.add(e);
         return e.addStrJavafx();
+    }
+
+    public static String cmdMarkJavafx(String inp) {
+        // How to convert String to int inspired by
+        // https://stackoverflow.com/questions/5585779/
+        // how-do-i-convert-a-string-to-an-int-in-java
+        String[] splitInps = inp.split(" ");
+        int i = Integer.parseInt(splitInps[1]) - 1;
+        todos.get(i).setIsDone(true);
+        return todos.get(i).markStrJavafx();
+    }
+    public static String cmdUnmarkJavafx(String inp) {
+        String[] splitInps = inp.split(" ");
+        int i = Integer.parseInt(splitInps[1]) - 1;
+        todos.get(i).setIsDone(false);
+        return todos.get(i).unmarkStrJavafx();
     }
     public static String cmdDeleteJavafx(String inp) {
         String[] splitInps = inp.split(" ");
@@ -213,12 +209,22 @@ public class Homura {
                 + " tasks(s) in your list" + '\n'
                 + INDENT + DIVIDER + '\n';
     }
+
+    public static String cmdListJavafx(String inp) {
+        return Ui.todosFormattedJavafx();
+    }
     public static String cmdFindJavafx(String inp) {
         String[] splitInps = inp.split(" ");
         String s= splitInps[1];
         ArrayList<Todo> matches = todos.findTodosWith(s);
         return Ui.foundTodosFormattedJavafx(matches);
     }
+
+    public static String cmdByeJavafx(String inp) {
+        Storage.writeTodos(todos, TODOS_FILENAME);
+        return Ui.byeMsgJavafx();
+    }
+    
     public static String cmdJavafx(String inp) {
         String[] splitInps = inp.split(" ");
         String cmd = splitInps[0].toLowerCase();
