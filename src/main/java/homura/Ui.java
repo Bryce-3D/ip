@@ -125,6 +125,17 @@ public class Ui {
         }
         return ans;
     }
+    public static String todosStrJavafx(ArrayList<Todo> todos) {
+        ArrayList<String> numberedTasks = new ArrayList<String>();
+        for (int i = 0; i < todos.size(); i++) {
+            numberedTasks.add((i+1) + ".) " + todos.get(i));
+        }
+        String ans = "";
+        for (String item: numberedTasks) {
+            ans += INDENT + " " + item + '\n';
+        }
+        return ans;
+    }
 
     public static String todosFormattedJavafx() {
         return Homura.getTodos().size() + " tasks(s) in your list" + '\n'
@@ -133,6 +144,6 @@ public class Ui {
 
     public static String foundTodosFormattedJavafx(ArrayList<Todo> todos) {
         return todos.size() + " tasks(s) found in your list" + '\n'
-                + todosStrJavafx();
+                + todosStrJavafx(todos);
     }
 }
