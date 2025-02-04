@@ -94,13 +94,22 @@ public class Ui {
     }
 
     // New JavaFX Version ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    public static String introMsgJavafx() {
+        return "Good morning Madoka-chan.\n"
+                + "Did Kyuubey contact you last night?";
+    }
     public static String byeMsgJavafx() {
-        return INDENT + DIVIDER + '\n'
-                + INDENT + " No matter what, don't become a magical girl.\n"
-                + INDENT + " Farewell.\n"
+        return "Kaname Madoka, do you treasure the life you currently live? "
+                + "And do you consider your family and your friends precious?"
+                + "\n"
+                + "If that's the truth then you wouldn't try changing the "
+                + "life you have or the person you are. Otherwise you'll "
+                + "lose everything you love. Don't change, stay as you are, "
+                + "Kaname Madoka. Stay as you are, forever."
                 + '\n'
-                + INDENT + "Send any message to close me.\n"
-                + INDENT + DIVIDER;
+                + " Farewell."
+                + '\n'
+                + "Send any message to close me.\n";
     }
     public static String todosStrJavafx() {
         ArrayList<String> numberedTasks = new ArrayList<String>();
