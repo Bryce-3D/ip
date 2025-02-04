@@ -250,17 +250,14 @@ public class Homura {
 //        Ui.printFoundTodosFormatted(matches);
     }
     public static String cmdJavafx(String inp) {
-        if (inp.equals("bye")) {
-            Storage.writeTodos(todos, TODOS_FILENAME);
-            return Ui.byeMsgJavafx();
-        }
-        if (inp.equals("list")) {
-            return Ui.todosFormattedJavafx();
-        }
         String[] splitInps = inp.split(" ");
         String cmd = splitInps[0].toLowerCase();
 
         switch (cmd) {
+        case "bye":   // Say goodbye to Homura
+            return cmdByeJavafx(inp);
+        case "list":
+            return cmdListJavafx(inp);
         case "mark":   // Mark a Todo on the list
             return cmdMarkJavafx(inp);
         case "unmark":   // Unmark a Todo on the list
