@@ -1,16 +1,33 @@
-List of Optional TODOs
-- Handle exceptions in Homura rather than just crashing Homura
+List of TODOs right before submitting:
+- (Codestyle) Cannot do
+      if (condition) { a += 1; }
+  Need to be on a separate line like
+      if (condition) {
+          a += 1;
+      }
+- (Codestyle) Cannot do
+      f(a,b)
+  Need space in between like
+      f(a, b)
 - Cite all uses of ChatGPT in the README.md
   Instructions can be found at
   https://nus-cs2103-ay2425s2.github.io/website/admin/
   appendixB-policies.html#giving-credit-for-reused-work
-- Reorder the commands in Homura.java, why are mark/unmark above
-  todo/deadline/event???
+
+
+
+List of Main Optional TODOs (JavaFX or both versions)
+- Make the Homura actually send some message on invalid inputs rather than
+  do nothing and have the errors appear in the CLI/console thing in
+  IntelliJ only
+
+
+
+List of Optional TODOs (CLI only)
+- Handle exceptions in Homura rather than just crashing Homura
 - Make `bye` and `list` proper commands rather than special cases that only
   work when the exact string "bye" or "list" is passed
-- Make the Homura actually send some message on invalid inputs rather than
-  just doing nothing and having the errors appear in the CLI/console thing
-  in IntelliJ only
+
 
 
 List of ???s
@@ -18,17 +35,3 @@ List of ???s
   and their corresponding JavaFX versions. Is this actually good OOP design
   or bad OOP design I genuinely don't know. But it did make editing the code
   for `Level-10` (GUI) fairly straightforward.
-
-
-
-Codestyle conventions to fix right before submitting:
-- Cannot do
-      if (condition) { a += 1; }
-  Need to be on a separate line like
-      if (condition) {
-          a += 1;
-      }
-- Cannot do
-      f(a,b)
-  Need space in between like
-      f(a, b)
