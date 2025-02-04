@@ -24,6 +24,7 @@ public class MainWindow extends AnchorPane {
 
 //    private Duke duke;
 //    private Homura homura;
+    private boolean isOffing = false;
 
     private Image madoImage = new Image(this.getClass()
             .getResourceAsStream("/images/Mado_pfp.png"));
@@ -48,6 +49,11 @@ public class MainWindow extends AnchorPane {
      */
     @FXML
     private void handleUserInput() {
+        // Extra logic for turning off (1/2)
+        if (isOffing) {
+            Platform.exit();
+        }
+
         String inp = userInput.getText();
         String response = Homura.cmdJavafx(inp);
         dialogContainer.getChildren().addAll(
@@ -57,7 +63,7 @@ public class MainWindow extends AnchorPane {
         userInput.clear();
 
         if (inp.split(" ")[0].equals("bye")) {
-            Platform.exit();
+            isOffing = true;
         }
     }
 }
