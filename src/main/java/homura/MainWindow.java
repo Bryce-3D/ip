@@ -56,7 +56,7 @@ public class MainWindow extends AnchorPane {
      */
     @FXML
     private void handleUserInput() {
-        // Extra logic for turning off (1/2)
+        // Logic to not instantly exit when turning off (1/2)
         if (isOffing) {
             // Inspired by asking ChatGPT the following query
             // "Hi! I'm now trying to make my application exit upon receiving
@@ -91,6 +91,7 @@ public class MainWindow extends AnchorPane {
         );
         userInput.clear();
 
+        // Logic to not instantly exit when turning off (2/2)
         if (inp.split(" ")[0].equals("bye")) {
             isOffing = true;
         }
