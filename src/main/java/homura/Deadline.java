@@ -71,6 +71,7 @@ public class Deadline extends Todo {
      * @return The object derived from the storage string.
      */
     public static Deadline fromStorageStr(String s) {
+        assert s.startsWith("d");
         ArrayList<String> ss = HomuraUtils.split(s, Storage.DIVIDER);
         Deadline ans = new Deadline(ss.get(2), ss.get(3));
         if (ss.get(1).equals("1")) {
