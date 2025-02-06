@@ -94,35 +94,3 @@ public class HomuraUtils {
 
 
 // RECYCLING BIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/*
-    public static ArrayList<String> split(String s, String div) {
-        // Indices where `div` appears in `s`
-        ArrayList<Integer> inds = new ArrayList<Integer>();
-        int l_s = s.length();
-        int l_d = div.length();
-
-        // Linearly scan `s` to find instances of `div`
-        int ind = 0;
-        while (ind < l_s-l_d) {
-            if (s.substring(ind,ind+l_d).equals(div)) {
-                inds.add(ind);
-                ind += l_d;
-            } else{
-                ind += 1;
-            }
-        }
-
-        // Extract the relevant substrings from `s`
-        ArrayList<String> ans = new ArrayList<String>();
-        ind = 0;
-        for (int i = 0; i < inds.size(); i++) {
-            ans.add(s.substring(ind,inds.get(i)));
-            ind = inds.get(i) + l_d;
-        }
-        // Don't forget the part after the last `div`, if any
-        if (ind < l_s) {
-            ans.add(s.substring(ind));
-        }
-        return ans;
-    }
- */
