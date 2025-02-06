@@ -85,48 +85,24 @@ public class Todo {
      *
      * @return The string to send when a Todo is created.
      */
-    public String addStr() {
-        // Getting class name as a string inspired by
-        // https://stackoverflow.com/questions/6271417/
-        // java-get-the-current-class-name
-        return INDENT + DIVIDER + '\n'
-                + INDENT + " " + getClass().getSimpleName()
-                + " added" + '\n'
-                + INDENT + " " + this + '\n'
-                + INDENT + DIVIDER;
+    public String addStrJavafx() {
+        return getClass().getSimpleName() + " added" + '\n'
+                + INDENT + this + '\n';
     }
     /**
      * Generates a string to send when a Todo is marked.
      *
      * @return The string to send when a Todo is marked.
      */
-    public String markStr() {
-        return INDENT + DIVIDER + '\n'
-                + INDENT + " " + getClass().getSimpleName()
-                + " marked as done" + '\n'
-                + INDENT + " " + this + '\n'
-                + INDENT + DIVIDER;
+    public String markStrJavafx() {
+        return getClass().getSimpleName() + " marked as done" + '\n'
+                + INDENT + this + '\n';
     }
     /**
      * Generates a string to send when a Todo is unmarked.
      *
      * @return The string to send when a Todo is unmarked.
      */
-    public String unmarkStr() {
-        return INDENT + DIVIDER + '\n'
-                + INDENT + " " + this.getClass().getSimpleName()
-                + " marked as not done" + '\n'
-                + INDENT + " " + this.toString() + '\n'
-                + INDENT + DIVIDER;
-    }
-    public String addStrJavafx() {
-        return getClass().getSimpleName() + " added" + '\n'
-                + INDENT + this + '\n';
-    }
-    public String markStrJavafx() {
-        return getClass().getSimpleName() + " marked as done" + '\n'
-                + INDENT + this + '\n';
-    }
     public String unmarkStrJavafx() {
         return getClass().getSimpleName() + " marked as not done" + '\n'
                 + INDENT + this + '\n';
@@ -175,6 +151,48 @@ public class Todo {
 
 // Recycling Bin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 /*
+    /**
+     * Generates a string to send when a Todo is created.
+     *
+     * @return The string to send when a Todo is created.
+     * /
+    public String addStr() {
+        // Getting class name as a string inspired by
+        // https://stackoverflow.com/questions/6271417/
+        // java-get-the-current-class-name
+        return INDENT + DIVIDER + '\n'
+                + INDENT + " " + getClass().getSimpleName()
+                + " added" + '\n'
+                + INDENT + " " + this + '\n'
+                + INDENT + DIVIDER;
+    }
+    /**
+     * Generates a string to send when a Todo is marked.
+     *
+     * @return The string to send when a Todo is marked.
+     * /
+    public String markStr() {
+        return INDENT + DIVIDER + '\n'
+                + INDENT + " " + getClass().getSimpleName()
+                + " marked as done" + '\n'
+                + INDENT + " " + this + '\n'
+                + INDENT + DIVIDER;
+    }
+    /**
+     * Generates a string to send when a Todo is unmarked.
+     *
+     * @return The string to send when a Todo is unmarked.
+     * /
+    public String unmarkStr() {
+    return INDENT + DIVIDER + '\n'
+            + INDENT + " " + this.getClass().getSimpleName()
+            + " marked as not done" + '\n'
+            + INDENT + " " + this.toString() + '\n'
+            + INDENT + DIVIDER;
+}
+ */
+
+/*
     public static Todo parseUserInp(String inp) {
         inp = inp.strip();
         if (inp.length() <= 5) {
@@ -184,8 +202,6 @@ public class Todo {
         return new Todo(inp);
     }
  */
-
-
 
     /**
      * Converts a storage string representation to a Todo.
