@@ -207,13 +207,10 @@ public class Homura {
         }
         Todo t = todos.get(i);
         todos.remove(i);
-        return INDENT + DIVIDER + '\n'
-                + INDENT + " " + t.getClass().getSimpleName()
+        return t.getClass().getSimpleName()
                 + " removed" + '\n'
-                + INDENT + INDENT + t + '\n'
-                + INDENT + " " + todos.size()
-                + " tasks(s) in your list" + '\n'
-                + INDENT + DIVIDER + '\n';
+                + INDENT + t + '\n'
+                + todos.size() + " tasks(s) in your list";
     }
 
     public static String cmdListJavafx(String inp) {
