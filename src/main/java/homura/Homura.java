@@ -52,112 +52,7 @@ public class Homura {
 
 
     // Bot commands logic ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    /**
-     * Handles the logic of the mark command.
-     *
-     * @param inp The full line of input to the bot.
-     */
-    public static void cmdTodo(String inp) {
-        Todo t = Parser.parseTodoInp(inp);
-        todos.add(t);
-        System.out.println(t.addStr());
-        System.out.println(
-                INDENT + " " + todos.size()
-                + " task(s) in your list" + '\n'
-                + INDENT + DIVIDER + '\n'
-        );
-    }
-    /**
-     * Handles the logic of the deadline command.
-     *
-     * @param inp The full line of input to the bot.
-     */
-    public static void cmdDeadline(String inp) {
-        Deadline d = Parser.parseDeadlineInp(inp);
-        todos.add(d);
-        System.out.println(d.addStr());
-        System.out.println(
-                INDENT + " " + todos.size() + " task(s) in your list" + '\n'
-                + INDENT + DIVIDER + '\n'
-        );
-    }
-    /**
-     * Handles the logic of the event command.
-     *
-     * @param inp The full line of input to the bot.
-     */
-    public static void cmdEvent(String inp) {
-        Event e = Parser.parseEventInp(inp);
-        todos.add(e);
-        System.out.println(e.addStr());
-        System.out.println(
-                INDENT + " " + todos.size() + " task(s) in your list" + '\n'
-                + INDENT + DIVIDER + '\n'
-        );
-    }
-
-    /**
-     * Handles the logic of the delete command.
-     *
-     * @param inp The full line of input to the bot.
-     */
-    public static void cmdMark(String inp) {
-        // How to convert String to int inspired by
-        // https://stackoverflow.com/questions/5585779/
-        // how-do-i-convert-a-string-to-an-int-in-java
-        String[] splitInps = inp.split(" ");
-        int i = Integer.parseInt(splitInps[1]) - 1;
-        todos.get(i).setIsDone(true);
-        System.out.println(todos.get(i).markStr());
-        System.out.println('\n');
-    }
-    /**
-     * Handles the logic of the unmark command.
-     *
-     * @param inp The full line of input to the bot.
-     */
-    public static void cmdUnmark(String inp) {
-        String[] splitInps = inp.split(" ");
-        int i = Integer.parseInt(splitInps[1]) - 1;
-        todos.get(i).setIsDone(false);
-        System.out.println(todos.get(i).unmarkStr());
-        System.out.println('\n');
-    }
-    /**
-     * Handles the logic of the todo command.
-     *
-     * @param inp The full line of input to the bot.
-     */
-    public static void cmdDelete(String inp) {
-        String[] splitInps = inp.split(" ");
-        int i = Integer.parseInt(splitInps[1]) - 1;
-        if (i >= todos.size()) {
-            throw new InvalidInputHomuraException("delete", inp);
-        }
-        Todo t = todos.get(i);
-        todos.remove(i);
-        System.out.println(
-                INDENT + DIVIDER + '\n'
-                + INDENT + " " + t.getClass().getSimpleName()
-                + " removed" + '\n'
-                + INDENT + INDENT + t + '\n'
-                + INDENT + " " + todos.size()
-                + " tasks(s) in your list" + '\n'
-                + INDENT + DIVIDER + '\n'
-        );
-    }
-
-    /**
-     * Handles the logic of the find command.
-     *
-     * @param inp The full line of input to the bot.
-     */
-    public static void cmdFind(String inp) {
-        String[] splitInps = inp.split(" ");
-        String s= splitInps[1];
-        ArrayList<Todo> matches = todos.findTodosWith(s);
-        Ui.printFoundTodosFormatted(matches);
-    }
+    // Deprecated due to removal of CLI support
 
 
 
@@ -264,6 +159,115 @@ public class Homura {
 
 
 // RECYCLING BIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*
+    /**
+     * Handles the logic of the mark command.
+     *
+     * @param inp The full line of input to the bot.
+     * /
+    public static void cmdTodo(String inp) {
+        Todo t = Parser.parseTodoInp(inp);
+        todos.add(t);
+        System.out.println(t.addStr());
+        System.out.println(
+                INDENT + " " + todos.size()
+                        + " task(s) in your list" + '\n'
+                        + INDENT + DIVIDER + '\n'
+        );
+        }
+    /**
+     * Handles the logic of the deadline command.
+     *
+     * @param inp The full line of input to the bot.
+     * /
+    public static void cmdDeadline(String inp) {
+        Deadline d = Parser.parseDeadlineInp(inp);
+        todos.add(d);
+        System.out.println(d.addStr());
+        System.out.println(
+                INDENT + " " + todos.size() + " task(s) in your list" + '\n'
+                        + INDENT + DIVIDER + '\n'
+        );
+    }
+    /**
+     * Handles the logic of the event command.
+     *
+     * @param inp The full line of input to the bot.
+     * /
+    public static void cmdEvent(String inp) {
+        Event e = Parser.parseEventInp(inp);
+        todos.add(e);
+        System.out.println(e.addStr());
+        System.out.println(
+                INDENT + " " + todos.size() + " task(s) in your list" + '\n'
+                        + INDENT + DIVIDER + '\n'
+        );
+    }
+
+    /**
+     * Handles the logic of the delete command.
+     *
+     * @param inp The full line of input to the bot.
+     * /
+    public static void cmdMark(String inp) {
+        // How to convert String to int inspired by
+        // https://stackoverflow.com/questions/5585779/
+        // how-do-i-convert-a-string-to-an-int-in-java
+        String[] splitInps = inp.split(" ");
+        int i = Integer.parseInt(splitInps[1]) - 1;
+        todos.get(i).setIsDone(true);
+        System.out.println(todos.get(i).markStr());
+        System.out.println('\n');
+    }
+    /**
+     * Handles the logic of the unmark command.
+     *
+     * @param inp The full line of input to the bot.
+     * /
+    public static void cmdUnmark(String inp) {
+        String[] splitInps = inp.split(" ");
+        int i = Integer.parseInt(splitInps[1]) - 1;
+        todos.get(i).setIsDone(false);
+        System.out.println(todos.get(i).unmarkStr());
+        System.out.println('\n');
+    }
+    /**
+     * Handles the logic of the todo command.
+     *
+     * @param inp The full line of input to the bot.
+     * /
+    public static void cmdDelete(String inp) {
+        String[] splitInps = inp.split(" ");
+        int i = Integer.parseInt(splitInps[1]) - 1;
+        if (i >= todos.size()) {
+            throw new InvalidInputHomuraException("delete", inp);
+        }
+        Todo t = todos.get(i);
+        todos.remove(i);
+        System.out.println(
+                INDENT + DIVIDER + '\n'
+                        + INDENT + " " + t.getClass().getSimpleName()
+                        + " removed" + '\n'
+                        + INDENT + INDENT + t + '\n'
+                        + INDENT + " " + todos.size()
+                        + " tasks(s) in your list" + '\n'
+                        + INDENT + DIVIDER + '\n'
+        );
+    }
+
+    /**
+     * Handles the logic of the find command.
+     *
+     * @param inp The full line of input to the bot.
+     * /
+    public static void cmdFind(String inp) {
+        String[] splitInps = inp.split(" ");
+        String s= splitInps[1];
+        ArrayList<Todo> matches = todos.findTodosWith(s);
+        Ui.printFoundTodosFormatted(matches);
+    }
+ */
+
 /*
     public static void main(String[] args) {
         turnOn();
