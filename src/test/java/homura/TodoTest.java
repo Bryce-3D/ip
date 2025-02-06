@@ -58,6 +58,7 @@ public class TodoTest {
             Todo.fromStorageStr("chat what did they mean by this");
             fail();
         } catch (Exception e) {
+            // Test passed
         }
     }
 }

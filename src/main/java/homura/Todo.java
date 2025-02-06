@@ -13,7 +13,6 @@ import java.util.ArrayList;
 public class Todo {
     // Attributes + Getters and Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     private static final String INDENT = Homura.INDENT;
-    private static final String DIVIDER = Homura.DIVIDER;
     private String description;
     private boolean isDone;
 
@@ -86,48 +85,24 @@ public class Todo {
      *
      * @return The string to send when a Todo is created.
      */
-    public String addStr() {
-        // Getting class name as a string inspired by
-        // https://stackoverflow.com/questions/6271417/
-        // java-get-the-current-class-name
-        return INDENT + DIVIDER + '\n'
-                + INDENT + " " + getClass().getSimpleName()
-                + " added" + '\n'
-                + INDENT + " " + this + '\n'
-                + INDENT + DIVIDER;
+    public String addStrJavafx() {
+        return getClass().getSimpleName() + " added" + '\n'
+                + INDENT + this + '\n';
     }
     /**
      * Generates a string to send when a Todo is marked.
      *
      * @return The string to send when a Todo is marked.
      */
-    public String markStr() {
-        return INDENT + DIVIDER + '\n'
-                + INDENT + " " + getClass().getSimpleName()
-                + " marked as done" + '\n'
-                + INDENT + " " + this + '\n'
-                + INDENT + DIVIDER;
+    public String markStrJavafx() {
+        return getClass().getSimpleName() + " marked as done" + '\n'
+                + INDENT + this + '\n';
     }
     /**
      * Generates a string to send when a Todo is unmarked.
      *
      * @return The string to send when a Todo is unmarked.
      */
-    public String unmarkStr() {
-        return INDENT + DIVIDER + '\n'
-                + INDENT + " " + this.getClass().getSimpleName()
-                + " marked as not done" + '\n'
-                + INDENT + " " + this.toString() + '\n'
-                + INDENT + DIVIDER;
-    }
-    public String addStrJavafx() {
-        return getClass().getSimpleName() + " added" + '\n'
-                + INDENT + this + '\n';
-    }
-    public String markStrJavafx() {
-        return getClass().getSimpleName() + " marked as done" + '\n'
-                + INDENT + this + '\n';
-    }
     public String unmarkStrJavafx() {
         return getClass().getSimpleName() + " marked as not done" + '\n'
                 + INDENT + this + '\n';
@@ -175,30 +150,3 @@ public class Todo {
 
 
 // Recycling Bin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/*
-    public static Todo parseUserInp(String inp) {
-        inp = inp.strip();
-        if (inp.length() <= 5) {
-            throw new EmptyInputHomuraException("Todo", inp);
-        }
-        inp = inp.substring(5);   // Remove the "todo " in front
-        return new Todo(inp);
-    }
- */
-
-
-
-    /**
-     * Converts a storage string representation to a Todo.
-     *
-     * @param s The storage string.
-     * @return The Todo.
-     */
-
-    /**
-     * Converts to a String representation for storage.
-     * The current format is `t | 0 or 1 | descr`.
-     *
-     * @return The storage representation.
-     */
-
