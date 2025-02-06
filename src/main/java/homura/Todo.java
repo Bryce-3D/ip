@@ -13,7 +13,6 @@ import java.util.ArrayList;
 public class Todo {
     // Attributes + Getters and Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     private static final String INDENT = Homura.INDENT;
-    private static final String DIVIDER = Homura.DIVIDER;
     private String description;
     private boolean isDone;
 
