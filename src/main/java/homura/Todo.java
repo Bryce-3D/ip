@@ -51,6 +51,7 @@ public class Todo {
      * @return The object derived from the storage string.
      */
     public static Todo fromStorageStr(String s) {
+        assert s.startsWith("t");
         ArrayList<String> ss = HomuraUtils.split(s, Storage.DIVIDER);
         Todo ans = new Todo(ss.get(2));
         if (ss.get(1).equals("1")) {
