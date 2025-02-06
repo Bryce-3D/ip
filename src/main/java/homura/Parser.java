@@ -17,6 +17,7 @@ public class Parser {
      */
     public static Todo parseTodoInp(String inp) {
         inp = inp.strip();
+        assert inp.toLowerCase().startsWith("todo");
         if (inp.length() <= 5) {
             throw new EmptyInputHomuraException("todo", inp);
         }
@@ -31,6 +32,7 @@ public class Parser {
      */
     public static Deadline parseDeadlineInp(String inp) {
         inp = inp.strip();
+        assert inp.toLowerCase().startsWith("deadline");
         if (inp.length() <= 9) {
             throw new EmptyInputHomuraException("deadline", inp);
         }
@@ -52,6 +54,7 @@ public class Parser {
      */
     public static Event parseEventInp(String inp) {
         inp = inp.strip();
+        assert inp.toLowerCase().startsWith("event");
         if (inp.length() <= 6) {
             throw new EmptyInputHomuraException("event", inp);
         }
