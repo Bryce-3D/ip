@@ -31,25 +31,8 @@ public class Homura {
     // Bot Messages ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Moved to Ui.java now
 
-
-
     // Bot on/off logic ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    /**
-     * Turns the bot on.
-     */
-    public static void turnOn() {
-        todos = Storage.readTodos(TODOS_FILENAME);
-        System.out.println(Ui.introMsg());
-    }
-    /**
-     * Turns the bot off.
-     */
-    public static void turnOff() {
-        Storage.writeTodos(todos, TODOS_FILENAME);
-        System.out.println(Ui.byeMsg());
-    }
-
-
+    // Deprecated due to removal of CLI support
 
     // Bot commands logic ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Deprecated due to removal of CLI support
@@ -194,6 +177,23 @@ public class Homura {
 
 
 // RECYCLING BIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*
+    /**
+     * Turns the bot on.
+     * /
+    public static void turnOn() {
+        todos = Storage.readTodos(TODOS_FILENAME);
+        System.out.println(Ui.introMsg());
+    }
+    /**
+     * Turns the bot off.
+     * /
+    public static void turnOff() {
+        Storage.writeTodos(todos, TODOS_FILENAME);
+        System.out.println(Ui.byeMsg());
+    }
+ */
+
 /*
     /**
      * Handles the logic of the mark command.
