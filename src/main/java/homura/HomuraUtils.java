@@ -52,12 +52,14 @@ public class HomuraUtils {
         try {
             f.createNewFile();
         } catch (IOException e) {
+            e.printStackTrace();
         }
         try {
             FileWriter fw = new FileWriter(f);
             fw.write(txt);
             fw.close();
         } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
