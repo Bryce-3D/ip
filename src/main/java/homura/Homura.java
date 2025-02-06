@@ -256,6 +256,15 @@ public class Homura {
 
 
     // Main ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // Deprecated due to removal of CLI support
+}
+
+
+
+
+
+// RECYCLING BIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*
     public static void main(String[] args) {
         turnOn();
 
@@ -307,13 +316,8 @@ public class Homura {
             }
         }
     }
-}
+ */
 
-
-
-
-
-// RECYCLING BIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 /*
     /**
      * Generates the message on bot startup.
