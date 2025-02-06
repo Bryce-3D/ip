@@ -163,22 +163,26 @@ public class Homura {
 
     // Bot commands logic (JavaFX) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public static String cmdTodoJavafx(String inp) {
+        assert inp.strip().toLowerCase().startsWith("todo");
         Todo t = Parser.parseTodoInp(inp);
         todos.add(t);
         return t.addStrJavafx();
     }
     public static String cmdDeadlineJavafx(String inp) {
+        assert inp.strip().toLowerCase().startsWith("deadline");
         Deadline d = Parser.parseDeadlineInp(inp);
         todos.add(d);
         return d.addStrJavafx();
     }
     public static String cmdEventJavafx(String inp) {
+        assert inp.strip().toLowerCase().startsWith("event");
         Event e = Parser.parseEventInp(inp);
         todos.add(e);
         return e.addStrJavafx();
     }
 
     public static String cmdMarkJavafx(String inp) {
+        assert inp.strip().toLowerCase().startsWith("mark");
         // How to convert String to int inspired by
         // https://stackoverflow.com/questions/5585779/
         // how-do-i-convert-a-string-to-an-int-in-java
@@ -188,12 +192,14 @@ public class Homura {
         return todos.get(i).markStrJavafx();
     }
     public static String cmdUnmarkJavafx(String inp) {
+        assert inp.strip().toLowerCase().startsWith("unmark");
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
         todos.get(i).setIsDone(false);
         return todos.get(i).unmarkStrJavafx();
     }
     public static String cmdDeleteJavafx(String inp) {
+        assert inp.strip().toLowerCase().startsWith("delete");
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
         if (i >= todos.size()) {
@@ -211,9 +217,11 @@ public class Homura {
     }
 
     public static String cmdListJavafx(String inp) {
+        assert inp.strip().toLowerCase().startsWith("list");
         return Ui.todosFormattedJavafx();
     }
     public static String cmdFindJavafx(String inp) {
+        assert inp.strip().toLowerCase().startsWith("find");
         String[] splitInps = inp.split(" ");
         String s= splitInps[1];
         ArrayList<Todo> matches = todos.findTodosWith(s);
@@ -221,6 +229,7 @@ public class Homura {
     }
 
     public static String cmdByeJavafx(String inp) {
+        assert inp.strip().toLowerCase().startsWith("bye");
         Storage.writeTodos(todos, TODOS_FILENAME);
         return Ui.byeMsgJavafx();
     }
