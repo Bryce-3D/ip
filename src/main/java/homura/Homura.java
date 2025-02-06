@@ -14,7 +14,6 @@ import java.util.Scanner;
 public class Homura {
     // Attributes + Getters and Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public final static String INDENT = " ".repeat(4);
-    public final static String DIVIDER = "~".repeat(80);
     public final static String TODOS_FILENAME = "HomuraTodos.txt";
 
     private static TaskList todos = new TaskList();
