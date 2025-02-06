@@ -57,22 +57,42 @@ public class Homura {
 
 
     // Bot commands logic (JavaFX) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    /**
+     * Handles the logic of the todo command.
+     *
+     * @param inp The full line of input to the bot.
+     */
     public static String cmdTodoJavafx(String inp) {
         Todo t = Parser.parseTodoInp(inp);
         todos.add(t);
         return t.addStrJavafx();
     }
+    /**
+     * Handles the logic of the deadline command.
+     *
+     * @param inp The full line of input to the bot.
+     */
     public static String cmdDeadlineJavafx(String inp) {
         Deadline d = Parser.parseDeadlineInp(inp);
         todos.add(d);
         return d.addStrJavafx();
     }
+    /**
+     * Handles the logic of the event command.
+     *
+     * @param inp The full line of input to the bot.
+     */
     public static String cmdEventJavafx(String inp) {
         Event e = Parser.parseEventInp(inp);
         todos.add(e);
         return e.addStrJavafx();
     }
 
+    /**
+     * Handles the logic of the mark command.
+     *
+     * @param inp The full line of input to the bot.
+     */
     public static String cmdMarkJavafx(String inp) {
         // How to convert String to int inspired by
         // https://stackoverflow.com/questions/5585779/
@@ -82,12 +102,22 @@ public class Homura {
         todos.get(i).setIsDone(true);
         return todos.get(i).markStrJavafx();
     }
+    /**
+     * Handles the logic of the unmark command.
+     *
+     * @param inp The full line of input to the bot.
+     */
     public static String cmdUnmarkJavafx(String inp) {
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
         todos.get(i).setIsDone(false);
         return todos.get(i).unmarkStrJavafx();
     }
+    /**
+     * Handles the logic of the delete command.
+     *
+     * @param inp The full line of input to the bot.
+     */
     public static String cmdDeleteJavafx(String inp) {
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
@@ -108,6 +138,11 @@ public class Homura {
     public static String cmdListJavafx(String inp) {
         return Ui.todosFormattedJavafx();
     }
+    /**
+     * Handles the logic of the find command.
+     *
+     * @param inp The full line of input to the bot.
+     */
     public static String cmdFindJavafx(String inp) {
         String[] splitInps = inp.split(" ");
         String s= splitInps[1];
