@@ -17,10 +17,6 @@ public class Homura {
     public final static String DIVIDER = "~".repeat(80);
     public final static String TODOS_FILENAME = "HomuraTodos.txt";
 
-    // How to read input inspired by
-    // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/
-    // main/Java/0001-0100/CF_0001A.java
-    private final static Scanner SC = new Scanner(System.in);
     private static TaskList todos = new TaskList();
 
     public static TaskList getTodos() { return todos; }
@@ -177,6 +173,13 @@ public class Homura {
 
 
 // RECYCLING BIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*
+    // How to read input inspired by
+    // https://github.com/Bryce-3D/My-Codeforces-Codes/blob/
+    // main/Java/0001-0100/CF_0001A.java
+    private final static Scanner SC = new Scanner(System.in);
+ */
+
 /*
     /**
      * Turns the bot on.
