@@ -92,7 +92,7 @@ public class MainWindow extends AnchorPane {
         userInput.clear();
 
         // Logic to not instantly exit when turning off (2/2)
-        if (inp.split(" ")[0].equals("bye")) {
+        if (inp.strip().split(" ")[0].equals("bye")) {
             isOffing = true;
         }
     }
