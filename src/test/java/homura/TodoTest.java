@@ -55,7 +55,7 @@ public class TodoTest {
     @Test
     public void fromStorageStr_invalid_die() {
         try {
-            Todo.fromStorageStr("chat what did they mean by this");
+            Todo.fromStorageStr("tttchat what did they mean by this");
             fail();
         } catch (Exception e) {
             // Test passed
