@@ -1,6 +1,8 @@
 #Largely copied from
 #https://github.com/se-edu/duke/blob/full-template/.github/workflows/gradle.yml
 
+#test
+
 name: Java CI
 
 on:
