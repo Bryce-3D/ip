@@ -3,9 +3,21 @@
 
 name: Java CI
 
+#Obtained by asking ChatGPT the following query
+#Hi! Can I check if this is the correct syntax for a .yml
+#file for setting up github actions to trigger on pushes to
+#the master branch, on pull requestions, and for manual runs
+#
+#```
+#on: #[push, pull_request]
+#  push:
+#    branches: [ main ]
+#  pull_request:
+#  workflow_dispatch:
+#```
 on:
   push:
-    branches: [ main ]  # Runs on push to 'main' branch
+    branches: [ master ]  # Runs on push to 'master' branch
   pull_request:  # Runs on any pull request
   workflow_dispatch:  # Allows manual triggering from GitHub Actions UI
 
