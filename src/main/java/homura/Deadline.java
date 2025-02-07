@@ -110,16 +110,24 @@ public class Deadline extends Todo {
     @Override
     public boolean equals(Object o) {
         // Non-null Deadline
-        if (o == null) { return false; }
-        if (!(o instanceof Deadline)) { return false; }
+        if (o == null) {
+            return false;
+        }
+        if (!(o instanceof Deadline)) {
+            return false;
+        }
         Deadline d = (Deadline) o;
 
         // Compare attributes
         if (!getDescription().equals(d.getDescription())) {
             return false;
         }
-        if (!getIsDone() == d.getIsDone()) { return false; }
-        if (!by.equals(d.by)) { return false; }
+        if (!getIsDone() == d.getIsDone()) {
+            return false;
+        }
+        if (!by.equals(d.by)) {
+            return false;
+        }
         return true;
     }
 }

@@ -115,17 +115,27 @@ public class Event extends Todo {
     @Override
     public boolean equals(Object o) {
         // Non-null Event
-        if (o == null) { return false; }
-        if (!(o instanceof Event)) { return false; }
+        if (o == null) {
+            return false;
+        }
+        if (!(o instanceof Event)) {
+            return false;
+        }
         Event e = (Event) o;
 
         // Compare attributes
         if (!getDescription().equals(e.getDescription())) {
             return false;
         }
-        if (!getIsDone() == e.getIsDone()) { return false; }
-        if (!sta.equals(e.sta)) { return false; }
-        if (!end.equals(e.end)) { return false; }
+        if (!getIsDone() == e.getIsDone()) {
+            return false;
+        }
+        if (!sta.equals(e.sta)) {
+            return false;
+        }
+        if (!end.equals(e.end)) {
+            return false;
+        }
         return true;
     }
 }

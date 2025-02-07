@@ -9,7 +9,7 @@
 package homura;
 
 public class EmptyInputHomuraException extends HomuraRuntimeException {
-    public static final String indent = "    ";
+    public static final String INDENT = "    ";
 
     private String cmd;
     private String inp;
@@ -35,7 +35,7 @@ public class EmptyInputHomuraException extends HomuraRuntimeException {
     public String toString() {
         return getClass().getSimpleName()
             + " - Empty input passed to cmd " + cmd + ":" + '\n'
-            + indent + indent + inp;
+            + INDENT + INDENT + inp;
     }
 
     /**
@@ -47,13 +47,21 @@ public class EmptyInputHomuraException extends HomuraRuntimeException {
     @Override
     public boolean equals(Object o) {
         // Non-null EmptyInputHomuraException
-        if (o == null) { return false; }
-        if (!(o instanceof EmptyInputHomuraException)) { return false; }
+        if (o == null) {
+            return false;
+        }
+        if (!(o instanceof EmptyInputHomuraException)) {
+            return false;
+        }
         EmptyInputHomuraException e = (EmptyInputHomuraException) o;
 
         // Compare attributes
-        if (!cmd.equals(e.cmd)) { return false; }
-        if (!inp.equals(e.inp)) { return false; }
+        if (!cmd.equals(e.cmd)) {
+            return false;
+        }
+        if (!inp.equals(e.inp)) {
+            return false;
+        }
         return true;
     }
 }

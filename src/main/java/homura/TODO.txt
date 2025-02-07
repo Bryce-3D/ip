@@ -1,11 +1,5 @@
 List of TODOs right before submitting:
 - (Codestyle) Cannot do
-      if (condition) { a += 1; }
-  Need to be on a separate line like
-      if (condition) {
-          a += 1;
-      }
-- (Codestyle) Cannot do
       f(a,b)
   Need space in between like
       f(a, b)

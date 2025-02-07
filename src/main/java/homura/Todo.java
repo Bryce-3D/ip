@@ -16,9 +16,15 @@ public class Todo {
     private String description;
     private boolean isDone;
 
-    public String getDescription() { return description; }
-    public boolean getIsDone() { return isDone; }
-    public void setIsDone(boolean b) { isDone = b; }
+    public String getDescription() {
+        return description;
+    }
+    public boolean getIsDone() {
+        return isDone;
+    }
+    public void setIsDone(boolean b) {
+        isDone = b;
+    }
 
 
 
@@ -120,13 +126,21 @@ public class Todo {
     @Override
     public boolean equals(Object o) {
         // Non-null Todo
-        if (o == null) { return false; }
-        if (!(o instanceof Todo)) { return false; }
+        if (o == null) {
+            return false;
+        }
+        if (!(o instanceof Todo)) {
+            return false;
+        }
         Todo t = (Todo) o;
 
         // Compare attributes
-        if (!description.equals(t.description)) { return false; }
-        if (!isDone == t.isDone) { return false; }
+        if (!description.equals(t.description)) {
+            return false;
+        }
+        if (!isDone == t.isDone) {
+            return false;
+        }
         return true;
     }
     /**

@@ -18,8 +18,12 @@ public class Homura {
 
     private static TaskList todos = new TaskList();
 
-    public static TaskList getTodos() { return todos; }
-    public static void setTodos(TaskList todos) { Homura.todos = todos; }
+    public static TaskList getTodos() {
+        return todos;
+    }
+    public static void setTodos(TaskList todos) {
+        Homura.todos = todos;
+    }
 
 
 
