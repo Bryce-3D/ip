@@ -3,8 +3,11 @@
 
 name: Java CI
 
-on: #[push, pull_request]
-  workflow_dispatch:
+on:
+  push:
+    branches: [ main ]  # Runs on push to 'main' branch
+  pull_request:  # Runs on any pull request
+  workflow_dispatch:  # Allows manual triggering from GitHub Actions UI
 
 jobs:
   build:
