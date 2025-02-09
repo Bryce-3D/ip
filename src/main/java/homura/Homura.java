@@ -130,7 +130,7 @@ public class Homura {
     public static String cmdFindJavafx(String inp) {
         assert inp.strip().toLowerCase().startsWith("find");
         String[] splitInps = inp.split(" ");
-        String s= splitInps[1];
+        String s = splitInps[1];
         ArrayList<Todo> matches = todos.findTodosWith(s);
         return Ui.foundTodosFormattedJavafx(matches);
     }
