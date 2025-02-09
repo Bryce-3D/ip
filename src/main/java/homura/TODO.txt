@@ -7,7 +7,6 @@ List of TODOs right before submitting:
   Instructions can be found at
   https://nus-cs2103-ay2425s2.github.io/website/admin/
   appendixB-policies.html#giving-credit-for-reused-work
-- Remove ~~~~~ formatting from the delete command
 
 
 
