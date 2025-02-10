@@ -84,6 +84,22 @@ public class Todo {
 
 
 
+
+
+
+    // Edit Methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    public void edit(String attr, String newVal) {
+        switch (attr) {
+        case "/des":
+            description = newVal;
+            return;
+        default:
+            throw new HomuraRuntimeException();
+        }
+    }
+
+
+
     // Special String Methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // !TODO! Either remove these or fix it
     /**

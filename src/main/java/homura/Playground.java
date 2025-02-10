@@ -14,14 +14,21 @@ import java.util.*;
 
 public class Playground {
     public static void main(String[] args) {
-        ArrayList<Integer> asdf = new ArrayList<Integer>();
-        asdf.add(1);
-        asdf.add(2);
+        Todo t = new Todo("asdf");
+        t.edit("/des","fdsa");
+        System.out.println(t);
+        System.exit(0);
 
-        TaskList a = new TaskList();
-        a.add(new Todo("a"));
-        a.set(0,new Todo("b"));
-        System.out.println(a.get(0));
+        System.out.println(new A() instanceof Object);
+        System.out.println(new B() instanceof A);
 
+        A a = new A();
+        A b = new B();
+        System.out.println(a.getClass().getSimpleName());   // A
+        System.out.println(b.getClass().getSimpleName());   // B
     }
 }
+
+class A {}
+
+class B extends A {}
