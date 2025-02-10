@@ -109,13 +109,13 @@ public class Event extends Todo {
     @Override
     public void edit(String attr, String newVal) {
         switch (attr) {
-        case "/des":
+        case "des":
             this.setDescription(newVal);
             return;
-        case "/from":
+        case "from":
             sta = LocalDate.parse(newVal, dtfParse);
             return;
-        case "/to":
+        case "to":
             end = LocalDate.parse(newVal, dtfParse);
             return;
         default:

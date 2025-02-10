@@ -93,7 +93,7 @@ public class Todo {
     // Edit Functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public void edit(String attr, String newVal) {
         switch (attr) {
-        case "/des":
+        case "des":
             description = newVal;
             return;
         default:

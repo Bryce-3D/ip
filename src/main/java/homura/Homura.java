@@ -74,25 +74,34 @@ public class Homura {
         // Input format should be something like
         // edit 1 /des asdf /by 2025-01-01 /from 2025-01-01 /to 2025-01-01
         assert inp.strip().toLowerCase().startsWith("edit");
-        String[] splitInps = inp.split(" +");   // + handles whitespace spam
-        if (splitInps.length%2 != 0) {
+        // Inspired by the ChatGPT query
+        // Hi! How can I check if a string contains a character in Java? Thanks!
+        if (!inp.contains("/")) {
             throw new InvalidInputHomuraException("edit", inp);
         }
-        int ind = Integer.parseInt(splitInps[1]) - 1;
+        String[] splitSpaceInps = inp.split(" +");   // + handles whitespace spam
+//        if (splitSpaceInps.length%2 != 0) {
+//            throw new InvalidInputHomuraException("edit", inp);
+//        }
+        int ind = Integer.parseInt(splitSpaceInps[1]) - 1;
         Todo t = todos.get(ind);
 
-        String attr, newVal;
-        for (int i = 1; i < splitInps.length/2; i++) {
-            attr = splitInps[2*i];
-            newVal = splitInps[2*i+1];
+        ArrayList<String> splitSlashInps = HomuraUtils.split(inp,"/");
+        String s, attr, newVal;
+        for (int i = 1; i < splitSlashInps.size(); i++) {
+            s = splitSlashInps.get(i);
+            attr = s.split(" ")[0];
+            newVal = s.substring(attr.length()+1).strip();
+//            attr = splitSpaceInps[2*i];
+//            newVal = splitSpaceInps[2*i+1];
             try {
                 t.edit(attr, newVal);
             } catch (HomuraRuntimeException e) {
                 throw new InvalidInputHomuraException("edit", inp);
             }
         }
-        return t.getClass().getSimpleName() + " " + ind
-                + "successfully modified" + '\n'
+        return t.getClass().getSimpleName() + " " + (ind + 1)
+                + " successfully modified" + '\n'
                 + INDENT + t;
 
 //        if (t instanceof Todo) {

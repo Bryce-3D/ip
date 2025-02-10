@@ -104,10 +104,10 @@ public class Deadline extends Todo {
     @Override
     public void edit(String attr, String newVal) {
         switch (attr) {
-        case "/des":
+        case "des":
             this.setDescription(newVal);
             return;
-        case "/by":
+        case "by":
             by = LocalDate.parse(newVal, dtfParse);
             return;
         default:
