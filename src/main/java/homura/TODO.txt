@@ -11,6 +11,8 @@ TODOs right before submitting:
 
 
  TODOs
+ - Fix Homura.cmdEditJavafx() to handle inputs that contains
+   whitespace
  - Rearrange the cases in Homura.cmdJavafx() after BCD-extension
    (C-Update) gets merged into main/master.
 

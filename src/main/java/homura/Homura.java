@@ -70,6 +70,36 @@ public class Homura {
         todos.add(e);
         return e.addStrJavafx();
     }
+    public static String cmdEditJavafx(String inp) {
+        // Input format should be something like
+        // edit 1 /des asdf /by 2025-01-01 /from 2025-01-01 /to 2025-01-01
+        assert inp.strip().toLowerCase().startsWith("edit");
+        String[] splitInps = inp.split(" +");   // + handles whitespace spam
+        if (splitInps.length%2 != 0) {
+            throw new InvalidInputHomuraException("edit", inp);
+        }
+        int ind = Integer.parseInt(splitInps[1]) - 1;
+        Todo t = todos.get(ind);
+
+        String attr, newVal;
+        for (int i = 1; i < splitInps.length/2; i++) {
+            attr = splitInps[2*i];
+            newVal = splitInps[2*i+1];
+            try {
+                t.edit(attr, newVal);
+            } catch (HomuraRuntimeException e) {
+                throw new InvalidInputHomuraException("edit", inp);
+            }
+        }
+        return t.getClass().getSimpleName() + " " + ind
+                + "successfully modified" + '\n'
+                + INDENT + t;
+
+//        if (t instanceof Todo) {
+//            t = .parseEditInp(t, inp);
+//        } else if (t instanceof Deadline)
+    }
+
 
     /**
      * Handles the logic of the mark command.
@@ -148,7 +178,7 @@ public class Homura {
         switch (cmd) {
         case "bye":   // Say goodbye to Homura
             return cmdByeJavafx(inp);
-        case "list":
+        case "list":   // List out all Todos
             return cmdListJavafx(inp);
         case "mark":   // Mark a Todo on the list
             return cmdMarkJavafx(inp);
@@ -160,6 +190,8 @@ public class Homura {
             return cmdDeadlineJavafx(inp);
         case "event":   // Add an event to the list
             return cmdEventJavafx(inp);
+        case "edit":   // Edit an entry in the list
+            return cmdEditJavafx(inp);
         case "delete":   // Remove an event from the list
             return cmdDeleteJavafx(inp);
         case "find":   // Find todos in the list with some text
