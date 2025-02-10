@@ -71,7 +71,7 @@ public class Homura {
         return e.addStrJavafx();
     }
     public static String cmdEditJavafx(String inp) {
-        // Input format should be something like
+        // Input format should be of the form
         // edit 1 /des asdf /by 2025-01-01 /from 2025-01-01 /to 2025-01-01
         assert inp.strip().toLowerCase().startsWith("edit");
         // Inspired by the ChatGPT query
@@ -80,35 +80,26 @@ public class Homura {
             throw new InvalidInputHomuraException("edit", inp);
         }
         String[] splitSpaceInps = inp.split(" +");   // + handles whitespace spam
-//        if (splitSpaceInps.length%2 != 0) {
-//            throw new InvalidInputHomuraException("edit", inp);
-//        }
         int ind = Integer.parseInt(splitSpaceInps[1]) - 1;
         Todo t = todos.get(ind);
 
         ArrayList<String> splitSlashInps = HomuraUtils.split(inp,"/");
-        String s, attr, newVal;
+        String next, attr, newVal;
         for (int i = 1; i < splitSlashInps.size(); i++) {
-            s = splitSlashInps.get(i);
-            attr = s.split(" ")[0];
-            newVal = s.substring(attr.length()+1).strip();
-//            attr = splitSpaceInps[2*i];
-//            newVal = splitSpaceInps[2*i+1];
+            next = splitSlashInps.get(i);
+            attr = next.split(" ")[0];
+            newVal = next.substring(attr.length()+1).strip();
             try {
                 t.edit(attr, newVal);
             } catch (HomuraRuntimeException e) {
                 throw new InvalidInputHomuraException("edit", inp);
             }
         }
+
         return t.getClass().getSimpleName() + " " + (ind + 1)
                 + " successfully modified" + '\n'
                 + INDENT + t;
-
-//        if (t instanceof Todo) {
-//            t = .parseEditInp(t, inp);
-//        } else if (t instanceof Deadline)
     }
-
 
     /**
      * Handles the logic of the mark command.
