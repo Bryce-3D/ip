@@ -42,6 +42,9 @@ public class TaskList {
     public Todo get(int i) {
         return todos.get(i);
     }
+    public void set(int i, Todo t) {
+        todos.set(i,t);
+    }
     /**
      * Adds a todo to the ArrayList.
      *

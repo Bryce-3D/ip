@@ -8,10 +8,20 @@
 package homura;
 
 
+import javafx.concurrent.Task;
+
 import java.util.*;
 
 public class Playground {
     public static void main(String[] args) {
-        
+        ArrayList<Integer> asdf = new ArrayList<Integer>();
+        asdf.add(1);
+        asdf.add(2);
+
+        TaskList a = new TaskList();
+        a.add(new Todo("a"));
+        a.set(0,new Todo("b"));
+        System.out.println(a.get(0));
+
     }
 }
