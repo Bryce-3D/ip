@@ -70,6 +70,36 @@ public class Homura {
         todos.add(e);
         return e.addStrJavafx();
     }
+    public static String cmdEditJavafx(String inp) {
+        // Input format should be of the form
+        // edit 1 /des asdf /by 2025-01-01 /from 2025-01-01 /to 2025-01-01
+        assert inp.strip().toLowerCase().startsWith("edit");
+        // Inspired by the ChatGPT query
+        // Hi! How can I check if a string contains a character in Java? Thanks!
+        if (!inp.contains("/")) {
+            throw new InvalidInputHomuraException("edit", inp);
+        }
+        String[] splitSpaceInps = inp.split(" +");   // + handles whitespace spam
+        int ind = Integer.parseInt(splitSpaceInps[1]) - 1;
+        Todo t = todos.get(ind);
+
+        ArrayList<String> splitSlashInps = HomuraUtils.split(inp,"/");
+        String next, attr, newVal;
+        for (int i = 1; i < splitSlashInps.size(); i++) {
+            next = splitSlashInps.get(i);
+            attr = next.split(" ")[0];
+            newVal = next.substring(attr.length()+1).strip();
+            try {
+                t.edit(attr, newVal);
+            } catch (HomuraRuntimeException e) {
+                throw new InvalidInputHomuraException("edit", inp);
+            }
+        }
+
+        return t.getClass().getSimpleName() + " " + (ind + 1)
+                + " successfully modified" + '\n'
+                + INDENT + t;
+    }
 
     /**
      * Handles the logic of the mark command.
@@ -148,7 +178,7 @@ public class Homura {
         switch (cmd) {
         case "bye":   // Say goodbye to Homura
             return cmdByeJavafx(inp);
-        case "list":
+        case "list":   // List out all Todos
             return cmdListJavafx(inp);
         case "mark":   // Mark a Todo on the list
             return cmdMarkJavafx(inp);
@@ -160,6 +190,8 @@ public class Homura {
             return cmdDeadlineJavafx(inp);
         case "event":   // Add an event to the list
             return cmdEventJavafx(inp);
+        case "edit":   // Edit an entry in the list
+            return cmdEditJavafx(inp);
         case "delete":   // Remove an event from the list
             return cmdDeleteJavafx(inp);
         case "find":   // Find todos in the list with some text

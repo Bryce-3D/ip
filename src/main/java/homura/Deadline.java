@@ -100,6 +100,23 @@ public class Deadline extends Todo {
 
 
 
+    // Edit Functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    @Override
+    public void edit(String attr, String newVal) {
+        switch (attr) {
+        case "des":
+            this.setDescription(newVal);
+            return;
+        case "by":
+            by = LocalDate.parse(newVal, dtfParse);
+            return;
+        default:
+            throw new HomuraRuntimeException();
+        }
+    }
+
+
+
     // Etc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Compares if the object is the same as this.
