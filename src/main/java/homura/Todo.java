@@ -19,6 +19,9 @@ public class Todo {
     public String getDescription() {
         return description;
     }
+    public void setDescription(String des) {
+        description = des;
+    }
     public boolean getIsDone() {
         return isDone;
     }
@@ -87,7 +90,7 @@ public class Todo {
 
 
 
-    // Edit Methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // Edit Functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public void edit(String attr, String newVal) {
         switch (attr) {
         case "/des":

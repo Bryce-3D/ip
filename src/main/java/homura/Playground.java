@@ -14,10 +14,29 @@ import java.util.*;
 
 public class Playground {
     public static void main(String[] args) {
+        Deadline d = new Deadline("asdf", "2025-01-01");
+        d.edit("/des", "qwer");
+        d.edit("/by","2024-01-01");
+        System.out.println(d);
+
+        Event e = new Event("asdf",
+                "2025-01-01", "2024-12-31");
+        e.edit("/des", "qewr");
+        e.edit("/from","2024-01-31");
+        e.edit("/to","2025-12-31");
+        System.out.println(e);
+
+
         Todo t = new Todo("asdf");
-        t.edit("/des","fdsa");
-        System.out.println(t);
+        t.edit("/by", "HomuraRuntimeException");
+
         System.exit(0);
+
+
+//        Todo t = new Todo("asdf");
+//        t.edit("/des","fdsa");
+//        System.out.println(t);
+//        System.exit(0);
 
         System.out.println(new A() instanceof Object);
         System.out.println(new B() instanceof A);

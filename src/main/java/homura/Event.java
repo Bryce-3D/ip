@@ -105,6 +105,26 @@ public class Event extends Todo {
 
 
     
+    // Edit Functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    @Override
+    public void edit(String attr, String newVal) {
+        switch (attr) {
+        case "/des":
+            this.setDescription(newVal);
+            return;
+        case "/from":
+            sta = LocalDate.parse(newVal, dtfParse);
+            return;
+        case "/to":
+            end = LocalDate.parse(newVal, dtfParse);
+            return;
+        default:
+            throw new HomuraRuntimeException();
+        }
+    }
+
+
+
     // Etc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Compares if the object is the same as this.
