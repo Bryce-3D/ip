@@ -31,6 +31,7 @@ public class Homura {
      * Handles the logic of the todo command.
      *
      * @param inp The full line of input to the bot.
+     * @return The String that the bot should send in response.
      */
     public static String cmdTodoJavafx(String inp) {
         Todo t = Parser.parseTodoInp(inp);
@@ -41,6 +42,7 @@ public class Homura {
      * Handles the logic of the deadline command.
      *
      * @param inp The full line of input to the bot.
+     * @return The String that the bot should send in response.
      */
     public static String cmdDeadlineJavafx(String inp) {
         Deadline d = Parser.parseDeadlineInp(inp);
@@ -51,6 +53,7 @@ public class Homura {
      * Handles the logic of the event command.
      *
      * @param inp The full line of input to the bot.
+     * @return The String that the bot should send in response.
      */
     public static String cmdEventJavafx(String inp) {
         assert inp.strip().toLowerCase().startsWith("event");
@@ -58,6 +61,12 @@ public class Homura {
         todos.add(e);
         return e.addStrJavafx();
     }
+    /**
+     * Handles the logic of the edit command.
+     *
+     * @param inp The full line of input to the bot.
+     * @return The String that the bot should send in response.
+     */
     public static String cmdEditJavafx(String inp) {
         // Input format should be of the form
         // edit 1 /des asdf /by 2025-01-01 /from 2025-01-01 /to 2025-01-01
@@ -93,6 +102,7 @@ public class Homura {
      * Handles the logic of the mark command.
      *
      * @param inp The full line of input to the bot.
+     * @return The String that the bot should send in response.
      */
     public static String cmdMarkJavafx(String inp) {
         assert inp.strip().toLowerCase().startsWith("mark");
@@ -108,6 +118,7 @@ public class Homura {
      * Handles the logic of the unmark command.
      *
      * @param inp The full line of input to the bot.
+     * @return The String that the bot should send in response.
      */
     public static String cmdUnmarkJavafx(String inp) {
         assert inp.strip().toLowerCase().startsWith("unmark");
@@ -120,6 +131,7 @@ public class Homura {
      * Handles the logic of the delete command.
      *
      * @param inp The full line of input to the bot.
+     * @return The String that the bot should send in response.
      */
     public static String cmdDeleteJavafx(String inp) {
         assert inp.strip().toLowerCase().startsWith("delete");
@@ -136,6 +148,12 @@ public class Homura {
                 + todos.size() + " tasks(s) in your list";
     }
 
+    /**
+     * Handles the logic of the list command.
+     *
+     * @param inp The full line of input to the bot.
+     * @return The String that the bot should send in response.
+     */
     public static String cmdListJavafx(String inp) {
         assert inp.strip().toLowerCase().startsWith("list");
         return Ui.listTodosFormattedJavafx();
@@ -144,6 +162,7 @@ public class Homura {
      * Handles the logic of the find command.
      *
      * @param inp The full line of input to the bot.
+     * @return The String that the bot should send in response.
      */
     public static String cmdFindJavafx(String inp) {
         assert inp.strip().toLowerCase().startsWith("find");
@@ -153,12 +172,24 @@ public class Homura {
         return Ui.foundTodosFormattedJavafx(matches);
     }
 
+    /**
+     * Handles the logic of the bye command.
+     *
+     * @param inp The full line of input to the bot.
+     * @return The String that the bot should send in response.
+     */
     public static String cmdByeJavafx(String inp) {
         assert inp.strip().toLowerCase().startsWith("bye");
         Storage.writeTodos(todos, TODOS_FILENAME);
         return Ui.byeMsgJavafx();
     }
-    
+
+    /**
+     * Handles the logic of a single command passed to the bot.
+     *
+     * @param inp The full line of input to the bot.
+     * @return The String that the bot should send in response.
+     */
     public static String cmdJavafx(String inp) {
         String[] splitInps = inp.split(" ");
         String cmd = splitInps[0].toLowerCase();
