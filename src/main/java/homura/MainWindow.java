@@ -84,7 +84,7 @@ public class MainWindow extends AnchorPane {
         }
 
         String inp = userInput.getText();
-        String response = Homura.cmdJavafx(inp);
+        String response = Homura.cmd(inp);
         dialogContainer.getChildren().addAll(
                 DialogBox.getUserDialog(inp, madoImage),
                 DialogBox.getHomuDialog(response, homuImage)

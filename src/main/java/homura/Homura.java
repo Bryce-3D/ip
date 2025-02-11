@@ -26,14 +26,14 @@ public class Homura {
 
 
 
-    // Bot commands logic (JavaFX) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // Bot commands logic ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Handles the logic of the todo command.
      *
      * @param inp The full line of input to the bot.
      * @return The String that the bot should send in response.
      */
-    public static String cmdTodoJavafx(String inp) {
+    public static String cmdTodo(String inp) {
         Todo t = Parser.parseTodoInp(inp);
         todos.add(t);
         return t.addStrJavafx();
@@ -44,7 +44,7 @@ public class Homura {
      * @param inp The full line of input to the bot.
      * @return The String that the bot should send in response.
      */
-    public static String cmdDeadlineJavafx(String inp) {
+    public static String cmdDeadline(String inp) {
         Deadline d = Parser.parseDeadlineInp(inp);
         todos.add(d);
         return d.addStrJavafx();
@@ -55,7 +55,7 @@ public class Homura {
      * @param inp The full line of input to the bot.
      * @return The String that the bot should send in response.
      */
-    public static String cmdEventJavafx(String inp) {
+    public static String cmdEvent(String inp) {
         assert inp.strip().toLowerCase().startsWith("event");
         Event e = Parser.parseEventInp(inp);
         todos.add(e);
@@ -67,7 +67,7 @@ public class Homura {
      * @param inp The full line of input to the bot.
      * @return The String that the bot should send in response.
      */
-    public static String cmdEditJavafx(String inp) {
+    public static String cmdEdit(String inp) {
         // Input format should be of the form
         // edit 1 /des asdf /by 2025-01-01 /from 2025-01-01 /to 2025-01-01
         assert inp.strip().toLowerCase().startsWith("edit");
@@ -104,7 +104,7 @@ public class Homura {
      * @param inp The full line of input to the bot.
      * @return The String that the bot should send in response.
      */
-    public static String cmdMarkJavafx(String inp) {
+    public static String cmdMark(String inp) {
         assert inp.strip().toLowerCase().startsWith("mark");
         // How to convert String to int inspired by
         // https://stackoverflow.com/questions/5585779/
@@ -120,7 +120,7 @@ public class Homura {
      * @param inp The full line of input to the bot.
      * @return The String that the bot should send in response.
      */
-    public static String cmdUnmarkJavafx(String inp) {
+    public static String cmdUnmark(String inp) {
         assert inp.strip().toLowerCase().startsWith("unmark");
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
@@ -133,7 +133,7 @@ public class Homura {
      * @param inp The full line of input to the bot.
      * @return The String that the bot should send in response.
      */
-    public static String cmdDeleteJavafx(String inp) {
+    public static String cmdDelete(String inp) {
         assert inp.strip().toLowerCase().startsWith("delete");
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
@@ -154,7 +154,7 @@ public class Homura {
      * @param inp The full line of input to the bot.
      * @return The String that the bot should send in response.
      */
-    public static String cmdListJavafx(String inp) {
+    public static String cmdList(String inp) {
         assert inp.strip().toLowerCase().startsWith("list");
         return Ui.listTodosFormattedJavafx();
     }
@@ -164,7 +164,7 @@ public class Homura {
      * @param inp The full line of input to the bot.
      * @return The String that the bot should send in response.
      */
-    public static String cmdFindJavafx(String inp) {
+    public static String cmdFind(String inp) {
         assert inp.strip().toLowerCase().startsWith("find");
         String[] splitInps = inp.split(" ");
         String s = splitInps[1];
@@ -178,7 +178,7 @@ public class Homura {
      * @param inp The full line of input to the bot.
      * @return The String that the bot should send in response.
      */
-    public static String cmdByeJavafx(String inp) {
+    public static String cmdBye(String inp) {
         assert inp.strip().toLowerCase().startsWith("bye");
         Storage.writeTodos(todos, TODOS_FILENAME);
         return Ui.byeMsgJavafx();
@@ -190,31 +190,31 @@ public class Homura {
      * @param inp The full line of input to the bot.
      * @return The String that the bot should send in response.
      */
-    public static String cmdJavafx(String inp) {
+    public static String cmd(String inp) {
         String[] splitInps = inp.split(" ");
         String cmd = splitInps[0].toLowerCase();
 
         switch (cmd) {
         case "bye":   // Say goodbye to Homura
-            return cmdByeJavafx(inp);
+            return cmdBye(inp);
         case "list":   // List out all Todos
-            return cmdListJavafx(inp);
+            return cmdList(inp);
         case "mark":   // Mark a Todo on the list
-            return cmdMarkJavafx(inp);
+            return cmdMark(inp);
         case "unmark":   // Unmark a Todo on the list
-            return cmdUnmarkJavafx(inp);
+            return cmdUnmark(inp);
         case "todo":   // Add a Todo to the list
-            return cmdTodoJavafx(inp);
+            return cmdTodo(inp);
         case "deadline":   // Add a deadline to the list
-            return cmdDeadlineJavafx(inp);
+            return cmdDeadline(inp);
         case "event":   // Add an event to the list
-            return cmdEventJavafx(inp);
+            return cmdEvent(inp);
         case "edit":   // Edit an entry in the list
-            return cmdEditJavafx(inp);
+            return cmdEdit(inp);
         case "delete":   // Remove an event from the list
-            return cmdDeleteJavafx(inp);
+            return cmdDelete(inp);
         case "find":   // Find todos in the list with some text
-            return cmdFindJavafx(inp);
+            return cmdFind(inp);
         default:   // Not a command
             throw new InvalidCmdHomuraException(cmd);
         }
