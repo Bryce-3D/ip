@@ -72,7 +72,7 @@ public class Event extends Todo {
     public static Event fromStorageStr(String s) {
         assert s.startsWith("e");
         ArrayList<String> ss = HomuraUtils.split(s, Storage.DIVIDER);
-        Event ans = new Event(ss.get(2), ss.get(3), ss.get(4));
+        Event ans = new Event(ss.get(2), ss.get(3), ss.get(4).strip());
         if (ss.get(1).equals("1")) {
             ans.setIsDone(true);
         }

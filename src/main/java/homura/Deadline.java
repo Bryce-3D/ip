@@ -63,7 +63,7 @@ public class Deadline extends Todo {
     public static Deadline fromStorageStr(String s) {
         assert s.startsWith("d");
         ArrayList<String> ss = HomuraUtils.split(s, Storage.DIVIDER);
-        Deadline ans = new Deadline(ss.get(2), ss.get(3));
+        Deadline ans = new Deadline(ss.get(2), ss.get(3).strip());
         if (ss.get(1).equals("1")) {
             ans.setIsDone(true);
         }
