@@ -13,7 +13,6 @@ import java.util.ArrayList;
 public class Ui {
     // Attributes/Fields ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public final static String INDENT = " ".repeat(4);
-    public final static String DIVIDER = "~".repeat(80);
 
     /**
      * Generates the message on bot startup.
