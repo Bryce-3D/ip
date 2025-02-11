@@ -71,9 +71,6 @@ public class HomuraUtils {
      * @return The parts of `s` after being split along `div`.
      */
     public static ArrayList<String> split(String s, String div) {
-        // Credits to ChatGPT for showing `Pattern.quote()` on the query
-        // "Hi! Does Java have a built in function to split a string on
-        // another string rather than a regular expression?"
         String[] ansArr = s.split(Pattern.quote(div));
         ArrayList<String> ans = new ArrayList<String>(Arrays.asList(ansArr));
         return ans;

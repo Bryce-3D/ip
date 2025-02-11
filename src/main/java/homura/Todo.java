@@ -134,10 +134,6 @@ public class Todo {
      * @return Whether s is in the description or not.
      */
     public boolean contains(String s) {
-        // How to check if a string is a substring of another string
-        // inspired by ChatGPT with the query "Hi! How can I check if
-        // a string `s0` is contained as a substring of another string
-        // `s` in Java? Thanks!"
         s = s.toLowerCase();
         return description.contains(s);
     }

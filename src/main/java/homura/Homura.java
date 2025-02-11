@@ -71,8 +71,6 @@ public class Homura {
         // Input format should be of the form
         // edit 1 /des asdf /by 2025-01-01 /from 2025-01-01 /to 2025-01-01
         assert inp.strip().toLowerCase().startsWith("edit");
-        // Inspired by the ChatGPT query
-        // Hi! How can I check if a string contains a character in Java? Thanks!
         if (!inp.contains("/")) {
             throw new InvalidInputHomuraException("edit", inp);
         }
