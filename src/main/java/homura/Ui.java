@@ -19,10 +19,20 @@ public class Ui {
     // Deprecated due to removal of CLI support
 
     // New JavaFX Version ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    /**
+     * Generates the message on bot startup.
+     *
+     * @return The message on bot startup.
+     */
     public static String introMsgJavafx() {
         return "Good morning Madoka-chan.\n"
                 + "Did Kyuubey contact you last night?";
     }
+    /**
+     * Generates the message on bot shutdown.
+     *
+     * @return The message on bot shutdown.
+     */
     public static String byeMsgJavafx() {
         return "Kaname Madoka, do you treasure the life you currently live? "
                 + "And do you consider your family and your friends precious?"
@@ -36,6 +46,28 @@ public class Ui {
                 + '\n' + '\n'
                 + "Send any message to close me.\n";
     }
+    /**
+     * Generates a UI string representing an arbitrary list of todos.
+     *
+     * @param todos The list of todos being converted to a UI string.
+     * @return The UI string representation of todos.
+     */
+    public static String todosStrJavafx(ArrayList<Todo> todos) {
+        ArrayList<String> numberedTasks = new ArrayList<String>();
+        for (int i = 0; i < todos.size(); i++) {
+            numberedTasks.add((i+1) + ".) " + todos.get(i));
+        }
+        String ans = "";
+        for (String item: numberedTasks) {
+            ans += INDENT + " " + item + '\n';
+        }
+        return ans;
+    }
+    /**
+     * Generates a UI string for the stored list of todos.
+     *
+     * @return The UI string representation of todos.
+     */
     public static String todosStrJavafx() {
         ArrayList<String> numberedTasks = new ArrayList<String>();
         for (int i = 0; i < Homura.getTodos().size(); i++) {
@@ -50,23 +82,21 @@ public class Ui {
         }
         return ans;
     }
-    public static String todosStrJavafx(ArrayList<Todo> todos) {
-        ArrayList<String> numberedTasks = new ArrayList<String>();
-        for (int i = 0; i < todos.size(); i++) {
-            numberedTasks.add((i+1) + ".) " + todos.get(i));
-        }
-        String ans = "";
-        for (String item: numberedTasks) {
-            ans += INDENT + " " + item + '\n';
-        }
-        return ans;
-    }
-
-    public static String todosFormattedJavafx() {
+    /**
+     * Generates a UI string representing a list of todos from the list cmd.
+     *
+     * @return The UI string representation of todos.
+     */
+    public static String listTodosFormattedJavafx() {
         return Homura.getTodos().size() + " tasks(s) in your list" + '\n'
                 + todosStrJavafx();
     }
-
+    /**
+     * Generates a UI string representing a list of todos from the find cmd.
+     *
+     * @param todos The list of todos being converted to a UI string.
+     * @return The UI string representation of todos.
+     */
     public static String foundTodosFormattedJavafx(ArrayList<Todo> todos) {
         return todos.size() + " tasks(s) found in your list" + '\n'
                 + todosStrJavafx(todos);

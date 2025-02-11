@@ -9,7 +9,6 @@
 package homura;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Homura {
     // Attributes + Getters and Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -150,7 +149,7 @@ public class Homura {
 
     public static String cmdListJavafx(String inp) {
         assert inp.strip().toLowerCase().startsWith("list");
-        return Ui.todosFormattedJavafx();
+        return Ui.listTodosFormattedJavafx();
     }
     /**
      * Handles the logic of the find command.
