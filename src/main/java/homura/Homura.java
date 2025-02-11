@@ -26,17 +26,6 @@ public class Homura {
 
 
 
-    // Bot Messages ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // Moved to Ui.java now
-
-    // Bot on/off logic ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // Deprecated due to removal of CLI support
-
-    // Bot commands logic ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // Deprecated due to removal of CLI support
-
-
-
     // Bot commands logic (JavaFX) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Handles the logic of the todo command.
@@ -199,18 +188,4 @@ public class Homura {
             throw new InvalidCmdHomuraException(cmd);
         }
     }
-
-
-
-    // Main ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // Deprecated due to removal of CLI support
 }
-
-
-
-
-
-// RECYCLING BIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// String concatenation inspired by
-// https://stackoverflow.com/questions/523871/
-// best-way-to-concatenate-list-of-string-objects
