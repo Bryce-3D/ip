@@ -15,10 +15,6 @@ public class Ui {
     public final static String INDENT = " ".repeat(4);
     public final static String DIVIDER = "~".repeat(80);
 
-    // CLI Version ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // Deprecated due to removal of CLI support
-
-    // New JavaFX Version ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Generates the message on bot startup.
      *
