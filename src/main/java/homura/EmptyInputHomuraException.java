@@ -1,11 +1,6 @@
 /**
  * An exception for when a command that needs an argument receives none.
  */
-
-// How to use and create packages inspired by
-// https://github.com/weiseng18/ip/tree/master/src/main/java/panorama
-// and
-// https://www.w3schools.com/java/java_packages.asp
 package homura;
 
 public class EmptyInputHomuraException extends HomuraRuntimeException {
