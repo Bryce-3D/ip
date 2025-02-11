@@ -6,12 +6,22 @@ package homura;
 import javafx.concurrent.Task;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 public class Playground {
     public static void main(String[] args) {
-        String s0 = "d | 0 | CS2103T | 2025-02-28";
-        String s1 = "d | 0 | you | 2010-01-01";
-        Deadline d0 = (Deadline) Storage.fromStr(s0);
-        Deadline d1 = (Deadline) Storage.fromStr(s1);
+        String s = "what did they \r\nmean by this chat \npls work";
+        Stream<String> asdf = s.lines();
+        ArrayList<String> qwer = new ArrayList<String>();
+        asdf.forEach(qwer::add);
+        HomuraUtils.printArrList(qwer);
+        for (String q : qwer) {
+            System.out.println(q.length());
+        }
+
+        String[] ss = {"Mado", "Homu"};
+        for (String v : ss) {
+            System.out.println(v);
+        }
     }
 }

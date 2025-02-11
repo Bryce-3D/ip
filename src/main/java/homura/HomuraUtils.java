@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 public class HomuraUtils {
     /**
@@ -66,6 +67,13 @@ public class HomuraUtils {
     public static ArrayList<String> split(String s, String div) {
         String[] ansArr = s.split(Pattern.quote(div));
         ArrayList<String> ans = new ArrayList<String>(Arrays.asList(ansArr));
+        return ans;
+    }
+
+    public static ArrayList<String> splitLine(String s) {
+        Stream<String> ss = s.lines();
+        ArrayList<String> ans = new ArrayList<String>();
+        ss.forEach(ans::add);
         return ans;
     }
 
