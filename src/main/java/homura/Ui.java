@@ -41,6 +41,20 @@ public class Ui {
                 + '\n' + '\n'
                 + "Send any message to close me.\n";
     }
+
+    public static String addMsg(Todo t) {
+        return t.getClass().getSimpleName() + " added" + '\n'
+                + INDENT + t + '\n';
+    }
+    public static String markMsg(Todo t) {
+        return t.getClass().getSimpleName() + " marked as done" + '\n'
+                + INDENT + t + '\n';
+    }
+    public static String unmarkMsg(Todo t) {
+        return t.getClass().getSimpleName() + " marked as not done" + '\n'
+                + INDENT + t + '\n';
+    }
+
     /**
      * Generates a UI string representing an arbitrary list of todos.
      *
