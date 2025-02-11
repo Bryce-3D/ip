@@ -37,7 +37,7 @@ public class MainWindow extends AnchorPane {
 
         // Send the on message
         dialogContainer.getChildren().addAll(
-                DialogBox.getHomuDialog(Ui.introMsgJavafx(), homuImage)
+                DialogBox.getHomuDialog(Ui.introMsg(), homuImage)
         );
 
         // Read the saved todo list

@@ -24,7 +24,7 @@ public class Ui {
      *
      * @return The message on bot startup.
      */
-    public static String introMsgJavafx() {
+    public static String introMsg() {
         return "Good morning Madoka-chan.\n"
                 + "Did Kyuubey contact you last night?";
     }
@@ -33,7 +33,7 @@ public class Ui {
      *
      * @return The message on bot shutdown.
      */
-    public static String byeMsgJavafx() {
+    public static String byeMsg() {
         return "Kaname Madoka, do you treasure the life you currently live? "
                 + "And do you consider your family and your friends precious?"
                 + "\n"
@@ -52,7 +52,7 @@ public class Ui {
      * @param todos The list of todos being converted to a UI string.
      * @return The UI string representation of todos.
      */
-    public static String todosStrJavafx(ArrayList<Todo> todos) {
+    public static String todosStr(ArrayList<Todo> todos) {
         ArrayList<String> numberedTasks = new ArrayList<String>();
         for (int i = 0; i < todos.size(); i++) {
             numberedTasks.add((i+1) + ".) " + todos.get(i));
@@ -68,17 +68,17 @@ public class Ui {
      *
      * @return The UI string representation of todos.
      */
-    public static String todosStrJavafx() {
-        return todosStrJavafx(Homura.getTodos().getTodos());
+    public static String todosStr() {
+        return todosStr(Homura.getTodos().getTodos());
     }
     /**
      * Generates a UI string representing a list of todos from the list cmd.
      *
      * @return The UI string representation of todos.
      */
-    public static String listTodosFormattedJavafx() {
+    public static String listTodosFormatted() {
         return Homura.getTodos().size() + " tasks(s) in your list" + '\n'
-                + todosStrJavafx();
+                + todosStr();
     }
     /**
      * Generates a UI string representing a list of todos from the find cmd.
@@ -86,8 +86,8 @@ public class Ui {
      * @param todos The list of todos being converted to a UI string.
      * @return The UI string representation of todos.
      */
-    public static String foundTodosFormattedJavafx(ArrayList<Todo> todos) {
+    public static String foundTodosFormatted(ArrayList<Todo> todos) {
         return todos.size() + " tasks(s) found in your list" + '\n'
-                + todosStrJavafx(todos);
+                + todosStr(todos);
     }
 }

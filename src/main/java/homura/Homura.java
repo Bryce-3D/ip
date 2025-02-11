@@ -156,7 +156,7 @@ public class Homura {
      */
     public static String cmdList(String inp) {
         assert inp.strip().toLowerCase().startsWith("list");
-        return Ui.listTodosFormattedJavafx();
+        return Ui.listTodosFormatted();
     }
     /**
      * Handles the logic of the find command.
@@ -169,7 +169,7 @@ public class Homura {
         String[] splitInps = inp.split(" ");
         String s = splitInps[1];
         ArrayList<Todo> matches = todos.findTodosWith(s);
-        return Ui.foundTodosFormattedJavafx(matches);
+        return Ui.foundTodosFormatted(matches);
     }
 
     /**
@@ -181,7 +181,7 @@ public class Homura {
     public static String cmdBye(String inp) {
         assert inp.strip().toLowerCase().startsWith("bye");
         Storage.writeTodos(todos, TODOS_FILENAME);
-        return Ui.byeMsgJavafx();
+        return Ui.byeMsg();
     }
 
     /**
