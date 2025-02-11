@@ -69,18 +69,7 @@ public class Ui {
      * @return The UI string representation of todos.
      */
     public static String todosStrJavafx() {
-        ArrayList<String> numberedTasks = new ArrayList<String>();
-        for (int i = 0; i < Homura.getTodos().size(); i++) {
-            // Converting int to string representation inspired by
-            // https://stackoverflow.com/questions/5071040/
-            // java-convert-integer-to-string
-            numberedTasks.add((i+1) + ".) " + Homura.getTodos().get(i));
-        }
-        String ans = "";
-        for (String item : numberedTasks) {
-            ans += INDENT + " " + item + '\n';
-        }
-        return ans;
+        return todosStrJavafx(Homura.getTodos().getTodos());
     }
     /**
      * Generates a UI string representing a list of todos from the list cmd.
