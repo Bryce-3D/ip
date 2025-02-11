@@ -39,7 +39,7 @@ public class Storage {
         if (ftxt == null) {
             return new TaskList();
         }
-        ArrayList<String> txts = HomuraUtils.split(ftxt, "\n");
+        ArrayList<String> txts = HomuraUtils.splitLine(ftxt);
         TaskList ans = new TaskList();
         for (String txt : txts) {
             ans.add(fromStr(txt));
