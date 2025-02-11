@@ -87,9 +87,6 @@ public class Todo {
 
 
 
-
-
-
     // Edit Functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public void edit(String attr, String newVal) {
         switch (attr) {
@@ -99,38 +96,6 @@ public class Todo {
         default:
             throw new HomuraRuntimeException();
         }
-    }
-
-
-
-    // Special String Methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // !TODO! Either remove these or fix it
-    /**
-     * Generates a string to send when a Todo is created.
-     *
-     * @return The string to send when a Todo is created.
-     */
-    public String addStrJavafx() {
-        return getClass().getSimpleName() + " added" + '\n'
-                + INDENT + this + '\n';
-    }
-    /**
-     * Generates a string to send when a Todo is marked.
-     *
-     * @return The string to send when a Todo is marked.
-     */
-    public String markStrJavafx() {
-        return getClass().getSimpleName() + " marked as done" + '\n'
-                + INDENT + this + '\n';
-    }
-    /**
-     * Generates a string to send when a Todo is unmarked.
-     *
-     * @return The string to send when a Todo is unmarked.
-     */
-    public String unmarkStrJavafx() {
-        return getClass().getSimpleName() + " marked as not done" + '\n'
-                + INDENT + this + '\n';
     }
 
 

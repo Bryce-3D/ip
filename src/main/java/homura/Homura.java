@@ -36,7 +36,7 @@ public class Homura {
     public static String cmdTodo(String inp) {
         Todo t = Parser.parseTodoInp(inp);
         todos.add(t);
-        return t.addStrJavafx();
+        return Ui.addMsg(t);
     }
     /**
      * Handles the logic of the deadline command.
@@ -47,7 +47,7 @@ public class Homura {
     public static String cmdDeadline(String inp) {
         Deadline d = Parser.parseDeadlineInp(inp);
         todos.add(d);
-        return d.addStrJavafx();
+        return Ui.addMsg(d);
     }
     /**
      * Handles the logic of the event command.
@@ -59,7 +59,7 @@ public class Homura {
         assert inp.strip().toLowerCase().startsWith("event");
         Event e = Parser.parseEventInp(inp);
         todos.add(e);
-        return e.addStrJavafx();
+        return Ui.addMsg(e);
     }
     /**
      * Handles the logic of the edit command.
@@ -112,7 +112,7 @@ public class Homura {
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
         todos.get(i).setIsDone(true);
-        return todos.get(i).markStrJavafx();
+        return Ui.markMsg(todos.get(i));
     }
     /**
      * Handles the logic of the unmark command.
@@ -125,7 +125,7 @@ public class Homura {
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
         todos.get(i).setIsDone(false);
-        return todos.get(i).unmarkStrJavafx();
+        return Ui.markMsg(todos.get(i));
     }
     /**
      * Handles the logic of the delete command.
