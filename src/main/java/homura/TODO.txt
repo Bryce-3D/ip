@@ -3,10 +3,9 @@ TODOs right before submitting:
       f(a,b)
   Need space in between like
       f(a, b)
-- Cite all uses of ChatGPT in the README.md
+- Cite all uses of ChatGPT in AI.md
   Instructions can be found at
-  https://nus-cs2103-ay2425s2.github.io/website/admin/
-  appendixB-policies.html#giving-credit-for-reused-work
+  https://github.com/nus-cs2103-AY2425S2/forum/issues/186
 
 
 
@@ -15,18 +14,35 @@ TODOs right before submitting:
    whitespace
  - Rearrange the cases in Homura.cmdJavafx() after BCD-extension
    (C-Update) gets merged into main/master.
-
-
-
-Optional TODOs
 - Make the Homura actually send some message on invalid inputs rather than
   do nothing and have the errors appear in the CLI/console thing in
   IntelliJ only
+- Figure out the bug on reading `HomuraTodos.txt`. The file
+```
+t | 0 | something
+d | 0 | CS2103T | 2025-02-28
+e | 0 | Sem 8 | 2025-01-01 | 2025-04-30
+t | 0 | you
+d | 0 | you | 2010-01-01
+e | 0 | you | 2000-01-01 | 3000-01-01
+```
+currently gives the error
+```
+	... 12 more
+' could not be parsed, unparsed text found at index 10
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2055)
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:1954)
+	at java.base/java.time.LocalDate.parse(LocalDate.java:430)
+	at homura.Deadline.<init>(Deadline.java:45)
+	at homura.Deadline.fromStorageStr(Deadline.java:76)
+	at homura.Storage.fromStr(Storage.java:28)
+	at homura.Storage.readTodos(Storage.java:50)
+	at homura.MainWindow.initialize(MainWindow.java:44)
+	... 24 more
+```
 
 
 
-List of ???s
-- Deal with the addStr(), markStr(), and unmarkStr() functions in Todo.java
-  and their corresponding JavaFX versions. Is this actually good OOP design
-  or bad OOP design I genuinely don't know. But it did make editing the code
-  for `Level-10` (GUI) fairly straightforward.
+Misc
+- https://nus-cs2103-ay2425s2.github.io/website/admin/
+  appendixB-policies.html#giving-credit-for-reused-work
