@@ -35,7 +35,9 @@ public class Homura {
             todos.add(t);
             return Ui.addMsg(t);
         } catch (Exception e) {
-            return DEFAULT_ERR_MSG;
+            return DEFAULT_ERR_MSG + '\n'
+                    + "Input format should be" + '\n'
+                    + INDENT + "todo <description>";
         }
     }
     /**
@@ -51,7 +53,9 @@ public class Homura {
             todos.add(d);
             return Ui.addMsg(d);
         } catch (Exception e) {
-            return DEFAULT_ERR_MSG;
+            return DEFAULT_ERR_MSG + '\n'
+                    + "Input format should be" + '\n'
+                    + INDENT + "deadline <description> /by YYYY-MM-DD";
         }
     }
     /**
@@ -67,7 +71,10 @@ public class Homura {
             todos.add(e);
             return Ui.addMsg(e);
         } catch (Exception e) {
-            return DEFAULT_ERR_MSG;
+            return DEFAULT_ERR_MSG + '\n'
+                    + "Input format should be" + '\n'
+                    + INDENT + "event <description> "
+                    + "/from YYYY-MM-DD /to YYYY-MM-DD";
         }
     }
 
