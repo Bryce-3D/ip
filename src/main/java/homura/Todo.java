@@ -82,6 +82,12 @@ public class Todo {
 
 
     // Edit Functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    /**
+     * Edits the corresponding attribute.
+     *
+     * @param attr The attribute to edit.
+     * @param newVal The new value for the attribute.
+     */
     public void edit(String attr, String newVal) {
         switch (attr) {
         case "des":
