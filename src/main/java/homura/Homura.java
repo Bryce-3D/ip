@@ -190,34 +190,34 @@ public class Homura {
 
         switch (cmd) {
         // Creating Todos ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        case "todo":   // Add a Todo to the list
+        case "todo":
             return cmdTodo(inp);
-        case "deadline":   // Add a deadline to the list
+        case "deadline":
             return cmdDeadline(inp);
-        case "event":   // Add an event to the list
+        case "event":
             return cmdEvent(inp);
 
         // Modifying Todos ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        case "mark":   // Mark a Todo on the list
+        case "mark":
             return cmdMark(inp);
-        case "unmark":   // Unmark a Todo on the list
+        case "unmark":
             return cmdUnmark(inp);
-        case "edit":   // Edit an entry in the list
+        case "edit":
             return cmdEdit(inp);
-        case "delete":   // Remove an event from the list
+        case "delete":
             return cmdDelete(inp);
 
         // Listing Todos ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        case "list":   // List out all Todos
+        case "list":
             return cmdList(inp);
-        case "find":   // Find todos in the list with some text
+        case "find":
             return cmdFind(inp);
 
         // Bai~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        case "bye":   // Say goodbye to Homura
+        case "bye":
             return cmdBye(inp);
 
-        default:   // Not a command
+        default:   // Not an existing command
             throw new InvalidCmdHomuraException(cmd);
         }
     }

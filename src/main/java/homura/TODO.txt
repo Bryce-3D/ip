@@ -10,8 +10,6 @@ TODOs right before submitting:
 
 
  TODOs
- - Rearrange the cases in Homura.cmdJavafx() after BCD-extension
-   (C-Update) gets merged into main/master.
 - Make the Homura actually send some message on invalid inputs rather than
   do nothing and have the errors appear in the CLI/console thing in
   IntelliJ only
