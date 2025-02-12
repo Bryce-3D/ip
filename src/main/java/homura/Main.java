@@ -30,9 +30,3 @@ public class Main extends Application {
         }
     }
 }
-
-
-
-
-
-// Recycling Bin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -132,9 +132,3 @@ public class Todo {
         return description.contains(s);
     }
 }
-
-
-
-
-
-// Recycling Bin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -154,9 +154,3 @@ public class Event extends Todo {
         return true;
     }
 }
-
-
-
-
-
-// Recycling Bin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
