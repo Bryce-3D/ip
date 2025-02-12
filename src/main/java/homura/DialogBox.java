@@ -53,10 +53,23 @@ public class DialogBox extends HBox {
         setAlignment(Pos.TOP_LEFT);
     }
 
+    /**
+     * Generate a DialogBox on the side of the user.
+     *
+     * @param text The text in the dialog box.
+     * @param img The pfp of the user.
+     * @return The generated DialogBox.
+     */
     public static DialogBox getUserDialog(String text, Image img) {
         return new DialogBox(text, img);
     }
-
+    /**
+     * Generate a DialogBox on the side of the bot.
+     *
+     * @param text The text in the dialog box.
+     * @param img The pfp of the bot.
+     * @return The generated DialogBox.
+     */
     public static DialogBox getHomuDialog(String text, Image img) {
         var db = new DialogBox(text, img);
         db.flip();

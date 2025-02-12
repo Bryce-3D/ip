@@ -37,6 +37,12 @@ public class TaskList {
     public Todo get(int i) {
         return todos.get(i);
     }
+    /**
+     * Sets the ith todo.
+     *
+     * @param i The index being set.
+     * @param t The todo to put at index i.
+     */
     public void set(int i, Todo t) {
         todos.set(i,t);
     }

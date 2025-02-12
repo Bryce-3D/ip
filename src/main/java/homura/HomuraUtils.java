@@ -69,7 +69,12 @@ public class HomuraUtils {
         ArrayList<String> ans = new ArrayList<String>(Arrays.asList(ansArr));
         return ans;
     }
-
+    /**
+     * Splits a string along newlines.
+     *
+     * @param s The string being split.
+     * @return The parts of 1s1 after being split along newlines.
+     */
     public static ArrayList<String> splitLine(String s) {
         Stream<String> ss = s.lines();
         ArrayList<String> ans = new ArrayList<String>();

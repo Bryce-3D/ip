@@ -31,6 +31,9 @@ public class MainWindow extends AnchorPane {
     private Image homuImage = new Image(this.getClass()
             .getResourceAsStream("/images/Homu_pfp.png"));
 
+    /**
+     * Initializes the bot.
+     */
     @FXML
     public void initialize() {
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
@@ -45,6 +48,8 @@ public class MainWindow extends AnchorPane {
     }
 
     /**
+     * Handles the logic when receiving user input.
+     *
      * Creates two dialog boxes, one echoing user input and the other
      * containing Homura's reply and then appends them to
      * the dialog container. Clears the user input after processing.
