@@ -7,6 +7,8 @@ TODOs right before submitting:
   Instructions can be found at
   https://github.com/nus-cs2103-AY2425S2/forum/issues/186
 - Delete Playground.java
+- Fix bug of `find CS2103T` not being able to find
+  `deadline CS2103T /by 2025-02-28`
 
 
 
