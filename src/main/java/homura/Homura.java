@@ -19,9 +19,7 @@ public class Homura {
         Homura.todos = todos;
     }
 
-
-
-    // Bot commands logic ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // Creating Todos ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Handles the logic of the todo command.
      *
@@ -55,6 +53,37 @@ public class Homura {
         Event e = Parser.parseEventInp(inp);
         todos.add(e);
         return Ui.addMsg(e);
+    }
+
+    // Modifying Todos ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    /**
+     * Handles the logic of the mark command.
+     *
+     * @param inp The full line of input to the bot.
+     * @return The String that the bot should send in response.
+     */
+    public static String cmdMark(String inp) {
+        assert inp.strip().toLowerCase().startsWith("mark");
+        // How to convert String to int inspired by
+        // https://stackoverflow.com/questions/5585779/
+        // how-do-i-convert-a-string-to-an-int-in-java
+        String[] splitInps = inp.split(" ");
+        int i = Integer.parseInt(splitInps[1]) - 1;
+        todos.get(i).setIsDone(true);
+        return Ui.markMsg(todos.get(i));
+    }
+    /**
+     * Handles the logic of the unmark command.
+     *
+     * @param inp The full line of input to the bot.
+     * @return The String that the bot should send in response.
+     */
+    public static String cmdUnmark(String inp) {
+        assert inp.strip().toLowerCase().startsWith("unmark");
+        String[] splitInps = inp.split(" ");
+        int i = Integer.parseInt(splitInps[1]) - 1;
+        todos.get(i).setIsDone(false);
+        return Ui.markMsg(todos.get(i));
     }
     /**
      * Handles the logic of the edit command.
@@ -90,36 +119,6 @@ public class Homura {
                 + " successfully modified" + '\n'
                 + INDENT + t;
     }
-
-    /**
-     * Handles the logic of the mark command.
-     *
-     * @param inp The full line of input to the bot.
-     * @return The String that the bot should send in response.
-     */
-    public static String cmdMark(String inp) {
-        assert inp.strip().toLowerCase().startsWith("mark");
-        // How to convert String to int inspired by
-        // https://stackoverflow.com/questions/5585779/
-        // how-do-i-convert-a-string-to-an-int-in-java
-        String[] splitInps = inp.split(" ");
-        int i = Integer.parseInt(splitInps[1]) - 1;
-        todos.get(i).setIsDone(true);
-        return Ui.markMsg(todos.get(i));
-    }
-    /**
-     * Handles the logic of the unmark command.
-     *
-     * @param inp The full line of input to the bot.
-     * @return The String that the bot should send in response.
-     */
-    public static String cmdUnmark(String inp) {
-        assert inp.strip().toLowerCase().startsWith("unmark");
-        String[] splitInps = inp.split(" ");
-        int i = Integer.parseInt(splitInps[1]) - 1;
-        todos.get(i).setIsDone(false);
-        return Ui.markMsg(todos.get(i));
-    }
     /**
      * Handles the logic of the delete command.
      *
@@ -141,6 +140,7 @@ public class Homura {
                 + todos.size() + " tasks(s) in your list";
     }
 
+    // Listing Todos ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Handles the logic of the list command.
      *
@@ -165,6 +165,7 @@ public class Homura {
         return Ui.foundTodosFormatted(matches);
     }
 
+    // Bai~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Handles the logic of the bye command.
      *
@@ -188,26 +189,34 @@ public class Homura {
         String cmd = splitInps[0].toLowerCase();
 
         switch (cmd) {
-        case "bye":   // Say goodbye to Homura
-            return cmdBye(inp);
-        case "list":   // List out all Todos
-            return cmdList(inp);
-        case "mark":   // Mark a Todo on the list
-            return cmdMark(inp);
-        case "unmark":   // Unmark a Todo on the list
-            return cmdUnmark(inp);
+        // Creating Todos ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         case "todo":   // Add a Todo to the list
             return cmdTodo(inp);
         case "deadline":   // Add a deadline to the list
             return cmdDeadline(inp);
         case "event":   // Add an event to the list
             return cmdEvent(inp);
+
+        // Modifying Todos ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        case "mark":   // Mark a Todo on the list
+            return cmdMark(inp);
+        case "unmark":   // Unmark a Todo on the list
+            return cmdUnmark(inp);
         case "edit":   // Edit an entry in the list
             return cmdEdit(inp);
         case "delete":   // Remove an event from the list
             return cmdDelete(inp);
+
+        // Listing Todos ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        case "list":   // List out all Todos
+            return cmdList(inp);
         case "find":   // Find todos in the list with some text
             return cmdFind(inp);
+
+        // Bai~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        case "bye":   // Say goodbye to Homura
+            return cmdBye(inp);
+
         default:   // Not a command
             throw new InvalidCmdHomuraException(cmd);
         }
