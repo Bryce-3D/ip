@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class Todo {
     // Attributes + Getters and Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    private static final String INDENT = Homura.INDENT;
     private String description;
     private boolean isDone;
 

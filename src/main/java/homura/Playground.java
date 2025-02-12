@@ -10,18 +10,6 @@ import java.util.stream.Stream;
 
 public class Playground {
     public static void main(String[] args) {
-        String s = "what did they \r\nmean by this chat \npls work";
-        Stream<String> asdf = s.lines();
-        ArrayList<String> qwer = new ArrayList<String>();
-        asdf.forEach(qwer::add);
-        HomuraUtils.printArrList(qwer);
-        for (String q : qwer) {
-            System.out.println(q.length());
-        }
 
-        String[] ss = {"Mado", "Homu"};
-        for (String v : ss) {
-            System.out.println(v);
-        }
     }
 }
