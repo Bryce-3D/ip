@@ -6,13 +6,11 @@ TODOs right before submitting:
 - Cite all uses of ChatGPT in AI.md
   Instructions can be found at
   https://github.com/nus-cs2103-AY2425S2/forum/issues/186
+- Delete Playground.java
 
 
 
  TODOs
-- Make the Homura actually send some message on invalid inputs rather than
-  do nothing and have the errors appear in the CLI/console thing in
-  IntelliJ only
 
 
 

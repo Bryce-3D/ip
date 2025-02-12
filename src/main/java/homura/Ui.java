@@ -1,10 +1,10 @@
-/**
- * A class for handling the UI.
- */
 package homura;
 
 import java.util.ArrayList;
 
+/**
+ * A class for handling the UI by generating response messages.
+ */
 public class Ui {
     // Attributes/Fields ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public final static String INDENT = " ".repeat(4);

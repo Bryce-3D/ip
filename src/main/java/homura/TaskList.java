@@ -1,10 +1,10 @@
-/**
- * A class for representing an ArrayList of Todos
- */
 package homura;
 
 import java.util.ArrayList;
 
+/**
+ * A class for representing an ArrayList of Todos
+ */
 public class TaskList {
     // Attributes + Getters and Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     private ArrayList<Todo> todos;

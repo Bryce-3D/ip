@@ -1,10 +1,10 @@
-/**
- * A class for the main logic of the chatbot Homura.
- */
 package homura;
 
 import java.util.ArrayList;
 
+/**
+ * A class for the main logic of the chatbot Homura.
+ */
 public class Homura {
     // Attributes + Getters and Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public final static String INDENT = " ".repeat(4);

@@ -1,8 +1,8 @@
+package homura;
+
 /**
  * An exception for when a command that needs an argument receives none.
  */
-package homura;
-
 public class EmptyInputHomuraException extends HomuraRuntimeException {
     public static final String INDENT = "    ";
 

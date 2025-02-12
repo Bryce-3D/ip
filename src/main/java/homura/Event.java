@@ -1,12 +1,12 @@
-/**
- * A class representing an Event item.
- */
 package homura;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+/**
+ * A class representing an Event item.
+ */
 public class Event extends Todo {
     // Attributes + Getters and Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Todo.str  description

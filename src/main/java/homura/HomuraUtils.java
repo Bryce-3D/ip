@@ -1,6 +1,3 @@
-/**
- * A class for utility helper functions.
- */
 package homura;
 
 import java.io.File;
@@ -12,6 +9,9 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
+/**
+ * A class for utility helper functions.
+ */
 public class HomuraUtils {
     /**
      * Returns the contents of a file as a String.

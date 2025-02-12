@@ -1,10 +1,10 @@
-/**
- * A class for handling storage of the todos.
- */
 package homura;
 
 import java.util.ArrayList;
 
+/**
+ * A class for handling storage of the todos.
+ */
 public class Storage {
     public static final String DIVIDER = " | ";
 

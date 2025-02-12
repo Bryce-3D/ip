@@ -1,8 +1,8 @@
+package homura;
+
 /**
  * A class for parsing.
  */
-package homura;
-
 public class Parser {
     /**
      * Parses a Todo command from the user.

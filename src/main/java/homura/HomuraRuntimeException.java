@@ -1,8 +1,8 @@
+package homura;
+
 /**
  * An exception for any runtime exceptions relating to Homura.
  */
-package homura;
-
 public class HomuraRuntimeException extends RuntimeException {
     /**
      * Creates a blank HomuraRuntimeException.

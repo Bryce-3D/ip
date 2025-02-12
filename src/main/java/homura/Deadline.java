@@ -1,12 +1,12 @@
-/**
- * A class representing a Deadline item.
- */
 package homura;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+/**
+ * A class representing a Deadline item.
+ */
 public class Deadline extends Todo {
     // Attributes + Getters and Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Todo.str  description

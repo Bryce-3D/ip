@@ -1,10 +1,10 @@
-/**
- * A class representing a Todo item.
- */
 package homura;
 
 import java.util.ArrayList;
 
+/**
+ * A class representing a Todo item.
+ */
 public class Todo {
     // Attributes + Getters and Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     private String description;

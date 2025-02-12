@@ -1,8 +1,8 @@
+package homura;
+
 /**
  * An exception for when a command receives an invalid input.
  */
-package homura;
-
 public class InvalidInputHomuraException extends HomuraRuntimeException {
     public static final String indent = "    ";
 
