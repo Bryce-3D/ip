@@ -165,7 +165,7 @@ public class Homura {
         return Ui.foundTodosFormatted(matches);
     }
 
-    // Bai~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // Bai~ and Misc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Handles the logic of the bye command.
      *
@@ -177,6 +177,16 @@ public class Homura {
         Storage.writeTodos(todos, TODOS_FILENAME);
         return Ui.byeMsg();
     }
+    /**
+     * Handles the logic of an invalid command.
+     *
+     * @param cmd The cmd of the input to the bot.
+     * @return The String that the bot should send in response.
+     */
+    public static String invalidCmd(String cmd) {
+        return "Sorry, but I don't know the command \""
+                + cmd + "\"" + '\n';
+    }
 
     /**
      * Handles the logic of a single command passed to the bot.
@@ -185,7 +195,7 @@ public class Homura {
      * @return The String that the bot should send in response.
      */
     public static String cmd(String inp) {
-        String[] splitInps = inp.split(" ");
+        String[] splitInps = inp.strip().split(" ");
         String cmd = splitInps[0].toLowerCase();
 
         switch (cmd) {
@@ -213,12 +223,11 @@ public class Homura {
         case "find":
             return cmdFind(inp);
 
-        // Bai~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        // Bai~ and Misc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         case "bye":
             return cmdBye(inp);
-
         default:   // Not an existing command
-            throw new InvalidCmdHomuraException(cmd);
+            return invalidCmd(cmd);
         }
     }
 }
