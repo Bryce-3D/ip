@@ -9,6 +9,8 @@ public class Homura {
     // Attributes + Getters and Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public final static String INDENT = " ".repeat(4);
     public final static String TODOS_FILENAME = "HomuraTodos.txt";
+    public final static String DEFAULT_ERR_MSG
+            = "Sorry, but that is an invalid input to the command";
 
     private static TaskList todos = new TaskList();
 
@@ -27,9 +29,14 @@ public class Homura {
      * @return The String that the bot should send in response.
      */
     public static String cmdTodo(String inp) {
-        Todo t = Parser.parseTodoInp(inp);
-        todos.add(t);
-        return Ui.addMsg(t);
+        assert inp.strip().toLowerCase().startsWith("todo");
+        try {
+            Todo t = Parser.parseTodoInp(inp);
+            todos.add(t);
+            return Ui.addMsg(t);
+        } catch (Exception e) {
+            return DEFAULT_ERR_MSG;
+        }
     }
     /**
      * Handles the logic of the deadline command.
@@ -38,9 +45,14 @@ public class Homura {
      * @return The String that the bot should send in response.
      */
     public static String cmdDeadline(String inp) {
-        Deadline d = Parser.parseDeadlineInp(inp);
-        todos.add(d);
-        return Ui.addMsg(d);
+        assert inp.strip().toLowerCase().startsWith("deadline");
+        try {
+            Deadline d = Parser.parseDeadlineInp(inp);
+            todos.add(d);
+            return Ui.addMsg(d);
+        } catch (Exception e) {
+            return DEFAULT_ERR_MSG;
+        }
     }
     /**
      * Handles the logic of the event command.
@@ -50,9 +62,13 @@ public class Homura {
      */
     public static String cmdEvent(String inp) {
         assert inp.strip().toLowerCase().startsWith("event");
-        Event e = Parser.parseEventInp(inp);
-        todos.add(e);
-        return Ui.addMsg(e);
+        try {
+            Event e = Parser.parseEventInp(inp);
+            todos.add(e);
+            return Ui.addMsg(e);
+        } catch (Exception e) {
+            return DEFAULT_ERR_MSG;
+        }
     }
 
     // Modifying Todos ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
