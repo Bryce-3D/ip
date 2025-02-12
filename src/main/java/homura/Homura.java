@@ -87,13 +87,19 @@ public class Homura {
      */
     public static String cmdMark(String inp) {
         assert inp.strip().toLowerCase().startsWith("mark");
-        // How to convert String to int inspired by
-        // https://stackoverflow.com/questions/5585779/
-        // how-do-i-convert-a-string-to-an-int-in-java
-        String[] splitInps = inp.split(" ");
-        int i = Integer.parseInt(splitInps[1]) - 1;
-        todos.get(i).setIsDone(true);
-        return Ui.markMsg(todos.get(i));
+        try {
+            // How to convert String to int inspired by
+            // https://stackoverflow.com/questions/5585779/
+            // how-do-i-convert-a-string-to-an-int-in-java
+            String[] splitInps = inp.split(" ");
+            int i = Integer.parseInt(splitInps[1]) - 1;
+            todos.get(i).setIsDone(true);
+            return Ui.markMsg(todos.get(i));
+        } catch (Exception e) {
+            return DEFAULT_ERR_MSG + '\n'
+                    + "Input format should be" + '\n'
+                    + INDENT + "mark <index>";
+        }
     }
     /**
      * Handles the logic of the unmark command.
@@ -103,10 +109,16 @@ public class Homura {
      */
     public static String cmdUnmark(String inp) {
         assert inp.strip().toLowerCase().startsWith("unmark");
-        String[] splitInps = inp.split(" ");
-        int i = Integer.parseInt(splitInps[1]) - 1;
-        todos.get(i).setIsDone(false);
-        return Ui.unmarkMsg(todos.get(i));
+        try {
+            String[] splitInps = inp.split(" ");
+            int i = Integer.parseInt(splitInps[1]) - 1;
+            todos.get(i).setIsDone(false);
+            return Ui.unmarkMsg(todos.get(i));
+        } catch (Exception e) {
+            return DEFAULT_ERR_MSG + '\n'
+                    + "Input format should be" + '\n'
+                    + INDENT + "unmark <index>";
+        }
     }
     /**
      * Handles the logic of the edit command.
@@ -118,29 +130,35 @@ public class Homura {
         // Input format should be of the form
         // edit 1 /des asdf /by 2025-01-01 /from 2025-01-01 /to 2025-01-01
         assert inp.strip().toLowerCase().startsWith("edit");
-        if (!inp.contains("/")) {
-            throw new InvalidInputHomuraException("edit", inp);
-        }
-        String[] splitSpaceInps = inp.split(" +");   // + handles whitespace spam
-        int ind = Integer.parseInt(splitSpaceInps[1]) - 1;
-        Todo t = todos.get(ind);
 
-        ArrayList<String> splitSlashInps = HomuraUtils.split(inp,"/");
-        String next, attr, newVal;
-        for (int i = 1; i < splitSlashInps.size(); i++) {
-            next = splitSlashInps.get(i);
-            attr = next.split(" ")[0];
-            newVal = next.substring(attr.length()+1).strip();
-            try {
-                t.edit(attr, newVal);
-            } catch (HomuraRuntimeException e) {
-                throw new InvalidInputHomuraException("edit", inp);
+        try {
+            String[] splitSpaceInps = inp.split(" +");
+            int ind = Integer.parseInt(splitSpaceInps[1]) - 1;
+            if (ind >= todos.size()) {
+                return "Sorry, index out of range";
             }
-        }
+            Todo t = todos.get(ind);
+            if (!inp.contains("/")) {
+                return "Nothing was edited.";
+            }
 
-        return t.getClass().getSimpleName() + " " + (ind + 1)
-                + " successfully modified" + '\n'
-                + INDENT + t;
+            ArrayList<String> splitSlashInps = HomuraUtils.split(inp, "/");
+            String next, attr, newVal;
+            for (int i = 1; i < splitSlashInps.size(); i++) {
+                next = splitSlashInps.get(i);
+                attr = next.split(" ")[0];
+                newVal = next.substring(attr.length() + 1).strip();
+                t.edit(attr, newVal);
+            }
+
+            return t.getClass().getSimpleName() + " " + (ind + 1)
+                    + " successfully modified" + '\n'
+                    + INDENT + t;
+        } catch (Exception e) {
+            return DEFAULT_ERR_MSG + '\n'
+                    + "Input format should be" + '\n'
+                    + INDENT + "edit <index> [/<attr> <new_val>]*";
+        }
     }
     /**
      * Handles the logic of the delete command.
@@ -150,17 +168,23 @@ public class Homura {
      */
     public static String cmdDelete(String inp) {
         assert inp.strip().toLowerCase().startsWith("delete");
-        String[] splitInps = inp.split(" ");
-        int i = Integer.parseInt(splitInps[1]) - 1;
-        if (i >= todos.size()) {
-            throw new InvalidInputHomuraException("delete", inp);
+        try {
+            String[] splitInps = inp.split(" ");
+            int i = Integer.parseInt(splitInps[1]) - 1;
+            if (i >= todos.size()) {
+                return "Sorry, index out of range";
+            }
+            Todo t = todos.get(i);
+            todos.remove(i);
+            return t.getClass().getSimpleName()
+                    + " removed" + '\n'
+                    + INDENT + t + '\n'
+                    + todos.size() + " tasks(s) in your list";
+        } catch (Exception e) {
+            return DEFAULT_ERR_MSG + '\n'
+                    + "Input format should be" + '\n'
+                    + INDENT + "delete <index>";
         }
-        Todo t = todos.get(i);
-        todos.remove(i);
-        return t.getClass().getSimpleName()
-                + " removed" + '\n'
-                + INDENT + t + '\n'
-                + todos.size() + " tasks(s) in your list";
     }
 
     // Listing Todos ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
