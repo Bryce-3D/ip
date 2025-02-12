@@ -44,11 +44,6 @@ public class MainWindow extends AnchorPane {
         Homura.setTodos(Storage.readTodos(Homura.TODOS_FILENAME));
     }
 
-//    /** Injects the Duke instance */
-//    public void setDuke(Homura h) {
-//        homura = h;
-//    }
-
     /**
      * Creates two dialog boxes, one echoing user input and the other
      * containing Homura's reply and then appends them to
