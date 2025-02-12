@@ -83,7 +83,7 @@ public class Homura {
         String[] splitInps = inp.split(" ");
         int i = Integer.parseInt(splitInps[1]) - 1;
         todos.get(i).setIsDone(false);
-        return Ui.markMsg(todos.get(i));
+        return Ui.unmarkMsg(todos.get(i));
     }
     /**
      * Handles the logic of the edit command.
