@@ -206,8 +206,7 @@ public class Homura {
      */
     public static String cmdFind(String inp) {
         assert inp.strip().toLowerCase().startsWith("find");
-        String[] splitInps = inp.split(" ");
-        String s = splitInps[1];
+        String s = inp.strip().substring(5).strip();
         ArrayList<Todo> matches = todos.findTodosWith(s);
         return Ui.foundTodosFormatted(matches);
     }

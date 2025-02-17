@@ -134,7 +134,6 @@ public class Todo {
      * @return Whether s is in the description or not.
      */
     public boolean contains(String s) {
-        s = s.toLowerCase();
         return description.contains(s);
     }
 }
