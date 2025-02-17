@@ -54,7 +54,7 @@ public class DialogBox extends HBox {
     }
 
     /**
-     * Generate a DialogBox on the side of the user.
+     * Generates a DialogBox on the side of the user.
      *
      * @param text The text in the dialog box.
      * @param img The pfp of the user.
@@ -64,7 +64,7 @@ public class DialogBox extends HBox {
         return new DialogBox(text, img);
     }
     /**
-     * Generate a DialogBox on the side of the bot.
+     * Generates a DialogBox on the side of the bot.
      *
      * @param text The text in the dialog box.
      * @param img The pfp of the bot.

@@ -23,8 +23,6 @@ public class MainWindow extends AnchorPane {
     @FXML
     private Button sendButton;
 
-//    private Duke duke;
-//    private Homura homura;
     private boolean isOffing = false;
 
     private Image madoImage = new Image(this.getClass()
