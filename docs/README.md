@@ -1,7 +1,7 @@
 # Homura User Guide
 
-[//]: # (https://stackoverflow.com/questions/41604263/
-how-do-i-display-local-image-in-markdown)
+[//]: # (https://stackoverflow.com/questions/41604263/)
+[//]: # (how-do-i-display-local-image-in-markdown)
 ![Product Screenshot](./Ui.png)
 
 Homura is a chatbot designed to help you keep track of your todo list in a fun 
