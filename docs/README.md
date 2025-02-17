@@ -145,12 +145,12 @@ Sample usage:
 list
 
 1 task(s) in your list
-    1.) [D][✓] Watch Madoka Magica (by: 2025-02-28)
+    1.) [D][✓] Watch Madoka Magica (by: Feb 28 2025)
 
 edit 1 /des Watch Hibike Euphoniium /by 2025-03-01)
 
 Deadline 1 successfully modified
-    [D][✓] Watch Hibike Euphonium (by: 2025-03-01)
+    [D][✓] Watch Hibike Euphonium (by: Mar 01 2025)
 ```
 
 # Delete Command
@@ -164,13 +164,13 @@ Sample usage:
 list
 
 2 task(s) in your list
-    1.) [D][✓] Watch Madoka Magica (by: 2025-02-28)
-    2.) [D][ ] Watch Hibike Euphonium (by: 2025-03-01)
+    1.) [D][✓] Watch Madoka Magica (by: Feb 28 2025)
+    2.) [D][ ] Watch Hibike Euphonium (by: Mar 01 2025)
 
 delete 1
 
 Deadline removed
-    [D][✓] Watch Madoka Magica (by: 2025-02-28)
+    [D][✓] Watch Madoka Magica (by: Feb 28 2025)
 1 tasks(s) in your list
 ```
 
@@ -185,14 +185,44 @@ Sample usage:
 list
 
 3 task(s) in your list
-    1.) [D][✓] Watch Madoka Magica (by: 2025-02-28)
-    2.) [D][ ] Watch Hibike Euphonium (by: 2025-03-01)
+    1.) [D][✓] Watch Madoka Magica (by: Feb 28 2025)
+    2.) [D][ ] Watch Hibike Euphonium (by: Mar 1 2025)
     3.) [T][ ] CS2103T iP
 ```
 
 # Find Command
 
-Find command (currently buggy)
+Finds all items in your list that contains a specific string. Note that this 
+command is case-sensitive and will only return exact matches.
+
+Usage: `find <query>`
+
+Sample usage:
+```
+list
+
+4 task(s) in your list
+    1.) [D][✓] Watch Madoka Magica (by: Feb 28 2025)
+    2.) [D][ ] Watch Hibike Euphonium (by: Mar 1 2025)
+    3.) [T][ ] CS2103T iP
+    4.) [E][ ] Madoka Magica Fair (from: May 01 2025 to: May 03 2025)
+
+find Madoka
+
+2 task(s) found in your list
+    1.) [D][✓] Watch Madoka Magica (by: 2025-02-28)
+    2.) [E][ ] Madoka Magica Fair (from: May 01 2025 to: May 03 2025)
+
+find 103
+
+1 task(s) found in your list
+    1.) [T][ ] CS2103T iP
+
+find HiBiKe
+
+0 task(s) found in your list
+```
+
 
 # Bye Command
 
