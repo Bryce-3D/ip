@@ -1,6 +1,7 @@
-t | 0 | something
-d | 0 | CS2103T | 2025-02-28
+t | 1 | something
+d | 0 | CS2103T | 2025-02-21
 e | 0 | Sem 8 | 2025-01-01 | 2025-04-30
-t | 0 | you
-d | 0 | you | 2010-01-01
-e | 0 | you | 2000-01-01 | 3000-01-01
+t | 1 | JS2213 Nausicaa Reading
+d | 0 | FYP Final Report | 2025-04-09
+e | 0 | society | 1980-01-01 | 2050-12-31
+e | 1 | Madoka Magica Watch Marathon | 2025-02-24 | 2025-02-18

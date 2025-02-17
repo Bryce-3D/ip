@@ -99,7 +99,7 @@ public class Ui {
      * @return The UI string representation of todos.
      */
     public static String listTodosFormatted() {
-        return Homura.getTodos().size() + " tasks(s) in your list" + '\n'
+        return Homura.getTodos().size() + " task(s) in your list" + '\n'
                 + todosStr();
     }
     /**
@@ -109,7 +109,7 @@ public class Ui {
      * @return The UI string representation of todos.
      */
     public static String foundTodosFormatted(ArrayList<Todo> todos) {
-        return todos.size() + " tasks(s) found in your list" + '\n'
+        return todos.size() + " task(s) found in your list" + '\n'
                 + todosStr(todos);
     }
 }
