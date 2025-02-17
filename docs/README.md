@@ -209,6 +209,12 @@ See you tomorrow, Kaname-san
 Send any message to close me.
 ```
 
+## *Manually Clearing Your List
+
+The items in your list are stored locally in the file called 
+`HomuraTodos.txt` in the root directory. Deleting this file or clearing out 
+the contents will cause your todo list to get reset to an empty one.
+
 [//]: # (# Duke User Guide)
 
 [//]: # (// Update the title above to match the actual product name)
