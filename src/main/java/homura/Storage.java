@@ -42,7 +42,10 @@ public class Storage {
         ArrayList<String> txts = HomuraUtils.splitLine(ftxt);
         TaskList ans = new TaskList();
         for (String txt : txts) {
-            ans.add(fromStr(txt));
+            Todo next = fromStr(txt);
+            if (next != null) {
+                ans.add(next);
+            }
         }
         return ans;
     }
