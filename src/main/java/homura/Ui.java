@@ -24,15 +24,7 @@ public class Ui {
      * @return The message on bot shutdown.
      */
     public static String byeMsg() {
-        return "Kaname Madoka, do you treasure the life you currently live? "
-                + "And do you consider your family and your friends precious?"
-                + "\n"
-                + "If that's the truth then you wouldn't try changing the "
-                + "life you have or the person you are. Otherwise you'll "
-                + "lose everything you love. Don't change, stay as you are, "
-                + "Kaname Madoka. Stay as you are, forever."
-                + '\n'
-                + " Farewell."
+        return "See you tomorrow, Kaname-san"
                 + '\n' + '\n'
                 + "Send any message to close me.\n";
     }

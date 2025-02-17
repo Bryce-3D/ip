@@ -4,4 +4,3 @@ e | 0 | Sem 8 | 2025-01-01 | 2025-04-30
 t | 1 | JS2213 Nausicaa Reading
 d | 0 | FYP Final Report | 2025-04-09
 e | 0 | society | 1980-01-01 | 2050-12-31
-e | 1 | Madoka Magica Watch Marathon | 2025-02-24 | 2025-02-18
