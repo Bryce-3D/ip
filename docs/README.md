@@ -25,6 +25,26 @@ When an item is marked as done, the 2nd `[ ]` will be changed to `[X]`.
 
 
 
+[//]: # (https://english.stackexchange.com/questions/54705/)
+[//]: # (synonym-of-run-or-operate-in-the-context-of-a-computer-programme)
+# Setup and Execution
+
+The jar file `Homura.jar` can be run from any directory. The only requirement 
+is for `HomuraTodos.txt` to be in the same folder to be able to load your 
+saved todo list. It can also run without that text file and start with a blank 
+todo list.
+
+Steps to execute `Homura.jar`
+- Open Powershell if you're on Windows or Terminal if you're on Mac
+- Navigate to the directory that `Homura.jar` file is in
+- Run `java -version` and ensure that your terminal is running Java 17
+- Run `java -jar Homura.jar`
+
+`Homura.jar` can be closed by either sending `bye` or clicking the X in the 
+upper right corner.
+
+
+
 # Commands Overview
 
 The list of available commands is as follows.
