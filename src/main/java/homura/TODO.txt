@@ -3,16 +3,11 @@ TODOs right before submitting:
       f(a,b)
   Need space in between like
       f(a, b)
-- Cite all uses of ChatGPT in AI.md
-  Instructions can be found at
-  https://github.com/nus-cs2103-AY2425S2/forum/issues/186
-- Delete Playground.java
-- Fix bug of `find CS2103T` not being able to find
-  `deadline CS2103T /by 2025-02-28`
+- Delete Playground.java (?)
 
 
 
- TODOs
+TODOs
 
 
 
