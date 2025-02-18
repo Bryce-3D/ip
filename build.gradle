@@ -56,7 +56,7 @@ application {
 
 shadowJar {
 //    archiveBaseName = "duke"
-    archiveBaseName = "Homura_2025-02-18-1348"   // Edited
+    archiveBaseName = "Homura_2025-02-18-1357"   // Edited
     archiveClassifier = null
 }
 
