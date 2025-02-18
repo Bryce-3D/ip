@@ -42,7 +42,7 @@ public class Todo {
     @Override
     public String toString() {
         if (isDone) {
-            return "[T][✓] " + description;
+            return "[T][X] " + description;
         } else {
             return "[T][ ] " + description;
         }

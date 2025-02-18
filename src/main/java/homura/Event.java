@@ -54,7 +54,7 @@ public class Event extends Todo {
     public String toString() {
         String ans = "[E]";
         if (getIsDone()) {
-            ans += "[✓] ";
+            ans += "[X] ";
         } else {
             ans += "[ ] ";
         }
