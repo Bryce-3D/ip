@@ -231,7 +231,8 @@ public class Homura {
      */
     public static String invalidCmd(String cmd) {
         return "Sorry, but I don't know the command \""
-                + cmd + "\"" + '\n';
+                + cmd + "\"" + '\n'
+                + "Pls view my user guide at https://bryce-3d.github.io/ip/";
     }
 
     /**
